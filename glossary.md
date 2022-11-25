@@ -187,7 +187,7 @@
 184|||homogeneous 均质|scalability 可扩展性|
 185|||scarce 稀缺|workaround 解决方法|
 186|||canonical 典型的|distinction 区别|
-187||||regime 制度|
+187|||superseded 被代替的|regime 制度|
 188||||morphism 蜕变|
 189||||mitigation 减轻|
 190||||hallucinations 幻觉|
