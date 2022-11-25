@@ -163,7 +163,7 @@
 160|ion 离子||compulsory 强制性的|propaganda 宣传|
 161|vivo quantitation 体内定量||verbal 口头上|surrogate 替代|
 162|vitro sampling 体外采样||inscrutable 费解的|advent 来临|
-163|||dedicated 专用的|accountability 问责制|
+163|glossary 词汇表||dedicated 专用的|accountability 问责制|
 164|||deceptive 欺骗性的|initiatives 主动性|
 165|||opaque 不透明|rigor 严格|
 166|||admissible 可接受的|causality 因果关系|
