@@ -132,7 +132,7 @@
 129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|
 130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|
 131|attention-deficit hyperactivity disorder 注意缺陷多动障碍|extrapolate 推断|imperceptible 不可察觉的|valve 阀门|
-132|Schizophrenia 精神分裂症||tailored 量身定制的|magnitude 大小|
+132|Schizophrenia 精神分裂症|demystify 揭秘|tailored 量身定制的|magnitude 大小|
 133|Major depressive disorder 严重抑郁症||intrinsic 固有的|singularity 奇点|
 134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|
