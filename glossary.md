@@ -167,7 +167,7 @@
 164|brachytherapy 近距离治疗||deceptive 欺骗性的|initiatives 主动性|
 165|daemon 守护进程||opaque 不透明|rigor 严格|
 166|glucose 葡萄糖||admissible 可接受的|causality 因果关系|
-167|||counterfactual 反事实的|desiderata 愿景|
+167|nomenclature 名词解释||counterfactual 反事实的|desiderata 愿景|
 168|||pervasive 无处不在的|intelligibility 可理解性|
 169|||inherently 固有的|knockoff 仿制品|
 170|||burgeoning 蓬勃发展的|mimick 模仿|
