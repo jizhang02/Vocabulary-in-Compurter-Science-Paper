@@ -194,3 +194,4 @@
 191||||jargon 行话|
 192||||boilerplate 规章制度|
 193||||caveat 注意事项|
+194||||syllabus 教学大纲|
