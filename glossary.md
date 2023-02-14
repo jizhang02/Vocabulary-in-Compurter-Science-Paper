@@ -64,7 +64,7 @@
 61|trachea 气管|entangle 纠缠|inherently 固有地|practitioners 从业者|post-hoc 事后
 62|aorta 主动脉|sought 寻求|ambiguous 含糊的|sentiment 情绪|model-agnostic 与模型无关
 63|radiotherapy 放射疗法|warrant=justify 证明|laborious 费力的|facet 方面|high-stakes 高风险
-64|dose 剂量|reword 改写|前所未有的|recipient 接受者|a paucity of 贫乏
+64|dose 剂量|reword 改写|superseded 被代替的|recipient 接受者|a paucity of 贫乏
 65|mucosa 黏膜|speculate 推测|vulnerable 脆弱的|surrogate 替代|an abundance of 大量的
 66|gestational 孕期|pervade 渗透|concrete 具体的|Decomposition  分解|adequacy of 足够的
 67|trimesters 三个月|foster 培育|scarce 稀缺的|neonate 新生儿|in-depth 深入的
@@ -127,7 +127,7 @@
 124|polynomial 多项式|elaborate 阐述|subtle 微妙的|relatedness 相关性| in-depth study 深入研究
 125|mammograms 乳腺X线照片|deliberate 斟酌|solely 独自的|violation 违法|deceptively simple 很简单
 126|fundus 眼底|distill 提炼|therapeutic 治疗的|redundancy 冗余|in all but a few cases 除少数情况下
-127|dermatology 皮肤科|preclude 妨碍||convexity 凸度|low-hanging fruit 容易实现的目标
+127|dermatology 皮肤科|preclude 妨碍|canonical 典型的|convexity 凸度|low-hanging fruit 容易实现的目标
 128|ophthalmology 眼科|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
 129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|refrain from 避免
 130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|
