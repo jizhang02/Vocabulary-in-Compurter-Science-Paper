@@ -186,7 +186,7 @@
 183|||isotropic 各向同性|gist 要领|
 184|||homogeneous 均质|scalability 可扩展性|
 185|||scarce 稀缺|workaround 解决方法|
-186||||distinction 区别|
+186|||purportedly 据称是|distinction 区别|
 187||||regime 制度|
 188||||morphism 蜕变|
 189||||mitigation 减轻|
