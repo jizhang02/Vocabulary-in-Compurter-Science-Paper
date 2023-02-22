@@ -1,6 +1,9 @@
 <div id="top"></div>
 
 [](#top)
+
+<a href="#bottom" class="btn btn-primary btn-sm"> ⬇️ </a>
+
 ### Vocabulary
 序号|专业术语|动词|形容(副)词|名词|短语
 :--:|:--:|:--:|:--:|:--:|:--:
@@ -200,6 +203,8 @@
 194||||syllabus 教学大纲|
 195||||profile 概况|
 
+<div id="bottom"></div>
 
+[](#bottom)
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
