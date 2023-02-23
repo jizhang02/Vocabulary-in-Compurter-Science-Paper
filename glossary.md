@@ -208,7 +208,8 @@
 193||||caveat 注意事项|
 194||||syllabus 教学大纲|
 195||||weighing 权衡|
-195||||profile 概况|
+196||||profile 概况|
+197||||prompt 提示|
 
 <div id="bottom"></div>
 
