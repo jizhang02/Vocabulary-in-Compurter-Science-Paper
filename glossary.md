@@ -135,7 +135,7 @@
 126|fundus 眼底|distill 提炼|therapeutic 治疗的|redundancy 冗余|in all but a few cases 除少数情况下
 127|dermatology 皮肤科|preclude 妨碍|canonical 典型的|convexity 凸度|low-hanging fruit 容易实现的目标
 128|ophthalmology 眼科|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
-129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|
+129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|refrain from 避免
 130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|
 131|attention-deficit hyperactivity disorder 注意缺陷多动障碍|extrapolate 推断|imperceptible 不可察觉的|valve 阀门|
 132|Schizophrenia 精神分裂症|demystify 揭秘|tailored 量身定制的|magnitude 大小|
@@ -174,6 +174,8 @@
 165|daemon 守护进程||opaque 不透明|rigor 严格|
 166|glucose 葡萄糖||admissible 可接受的|causality 因果关系|
 167|nomenclature 名词解释||counterfactual 反事实的|desiderata 愿景|
+168|categorical label 分类别的/离散的标签||pervasive 无处不在的|intelligibility 可理解性|
+169|||inherently 固有的|knockoff 仿制品|
 168|plasma 等离子体||pervasive 无处不在的|intelligibility 可理解性|
 169|anatomy 解剖学||inherently 固有的|knockoff 仿制品|
 170|||burgeoning 蓬勃发展的|mimick 模仿|
@@ -192,6 +194,10 @@
 183|||isotropic 各向同性|gist 要领|
 184|||homogeneous 均质|scalability 可扩展性|
 185|||scarce 稀缺|workaround 解决方法|
+186|||canonical 典型的|distinction 区别|
+187|||superseded 被代替的|regime 制度|
+188|||marginal 微不足道的|morphism 蜕变|
+189|||interim 暂时的，中期的，阶段性的（interim conclusion）|mitigation 减轻|
 186|||purportedly 据称是|distinction 区别|
 187||||regime 制度|
 188||||morphism 蜕变|
@@ -201,6 +207,7 @@
 192||||boilerplate 规章制度|
 193||||caveat 注意事项|
 194||||syllabus 教学大纲|
+195||||weighing 权衡|
 195||||profile 概况|
 
 <div id="bottom"></div>
@@ -208,3 +215,4 @@
 [](#bottom)
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
+
