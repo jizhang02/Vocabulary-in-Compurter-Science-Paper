@@ -1,3 +1,9 @@
+<div id="top"></div>
+
+[](#top)
+
+<a href="#bottom" class="btn btn-primary btn-sm"> ⬇️ </a>
+
 ### Vocabulary
 序号|专业术语|动词|形容(副)词|名词|短语
 :--:|:--:|:--:|:--:|:--:|:--:
@@ -170,6 +176,8 @@
 167|nomenclature 名词解释||counterfactual 反事实的|desiderata 愿景|
 168|categorical label 分类别的/离散的标签||pervasive 无处不在的|intelligibility 可理解性|
 169|||inherently 固有的|knockoff 仿制品|
+168|plasma 等离子体||pervasive 无处不在的|intelligibility 可理解性|
+169|anatomy 解剖学||inherently 固有的|knockoff 仿制品|
 170|||burgeoning 蓬勃发展的|mimick 模仿|
 171|||parsimonious 简约的|stakeholders 利益相关者|
 172|||arguably 可以说|ramifications 后果|
@@ -190,9 +198,21 @@
 187|||superseded 被代替的|regime 制度|
 188|||marginal 微不足道的|morphism 蜕变|
 189|||interim 暂时的，中期的，阶段性的（interim conclusion）|mitigation 减轻|
+186|||purportedly 据称是|distinction 区别|
+187||||regime 制度|
+188||||morphism 蜕变|
+189||||mitigation 减轻|
 190||||hallucinations 幻觉|
 191||||jargon 行话|
 192||||boilerplate 规章制度|
 193||||caveat 注意事项|
 194||||syllabus 教学大纲|
 195||||weighing 权衡|
+195||||profile 概况|
+
+<div id="bottom"></div>
+
+[](#bottom)
+
+<a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
+
