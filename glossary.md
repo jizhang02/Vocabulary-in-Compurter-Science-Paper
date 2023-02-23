@@ -198,18 +198,18 @@
 187|||superseded 被代替的|regime 制度|
 188|||marginal 微不足道的|morphism 蜕变|
 189|||interim 暂时的，中期的，阶段性的（interim conclusion）|mitigation 减轻|
-186|||purportedly 据称是|distinction 区别|
-187||||regime 制度|
-188||||morphism 蜕变|
-189||||mitigation 减轻|
-190||||hallucinations 幻觉|
-191||||jargon 行话|
-192||||boilerplate 规章制度|
-193||||caveat 注意事项|
-194||||syllabus 教学大纲|
-195||||weighing 权衡|
-196||||profile 概况|
-197||||prompt 提示|
+190|||purportedly 据称是|distinction 区别|
+191||||regime 制度|
+192||||morphism 蜕变|
+193||||mitigation 减轻|
+194||||hallucinations 幻觉|
+195||||jargon 行话|
+196||||boilerplate 规章制度|
+197||||caveat 注意事项|
+198||||syllabus 教学大纲|
+199||||weighing 权衡|
+200||||profile 概况|
+201||||prompt 提示|
 
 <div id="bottom"></div>
 
