@@ -210,6 +210,7 @@
 199||||weighing 权衡|
 200||||profile 概况|
 201||||prompt 提示|
+202||||excerpt 节选|
 
 <div id="bottom"></div>
 
