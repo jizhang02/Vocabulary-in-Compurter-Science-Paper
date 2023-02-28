@@ -17,7 +17,7 @@
 8|dichotomous data 二分数据|obviate 避免|superfluous 多余的|criteria 标准|reside on 在于
 9|multilabel datasets 多标签数据库|overlay 覆盖|undisclosed 未公开的|merit 优点|with the advent of 随着...的到来
 10|Tick Symbol 对勾√|demise 让位|interdependent 互相依存|hurdles 障碍|de facto 事实上
-11|crowdsourcing platforms 众包平台|encompass 包括|preliminary experiment 初步实验|heuristic 启发式|due to 由于
+11|crowdsourcing platforms 众包平台|encompass 包括|empirical 经验性的|heuristic 启发式|due to 由于
 12|instantiation 实例|aggregate 汇集|impactful 影响非常大的|inferior=low grade低级|attributed to the fact that 归因于
 13|velocity 速度|deteriorate 恶化|negligible 微不足道的|identification 识别|First and foremost 首先
 14|magnitude 大小（size）|mitigate 缓解|thoroughly 彻底地|localisation 定位|by a huge margin 大幅度
@@ -80,7 +80,7 @@
 71|scale invariance 尺度不变性|occlude 遮挡|trivial 不重要的|counterfactuals 反事实|latent space 潜在空间
 72|knowledge distillation 知识升华|reconcile 调和|prominent 突出的|bail 保释|follow suit 跟风
 73|sanity check 合理性检验|conceive 设想|dilated 扩张的|ethics 伦理|downstream processing 下游加工
-74|obstetrics 产科|extrapolated 外推|contemporary 当代的|taxonomy 分类|heuristic rules 启发式规则
+74|obstetrics 产科|extrapolate 外推|contemporary 当代的|taxonomy 分类|heuristic rules 启发式规则
 75|gynecology 妇科|deem 认为|brittle 脆弱的|clinics 诊所|plug-and-play 即插即用
 76|abdominal circumference 腹围|elucidate 解释|thereby 从而|category 类别|out-of-the-box thinking 开箱即用思维
 77|acronyms 首字母缩写词|regulatory 监管|doable 可行的|Agnostic 不可知论者|ad-hoc 特设
@@ -90,7 +90,7 @@
 81|quadrants 象限|standardize 使...标准化|premature 过早的|scope 范围|on parole 假释
 82|axiom 公理|inculcate 灌输| non-exclusive 非排他性|prerequisite 先决条件|is contingent on 取决于
 83|Photoacoustic imaging 光声成像|scrutinize 仔细检查|notably 值得注意的是|plausibility 合理性|boils down to 归结为
-84|dichotomy 二分法|extrapolate 外推|inadequate 不够的|novice 新手|give rise to 会发生
+84|dichotomy 二分法||inadequate 不够的|novice 新手|give rise to 会发生
 85|model-agnostic 与模型无关|propelling 推进|methodological 方法上的|sketch 草图|aside from 除了
 86|binomial 二项式|confront 面对|actionable 可行的|traceability 可追溯性|devoid of 缺乏
 87|multinomial 多项式|hamper 阻碍|incapable 无法|traits 特征|accounts for 占
@@ -136,11 +136,11 @@
 127|dermatology 皮肤科|preclude 妨碍|canonical 典型的|convexity 凸度|low-hanging fruit 容易实现的目标
 128|ophthalmology 眼科|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
 129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|refrain from 避免
-130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|
-131|attention-deficit hyperactivity disorder 注意缺陷多动障碍|extrapolate 推断|imperceptible 不可察觉的|valve 阀门|
+130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
+131|attention-deficit hyperactivity disorder 注意缺陷多动障碍||imperceptible 不可察觉的|valve 阀门|
 132|Schizophrenia 精神分裂症|demystify 揭秘|tailored 量身定制的|magnitude 大小|
 133|Major depressive disorder 严重抑郁症|mandate 授权|intrinsic 固有的|singularity 奇点|
-134|Bipolar disorder 躁郁症|extrapolate 推断|seamlessly 无缝地|caveats 注意事项|
+134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|
 137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|
@@ -199,9 +199,9 @@
 190|||purportedly 据称是|distinction 区别|
 191|||retrospectively 回顾性地|regime 制度|
 192|||optimal 最佳的|morphism 蜕变|
-193|||preliminary 初步的|mitigation 减轻|
-194|||empirical 经验性的|hallucinations 幻觉|
-195|||contemporary 当代的|jargon 行话|
+193||||mitigation 减轻|
+194||||hallucinations 幻觉|
+195||||jargon 行话|
 196||||boilerplate 规章制度|
 197||||caveat 注意事项|
 198||||syllabus 教学大纲|
