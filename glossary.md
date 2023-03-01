@@ -137,7 +137,7 @@
 128|ophthalmology 眼科|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
 129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|refrain from 避免
 130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
-131|attention-deficit hyperactivity disorder 注意缺陷多动障碍||imperceptible 不可察觉的|valve 阀门|
+131|attention-deficit hyperactivity disorder 注意缺陷多动障碍||imperceptible 不可察觉的|valve 阀门|in accordance with 按照
 132|Schizophrenia 精神分裂症|demystify 揭秘|tailored 量身定制的|magnitude 大小|
 133|Major depressive disorder 严重抑郁症|mandate 授权|intrinsic 固有的|singularity 奇点|
 134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|
@@ -179,7 +179,7 @@
 170|plasma 等离子体||burgeoning 蓬勃发展的|mimick 模仿|
 171|subtype 亚型||parsimonious 简约的|stakeholders 利益相关者|
 172|standard uptake values (SUVs) 标准摄取值||arguably 可以说|ramifications 后果|
-173|||favourable 有利的|tenet 宗旨|
+173|scintigraphy 扫描仪||favourable 有利的|tenet 宗旨|
 174|||tractable 可操作的|impediment 阻碍|
 175|||mutable可变的|chasm 裂口|
 176|||albeit 尽管|fidelity 保真度|
