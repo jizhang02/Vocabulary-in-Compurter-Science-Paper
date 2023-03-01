@@ -145,7 +145,7 @@
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|
 137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|
 138|Alzheimer disease 阿尔茨海默病||rigorous 严格的|perimeter 周长|
-139|Tuberculosis 结核||prime 主要的|cohort 队列|
+139|Tuberculosis 结核||prime 主要的|cohort 群组|
 140|Parkinson’s disease 帕金森病||reciprocal 相互的|workloads 工作量|
 141|etiology 病因||quadratic 二次的|prospect 前景|
 142|test-bed 试验台||noninvasively 无创地|occlusion=blockage 阻挡|
