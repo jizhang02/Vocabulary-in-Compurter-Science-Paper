@@ -180,7 +180,7 @@
 171|subtype 亚型||parsimonious 简约的|stakeholders 利益相关者|
 172|standard uptake values (SUVs) 标准摄取值||arguably 可以说|ramifications 后果|
 173|scintigraphy 扫描仪||favourable 有利的|tenet 宗旨|
-174|||tractable 可操作的|impediment 阻碍|
+174|Photoplethysmography 光谱仪||tractable 可操作的|impediment 阻碍|
 175|||mutable可变的|chasm 裂口|
 176|||albeit 尽管|fidelity 保真度|
 177|||unprecedented 前所未有的|mandate 授权|
