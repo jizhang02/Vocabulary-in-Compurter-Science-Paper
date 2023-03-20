@@ -199,7 +199,7 @@
 190|||purportedly 据称是|distinction 区别|
 191|||retrospectively 回顾性地|regime 制度|
 192|||optimal 最佳的|morphism 蜕变|
-193||||mitigation 减轻|
+193|||metastatic 转移性的|mitigation 减轻|
 194||||hallucinations 幻觉|
 195||||jargon 行话|
 196||||boilerplate 规章制度|
