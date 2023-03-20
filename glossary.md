@@ -5,7 +5,7 @@
 <a href="#bottom" class="btn btn-primary btn-sm"> ⬇️ </a>
 
 ### Vocabulary
-序号|专业术语|动词|形容(副)词|名词|短语
+序号|专业术语|动词|形容(副)词|名词|介词短语
 :--:|:--:|:--:|:--:|:--:|:--:
 1|composite functions 复合函数|concatenate 串联|voxelwise 体素的|downside 缺点|with respect to 关于
 2|summation 合计|impede 阻碍|substantial 大量的|approach 方法|from ...perspecitve 从某角度看
@@ -139,7 +139,7 @@
 130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
 131|attention-deficit hyperactivity disorder 注意缺陷多动障碍||imperceptible 不可察觉的|valve 阀门|in accordance with 按照
 132|Schizophrenia 精神分裂症|demystify 揭秘|tailored 量身定制的|magnitude 大小|streamlined schemes 精简的计划
-133|Major depressive disorder 严重抑郁症|mandate 授权|intrinsic 固有的|singularity 奇点|
+133|Major depressive disorder 严重抑郁症|mandate 授权|intrinsic 固有的|singularity 奇点|whilst 与此同时
 134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|
