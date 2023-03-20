@@ -200,7 +200,7 @@
 191|||retrospectively 回顾性地|regime 制度|
 192|||optimal 最佳的|morphism 蜕变|
 193|||metastatic 转移性的|mitigation 减轻|
-194||||hallucinations 幻觉|
+194|||interrelated 相互关联|hallucinations 幻觉|
 195||||jargon 行话|
 196||||boilerplate 规章制度|
 197||||caveat 注意事项|
