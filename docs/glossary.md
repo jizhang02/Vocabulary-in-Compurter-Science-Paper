@@ -90,7 +90,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 81|quadrants 象限|standardize 使...标准化|premature 过早的|scope 范围|on parole 假释
 82|axiom 公理|inculcate 灌输| non-exclusive 非排他性|prerequisite 先决条件|is contingent on 取决于
 83|Photoacoustic imaging 光声成像|scrutinize 仔细检查|notably 值得注意的是|plausibility 合理性|boils down to 归结为
-84|dichotomy 二分法||inadequate 不够的|novice 新手|give rise to 会发生
+84|dichotomy 二分法|mandate 授权|inadequate 不够的|novice 新手|give rise to 会发生
 85|model-agnostic 与模型无关|propelling 推进|methodological 方法上的|sketch 草图|aside from 除了
 86|binomial 二项式|confront 面对|actionable 可行的|traceability 可追溯性|devoid of 缺乏
 87|multinomial 多项式|hamper 阻碍|incapable 无法|traits 特征|accounts for 占
@@ -137,9 +137,9 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 128|ophthalmology 眼科|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
 129|quasi-mathematical 准数学|counteract 抗衡|capricious 变化无常的|correlations 相关性|refrain from 避免
 130|Autism spectrum disorder 自闭症谱系障碍|inhibit 抑制|planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
-131|attention-deficit hyperactivity disorder 注意缺陷多动障碍||imperceptible 不可察觉的|valve 阀门|in accordance with 按照
-132|Schizophrenia 精神分裂症|demystify 揭秘|tailored 量身定制的|magnitude 大小|streamlined schemes 精简的计划
-133|Major depressive disorder 严重抑郁症|mandate 授权|intrinsic 固有的|singularity 奇点|whilst 与此同时
+131|attention-deficit hyperactivity disorder 注意缺陷多动障碍|demystify 揭秘|imperceptible 不可察觉的|valve 阀门|in accordance with 按照
+132|Schizophrenia 精神分裂症||tailored 量身定制的|magnitude 大小|streamlined schemes 精简的计划
+133|Major depressive disorder 严重抑郁症||intrinsic 固有的|singularity 奇点|whilst 与此同时
 134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|
@@ -210,7 +210,6 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 201||||prompt 提示|
 202||||excerpt 节选|
 203||||conformity 符合性|
-
 
 <div id="bottom"></div>
 
