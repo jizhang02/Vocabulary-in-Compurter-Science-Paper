@@ -5,7 +5,7 @@
 <a href="#bottom" class="btn btn-primary btn-sm"> ⬇️ </a>
 
 ### Vocabulary
-序号|专业术语|动词|形容(副)词|名词|介词短语
+No.|Terminology|Verb|adj./adv.|Noun|Phrases
 :--:|:--:|:--:|:--:|:--:|:--:
 1|composite functions 复合函数|concatenate 串联|voxelwise 体素的|downside 缺点|with respect to 关于
 2|summation 合计|impede 阻碍|substantial 大量的|approach 方法|from ...perspecitve 从某角度看
@@ -210,6 +210,7 @@
 201||||prompt 提示|
 202||||excerpt 节选|
 203||||conformity 符合性|
+
 
 <div id="bottom"></div>
 
