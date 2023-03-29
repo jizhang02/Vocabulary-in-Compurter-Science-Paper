@@ -184,7 +184,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 175|Intrafractional motion 治疗过程中的运动||mutable可变的|chasm 裂口|
 176|Pharmaceutics 制药学||albeit 尽管|fidelity 保真度|
 177|Pharmacokinetics 药物代谢动力学||unprecedented 前所未有的|mandate 授权|
-178|||pertinent 中肯的|onus 责任|
+178|thyroid 甲状腺||pertinent 中肯的|onus 责任|
 179|||penultimate 倒数第二个|chronology 年表|
 180|||uncurated 未经整理的|walkthrough 演练|
 181|||off-putting 令人不快的|greenhorn 新手|
