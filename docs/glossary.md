@@ -140,7 +140,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 131|attention-deficit hyperactivity disorder 注意缺陷多动障碍|demystify 揭秘|imperceptible 不可察觉的|valve 阀门|in accordance with 按照
 132|Schizophrenia 精神分裂症||tailored 量身定制的|magnitude 大小|streamlined schemes 精简的计划
 133|Major depressive disorder 严重抑郁症||intrinsic 固有的|singularity 奇点|whilst 与此同时
-134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|
+134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|Proof-of-concept study 概念验证
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|
 137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|
