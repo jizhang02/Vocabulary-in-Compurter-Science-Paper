@@ -170,7 +170,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 161|vivo quantitation 体内定量||verbal 口头上|surrogate 替代|
 162|vitro sampling 体外采样||inscrutable 费解的|advent 来临|
 163|glossary 词汇表||dedicated 专用的|accountability 问责制|
-164|brachytherapy 近距离治疗||deceptive 欺骗性的|initiatives 主动性|
+164|brachytherapy 近距离放射治疗||deceptive 欺骗性的|initiatives 主动性|
 165|daemon 守护进程||opaque 不透明|rigor 严格|
 166|glucose 葡萄糖||admissible 可接受的|causality 因果关系|
 167|nomenclature 名词解释||counterfactual 反事实的|desiderata 愿景|
