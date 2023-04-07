@@ -36,9 +36,9 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 27|convention 共识|penalize 惩罚|sufficiently 充足地|intention 意图|ravel out 散开
 28|modalities 方式|demonstrate 表明|favorable 有利的|interventions 干预措施|mediastinal structures 纵隔结构
 29|cardinality 基数|distinguish 区分|heterogeneous 异质的|plethora 过多|orally-given 口头给予
-30|pulmonary nodule 肺结节|violate 违背|succinct 简洁的|counterparts 对方，副本|sagittal view 矢状面
-31|training from scratch 从基本训练|truncate 截短|stochastic 随机的|scarcity 稀缺性|axial view 轴向视图
-32|Data driven approaches数据驱动方法|conduct 进行|monotonically 单调的|commonalities 共同点|trial-and-error 试错法
+30|pulmonary nodule 肺结节|violate 违背|succinct 简洁的|counterparts 对方，副本|sagittal view 矢状面 （左右两侧）
+31|training from scratch 从基本训练|truncate 截短|stochastic 随机的|scarcity 稀缺性|axial view 轴向视图 (平行于地面)
+32|Data driven approaches数据驱动方法|conduct 进行|monotonically 单调的|commonalities 共同点|coronal view 冠状视图 （从前往后）
 33|pathology 病理|crop 裁剪|aforementioned 上述的|counterfeiters 造假者|give rise to 会发生
 34|dermatologists 皮肤科医生 |overcome 克服|malignant 恶性的|novice 新手|plethora of 过多的
 35|posteriori probability 后验概率|exceed 超过|plausible 可行的|likelihood 可能性|ad hoc 特设的
@@ -142,7 +142,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 133|Major depressive disorder 严重抑郁症||intrinsic 固有的|singularity 奇点|whilst 与此同时
 134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|Proof-of-concept study 概念验证
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|In silico 通过计算机模拟
-136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|
+136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|trial-and-error 试错法
 137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|
 138|Alzheimer disease 阿尔茨海默病||rigorous 严格的|perimeter 周长|
 139|Tuberculosis 结核||prime 主要的|cohort 群组|
