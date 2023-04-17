@@ -143,7 +143,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 134|Bipolar disorder 躁郁症||seamlessly 无缝地|caveats 注意事项|Proof-of-concept study 概念验证
 135|epilepsy 癫痫||intuitively 直观地|synonym 代名词|In silico 通过计算机模拟
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|trial-and-error 试错法
-137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|
+137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|day-to-day 日常
 138|Alzheimer disease 阿尔茨海默病||rigorous 严格的|perimeter 周长|
 139|Tuberculosis 结核||prime 主要的|cohort 群组|
 140|Parkinson’s disease 帕金森病||reciprocal 相互的|workloads 工作量|
@@ -185,7 +185,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 176|Pharmaceutics 制药学||albeit 尽管|fidelity 保真度|
 177|Pharmacokinetics 药物代谢动力学||unprecedented 前所未有的|mandate 授权|
 178|thyroid 甲状腺||pertinent 中肯的|onus 责任|
-179|||penultimate 倒数第二个|chronology 年表|
+179|scalpel 解剖刀||penultimate 倒数第二个|chronology 年表|
 180|||uncurated 未经整理的|walkthrough 演练|
 181|||off-putting 令人不快的|greenhorn 新手|
 182|||accommodating 温良忍让|snippets 片段|
@@ -201,7 +201,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 192|||optimal 最佳的|morphism 蜕变|
 193|||metastatic 转移性的|mitigation 减轻|
 194|||interrelated 相互关联|hallucinations 幻觉|
-195||||jargon 行话|
+195|||deleterious 有害的|jargon 行话|
 196||||boilerplate 规章制度|
 197||||caveat 注意事项|
 198||||syllabus 教学大纲|
@@ -210,6 +210,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 201||||prompt 提示|
 202||||excerpt 节选|
 203||||conformity 符合性|
+204||||impetus 动力|
 
 <div id="bottom"></div>
 
