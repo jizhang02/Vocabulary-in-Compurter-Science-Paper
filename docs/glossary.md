@@ -186,7 +186,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 177|Pharmacokinetics 药物代谢动力学||unprecedented 前所未有的|mandate 授权|
 178|thyroid 甲状腺||pertinent 中肯的|onus 责任|
 179|scalpel 解剖刀||penultimate 倒数第二个|chronology 年表|
-180|||uncurated 未经整理的|walkthrough 演练|
+180|thorax 胸部||uncurated 未经整理的|walkthrough 演练|
 181|||off-putting 令人不快的|greenhorn 新手|
 182|||accommodating 温良忍让|snippets 片段|
 183|||isotropic 各向同性|gist 要领|
