@@ -145,7 +145,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 136|seizure disorder 癫痫症||holonomic 完整的|proliferation 增殖|trial-and-error 试错法
 137|epicardial electrogram 心外膜电图||informative 信息丰富的|synergy 协同作用|day-to-day 日常
 138|Alzheimer disease 阿尔茨海默病||rigorous 严格的|perimeter 周长|In the course of 在...的进程中
-139|Tuberculosis 结核||prime 主要的|cohort 群组|
+139|Tuberculosis 结核||prime 主要的|cohort 群组|in-house 内部
 140|Parkinson’s disease 帕金森病||reciprocal 相互的|workloads 工作量|
 141|etiology 病因||quadratic 二次的|prospect 前景|
 142|test-bed 试验台||noninvasively 无创地|occlusion=blockage 阻挡|
@@ -188,7 +188,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 179|scalpel 解剖刀||penultimate 倒数第二个|chronology 年表|
 180|thorax 胸部||uncurated 未经整理的|walkthrough 演练|
 181|radiopharmaceutical 放射性药物||off-putting 令人不快的|greenhorn 新手|
-182|||accommodating 温良忍让|snippets 片段|
+182|metastasis volume 转移瘤体积||accommodating 温良忍让|snippets 片段|
 183|||isotropic 各向同性|gist 要领|
 184|||homogeneous 均质|scalability 可扩展性|
 185|||scarce 稀缺|workaround 解决方法|
@@ -202,7 +202,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 193|||metastatic 转移性的|mitigation 减轻|
 194|||interrelated 相互关联|hallucinations 幻觉|
 195|||deleterious 有害的|jargon 行话|
-196||||boilerplate 规章制度|
+196|||anthropomorphic 拟人化的|boilerplate 规章制度|
 197||||caveat 注意事项|
 198||||syllabus 教学大纲|
 199||||weighing 权衡|
