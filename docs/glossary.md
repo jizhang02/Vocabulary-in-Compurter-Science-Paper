@@ -22,7 +22,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 13|velocity 速度|deteriorate 恶化|negligible 微不足道的|identification 识别|First and foremost 首先
 14|magnitude 大小（size）|mitigate 缓解|thoroughly 彻底地|localisation 定位|by a huge margin 大幅度
 15|coupling coefficient 耦合系数|investigate 调查|adequate 充足的|bias 偏差|Therein 在其中
-16|replicas 副本|constitute 构成|heterogeneous 错杂的|manifestations 表现|w.r.t.with respect to 关于
+16|replicas 副本|constitute 构成||manifestations 表现|w.r.t.with respect to 关于
 17|discriminative learning 判别式学习|utilize 利用|identical 一样的|deviation 偏差|rule of thumb 经验法则
 18|computation cost 计算消费|highlight 突出|notably 特别是|anomalies 异常|on the fly 一边... 一边...
 19|benchmark 基准|probe 探索|trivially 容易地|assessment 评估|vice versa 反之亦然
