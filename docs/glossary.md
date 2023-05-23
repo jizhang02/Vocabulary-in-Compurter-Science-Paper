@@ -211,6 +211,8 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 202||||excerpt 节选|
 203||||conformity 符合性|
 204||||impetus 动力|
+205||||prevalence 患病率|
+206||||torso 躯干|
 
 <div id="bottom"></div>
 
