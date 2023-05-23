@@ -189,7 +189,7 @@ No.|Terminology|Verb|adj./adv.|Noun|Phrases
 180|thorax 胸部||uncurated 未经整理的|walkthrough 演练|
 181|radiopharmaceutical 放射性药物||off-putting 令人不快的|greenhorn 新手|
 182|metastasis volume 转移瘤体积||accommodating 温良忍让|snippets 片段|
-183|||isotropic 各向同性|gist 要领|
+183|sinogram 正弦图||isotropic 各向同性|gist 要领|
 184|||homogeneous 均质|scalability 可扩展性|
 185|||scarce 稀缺|workaround 解决方法|
 186|||canonical 典型的|distinction 区别|
