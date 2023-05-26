@@ -12,7 +12,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 3|discern 识别|fairly 相当，比较|perturbations 扰动|correspond to 相当于
 4|glean 搜集|shallow 浅的|factorization 因式分解|in part 部分
 5|parse 解析|consecutive 连续的|generalizability 泛化|herein this work 在本工作
-6|replicate 复制=copy|robust 强大的|intervention 干预|are dedicated to 致力于
+6|replicate 复制|robust 强大的|intervention 干预|are dedicated to 致力于
 7|tweak 调整|plausible 合理的|versatility 多功能性|in terms of 就...而言
 8|obviate 避免|superfluous 多余的|criteria 标准|reside on 在于
 9|overlay 覆盖|undisclosed 未公开的|merit 优点|with the advent of 随着...的到来
