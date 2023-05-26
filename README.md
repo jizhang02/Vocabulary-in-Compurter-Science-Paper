@@ -10,9 +10,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/jizhang02/Vocabulary-in-Compurter-Science-Paper.svg)](https://github.com/jizhang02/Vocabulary-in-Compurter-Science-Paper/issues)
 
 
-Vocabulary in paper on computer science and medical image analysis.
+Vocabulary in paper on computer science.
 
-计算机科学和医学图像分析论文词汇摘抄。
+计算机科学论文词汇摘抄。
 
 ## Usage
 
