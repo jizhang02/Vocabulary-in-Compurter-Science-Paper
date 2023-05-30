@@ -204,7 +204,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 195||deleterious 有害的|jargon 行话|
 196||anthropomorphic 拟人化的|boilerplate 规章制度|
 197||problematic 有问题的|caveat 注意事项|
-198|||syllabus 教学大纲|
+198||peripheral 周围的|syllabus 教学大纲|
 199|||weighing 权衡|
 200|||profile 概况|
 201|||prompt 提示|
