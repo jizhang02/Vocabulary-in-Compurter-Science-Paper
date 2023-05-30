@@ -136,7 +136,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 127|preclude 妨碍|canonical 典型的|convexity 凸度|low-hanging fruit 容易实现的目标
 128|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
 129|atrophy 萎缩|capricious 变化无常的|correlations 相关性|refrain from 避免
-130||planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
+130|undergo 经历|planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
 131||imperceptible 不可察觉的|valve 阀门|in accordance with 按照
 132||tailored 量身定制的|magnitude 大小|streamlined schemes 精简的计划
 133||intrinsic 固有的|singularity 奇点|whilst 与此同时
@@ -176,7 +176,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 167||counterfactual 反事实的|desiderata 愿景|interim conclusion 中期总结
 168||pervasive 无处不在的|intelligibility 可理解性|representational limitation 代表性的限制
 169||inherently 固有的|knockoff 仿制品|composite functions 复合函数
-170||burgeoning 蓬勃发展的|mimick 模仿|
+170||burgeoning 蓬勃发展的|mimick 模仿|receptive field 感受野
 171||parsimonious 简约的|stakeholders 利益相关者|
 172||arguably 可以说|ramifications 后果|
 173||favourable 有利的|tenet 宗旨|
