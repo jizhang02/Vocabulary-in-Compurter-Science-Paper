@@ -1,7 +1,5 @@
 
 
-![Header Image](/docs/dream_vocabulary.jpg)
-
 # Vocabulary in compurter science paper
 
 
