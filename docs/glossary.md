@@ -169,7 +169,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 160||compulsory 强制性的|propaganda 宣传|sanity check 合理性检验
 161||verbal 口头上|surrogate 替代|model-agnostic 与模型无关
 162||inscrutable 费解的|advent 来临|group lasso 组套索
-163||glossary 词汇表|dedicated 专用的|accountability 问责制|quasi-mathematical 准数学
+163||glossary 词汇表|dedicated 专用的|quasi-mathematical 准数学
 164||deceptive 欺骗性的|initiatives 主动性|linear superposition 线性叠加
 165||opaque 不透明|rigor 严格|verbose mode 详细模式
 166||admissible 可接受的|causality 因果关系|categorical label 分类别的/离散的标签
@@ -244,7 +244,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 235|||trajectory 弹道|
 236|||extrapolation 外推法|
 237|||polynomial 多项式|
-238||||
+238|||accountability 问责制|
 239||||
 240||||
 241||||
