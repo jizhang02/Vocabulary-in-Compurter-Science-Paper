@@ -25,7 +25,7 @@ Vocabulary in paper on computer science.
 Contributions are always welcome!
 - Fork the project
 - Commit your changes 
-- Push to the branch
+- Push to the branch 
 - Create a new Pull Request
 
 ## License
