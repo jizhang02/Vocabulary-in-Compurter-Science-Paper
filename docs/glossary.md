@@ -177,7 +177,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 168||pervasive 无处不在的|intelligibility 可理解性|representational limitation 代表性的限制
 169||inherently 固有的|knockoff 仿制品|composite functions 复合函数
 170||burgeoning 蓬勃发展的|mimick 模仿|receptive field 感受野
-171||parsimonious 简约的|stakeholders 利益相关者|
+171||parsimonious 简约的|stakeholders 利益相关者|retrospective analysis 回顾性分析
 172||arguably 可以说|ramifications 后果|
 173||favourable 有利的|tenet 宗旨|
 174||tractable 可操作的|impediment 阻碍|
