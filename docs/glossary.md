@@ -5,7 +5,7 @@
 <a href="#bottom" class="btn btn-primary btn-sm"> ⬇️ </a>
 
 
-### Vocabulary
+# Vocabulary
 No.|Verb|Adjective/Adverb|Noun|Phrase
 :--:|--|--|--|--
 1|concatenate 串联|voxelwise 体素的|downside 缺点|with respect to 关于
