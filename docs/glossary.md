@@ -138,7 +138,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 128|compell 迫使|vague 模糊的|dimensionality 维度|ex nihilo 凭空捏造
 129|atrophy 萎缩|capricious 变化无常的|correlations 相关性|refrain from 避免
 130|undergo 经历|planar 平面的|homogeneity 同质性|preliminary experiment 初步实验
-131||imperceptible 不可察觉的|valve 阀门|in accordance with 按照
+131|curate 策划|imperceptible 不可察觉的|valve 阀门|in accordance with 按照
 132||tailored 量身定制的|magnitude 大小|streamlined schemes 精简的计划
 133||intrinsic 固有的|singularity 奇点|whilst 与此同时
 134||seamlessly 无缝地|caveats 注意事项|Proof-of-concept study 概念验证
