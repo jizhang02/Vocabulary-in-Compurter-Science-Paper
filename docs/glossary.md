@@ -208,7 +208,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 198||peripheral 周围的|syllabus 教学大纲|
 199||unwieldy 笨重的|weighing 权衡|
 200||expeditious 快速的|profile 概况|
-201|||prompt 提示|
+201||concurrently 同时|prompt 提示|
 202|||excerpt 节选|
 203|||conformity 符合性|
 204|||impetus 动力|
