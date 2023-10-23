@@ -180,7 +180,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 170||burgeoning 蓬勃发展的|mimick 模仿|receptive field 感受野
 171||parsimonious 简约的|stakeholders 利益相关者|retrospective analysis 回顾性分析
 172||arguably 可以说|ramifications 后果|in a nutshell 简而言之
-173||favourable 有利的|tenet 宗旨|
+173||favourable 有利的|tenet 宗旨|strove to 努力做到
 174||tractable 可操作的|impediment 阻碍|
 175||mutable可变的|chasm 裂口|
 176||albeit 尽管|fidelity 保真度|
