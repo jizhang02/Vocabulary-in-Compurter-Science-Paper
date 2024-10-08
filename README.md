@@ -12,9 +12,12 @@ Vocabulary in paper on computer science.
 
 计算机科学论文词汇摘抄。
 
+update: 2024.10--> the Vocabulary has been upgraded to second version.
+
 ## Usage
 
-[Vocabulary glossary](/docs/glossary.md)
+[Vocabulary glossary_V2](/docs/glossary_v2.md)    
+[Vocabulary glossary (old)](/docs/glossary.md)
 
 ## Features
 - Tabulation
