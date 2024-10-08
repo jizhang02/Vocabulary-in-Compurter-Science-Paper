@@ -15,10 +15,10 @@
 ## Verb <img src="https://github.com/user-attachments/assets/ca1f3964-4e92-4839-afb8-70cf4703244d" alt="verb" width="30"/>
 
 
-| No. | Word       | 中文 | Example |  
-| --- | ---------- | ----------------| -----------------|  
-| 1   | concatenate| 串联            | <details><summary>Click here</summary> "We concatenate the outputs to form a complete sequence." **Source**: "Neural Networks for NLP," 2020.</details> |
-| 2   | discern    | 识别            | <details><summary>Click here</summary> "It is important to discern patterns in the data." **Source**: "Deep Learning for AI," 2021.</details> |
+| No. | Word|中文 | Example|  No. | Word |中文|Example|  
+| --- | --- | --- | ---    | ---  | ---  |---| ---   |  
+| 1   | concatenate|连接| <details><summary>Click here</summary> *`concatenate the object prediction probability vector with region features.`*  Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks, 2020.</details>        | 2   | impede|阻碍| <details><summary>Click here</summary> *`Collectively, these impede the conventional use of deep learning.`*  Deep Learning for Whole Slide Image Analysis: An Overview 2019.</details> |
+| 3   | discern    |辨别| <details><summary>Click here</summary> *`we provide a multi-dimensional framework synthesizing what is known about DT and discern two important thematical patterns.`* A Systematic Review of the Literature on Digital Transformation: Insights and Implications for Strategy and Organizational Change, 2020.</details>                  | 4   | discern    |识别| <details><summary>Click here</summary> *`and use the insights we glean from this to justify the empirically excellent performance of focal loss.`*  Calibrating Deep Neural Networks using Focal Loss, 2020.</details> |
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
 
@@ -28,10 +28,10 @@
 
 
 ## Adjective/Adverb <img src="https://github.com/user-attachments/assets/e0d26a69-739c-4976-9381-2a45b9fcac96" alt="verb" width="30"/>
-| No. | Word       | 中文 | Example |  
-| --- | ---------- | ----------------| -----------------|  
-| 1   | substantial| 大量的          | <details><summary>Click here</summary> "A substantial amount of data is required for accurate predictions." **Source**: "AI Research," 2019.</details> |
-| 2   | fairly     | 相当/比较      | <details><summary>Click here</summary> "The model performed fairly well on the test data." **Source**: "Machine Learning Algorithms," 2020.</details> |
+| No. | Word|中文 | Example|  No. | Word |中文|Example|  
+| --- | --- | --- | ---    | ---  | ---  |---| ---   |  
+| 1   | concatenate|连接| <details><summary>Click here</summary> *`concatenate the object prediction probability vector with region features.`*  Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks, 2020.</details>        | 2   | impede|阻碍| <details><summary>Click here</summary> *`Collectively, these impede the conventional use of deep learning.`*  Deep Learning for Whole Slide Image Analysis: An Overview 2019.</details> |
+| 3   | discern    |辨别| <details><summary>Click here</summary> *`we provide a multi-dimensional framework synthesizing what is known about DT and discern two important thematical patterns.`* A Systematic Review of the Literature on Digital Transformation: Insights and Implications for Strategy and Organizational Change, 2020.</details>                  | 4   | glean    |收集| <details><summary>Click here</summary> *`and use the insights we glean from this to justify the empirically excellent performance of focal loss.`*  Calibrating Deep Neural Networks using Focal Loss, 2020.</details> |
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
 
@@ -40,10 +40,10 @@
 <div id="noun"></div>
 
 ## Noun <img src="https://github.com/user-attachments/assets/ae345407-6d7f-4d3c-941c-076dfd384cac" alt="verb" width="30"/>
-| No. | Word       | 中文 | Example |  
-| --- | ---------- | ----------------| -----------------|  
-| 1   | perturbation| 扰动           | <details><summary>Click here</summary> "Small perturbations in input data can lead to significant model output changes." **Source**: "Adversarial Attacks," 2018.</details> |
-| 2   | factorization| 因式分解       | <details><summary>Click here</summary> "Matrix factorization techniques are used in collaborative filtering." **Source**: "Recommendation Systems," 2020.</details> |
+| No. | Word|中文 | Example|  No. | Word |中文|Example|  
+| --- | --- | --- | ---    | ---  | ---  |---| ---   |  
+| 1   | concatenate|连接| <details><summary>Click here</summary> *`concatenate the object prediction probability vector with region features.`*  Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks, 2020.</details>  | 2   | impede|阻碍| <details><summary>Click here</summary> *`Collectively, these impede the conventional use of deep learning.`*  Deep Learning for Whole Slide Image Analysis: An Overview 2019.</details> |
+| 3   | discern    |辨别| <details><summary>Click here</summary> *`we provide a multi-dimensional framework synthesizing what is known about DT and discern two important thematical patterns.`* A Systematic Review of the Literature on Digital Transformation: Insights and Implications for Strategy and Organizational Change, 2020.</details>   | 4 | glean    |收集| <details><summary>Click here</summary> *`and use the insights we glean from this to justify the empirically excellent performance of focal loss.`*  Calibrating Deep Neural Networks using Focal Loss, 2020.</details> |
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
 
@@ -52,10 +52,10 @@
 <div id="phrase"></div>
 
 ## Phrase <img src="https://github.com/user-attachments/assets/589fe477-e4cf-4e00-a5fe-029932cb754b" alt="verb" width="30"/>
-| No. | Phrase       | 中文 | Example |  
-| --- | ------------ | ----------------| -----------------|  
-| 1   | with respect to| 关于           | <details><summary>Click here</summary> "With respect to accuracy, the model outperforms others." **Source**: "AI Performance," 2021.</details> |
-| 2   | correspond to | 相当于         | <details><summary>Click here</summary> "These results correspond to those observed in the previous study." **Source**: "Research Methods," 2019.</details> |
+| No. | Word|中文 | Example|  No. | Word |中文|Example|  
+| --- | --- | --- | ---    | ---  | ---  |---| ---   |  
+| 1   | concatenate|连接| <details><summary>Click here</summary> *`concatenate the object prediction probability vector with region features.`*  Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks, 2020.</details>        | 2   | impede|阻碍| <details><summary>Click here</summary> *`Collectively, these impede the conventional use of deep learning.`*  Deep Learning for Whole Slide Image Analysis: An Overview 2019.</details> |
+| 3   | discern    |辨别| <details><summary>Click here</summary> *`we provide a multi-dimensional framework synthesizing what is known about DT and discern two important thematical patterns.`* A Systematic Review of the Literature on Digital Transformation: Insights and Implications for Strategy and Organizational Change, 2020.</details>                  | 4   | discern    |识别| <details><summary>Click here</summary> *`and use the insights we glean from this to justify the empirically excellent performance of focal loss.`*  Calibrating Deep Neural Networks using Focal Loss, 2020.</details> |
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
 
