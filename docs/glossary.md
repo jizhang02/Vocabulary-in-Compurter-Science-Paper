@@ -11,7 +11,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 1|concatenate 串联|voxelwise 体素的|downside 缺点|with respect to 关于
 2|impede 阻碍|substantial 大量的|approach 方法|from ...perspecitve 从某角度看
 3|discern 识别|fairly 相当，比较|perturbations 扰动|correspond to 相当于
-4|glean 搜集|shallow 浅的|factorization 因式分解|in part 部分
+4|glean 搜集|shallow 浅的|factorization 因式分解|strove to 努力做到
 5|parse 解析|consecutive 连续的|generalizability 泛化|herein this work 在本工作
 6|replicate 复制|robust 强大的|intervention 干预|are dedicated to 致力于
 7|tweak 调整|plausible 合理的|versatility 多功能性|in terms of 就...而言
@@ -180,7 +180,7 @@ No.|Verb|Adjective/Adverb|Noun|Phrase
 170||burgeoning 蓬勃发展的|mimick 模仿|receptive field 感受野
 171||parsimonious 简约的|stakeholders 利益相关者|retrospective analysis 回顾性分析
 172||arguably 可以说|ramifications 后果|in a nutshell 简而言之
-173||favourable 有利的|tenet 宗旨|strove to 努力做到
+173||favourable 有利的|tenet 宗旨|
 174||tractable 可操作的|impediment 阻碍|
 175||mutable可变的|chasm 裂口|
 176||albeit 尽管|fidelity 保真度|
