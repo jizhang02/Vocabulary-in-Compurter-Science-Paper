@@ -80,7 +80,7 @@
 | 121 | distill  |提炼| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 122 | preclude  |妨碍| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 123 | compell  |迫使| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 124 | curate  |策划| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 125 | atrophy  |萎缩| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 126 | undergo  |经历| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
-| 127 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 128 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
+| 127 | ameliorate |改善| <details><summary>Click here</summary> *`A variety of analytic approximations exist which ameliorate, but do not remove.`*  Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.</details> | 128 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 129 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 130 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 131 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 132 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 
@@ -188,7 +188,7 @@
 | 181 | problematic |有问题的| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 182 | peripheral| 周围的| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 183 | unwieldy |笨重的| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 184 | expeditious| 快速的| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 185 | concurrently| 同时| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 186 | dedicated |专用的| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
-| 187 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 188 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
+| 187 | tractable |易处理| <details><summary>Click here</summary> *`learning, sampling, inference, and evaluation are still analytically or computationally tractable.`*  Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.</details> | 188 | aptly |恰当地| <details><summary>Click here</summary> *`these models are unable to aptly describe structure in rich datasets.`*  Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.</details> |
 | 189 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 190 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 191 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 192 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 193 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 194 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
@@ -314,7 +314,7 @@
 | 215 | multinomial |多项式| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 216 | daemon |守护进程| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 217 | ontology |本体论| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 218 | trajectory| 弹道| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 219 | extrapolation |外推法| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 220 | polynomial |多项式| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
-| 221 | accountability |问责制| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 222 | word |中文| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
+| 221 | accountability |问责制| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 222 |  tractability |易处理性| <details><summary>Click here</summary> *`Here, we develop an approach that simultane ously achieves both flexibility and tractability.`*  Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.</details> |
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
 
