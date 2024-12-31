@@ -314,7 +314,7 @@
 | 215 | multinomial |多项式| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 216 | daemon |守护进程| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 217 | ontology |本体论| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 218 | trajectory| 弹道| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
 | 219 | extrapolation |外推法| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 220 | polynomial |多项式| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> |
-| 221 | accountability |问责制| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 222 |  tractability |易处理性| <details><summary>Click here</summary> *`Here, we develop an approach that simultane ously achieves both flexibility and tractability.`*  Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.</details> |
+| 221 | accountability |问责制| <details><summary>Click here</summary> *`sentence.`*  journal, 2020.</details> | 222 |  tractability |易处理性| <details><summary>Click here</summary> *`Here, we develop an approach that simultaneously achieves both flexibility and tractability.`*  Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.</details> |
 
 <a href="#top" class="btn btn-primary btn-sm"> ⬆️ </a>
 
