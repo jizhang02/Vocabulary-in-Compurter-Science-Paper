@@ -11,11 +11,11 @@ function filters() {
 }
 function buildFilters() {
   const previous = filters();
-  const counts = (key, value) => state.entries.filter(e => key === "pos" ? e.pos === value : value === "未分类" ? !e.domains.length : e.domains.includes(value)).length;
+  const counts = (key, value) => state.entries.filter(e => key === "pos" ? e.pos === value : e.domains.includes(value)).length;
   const checkbox = (name, value, label, count, selected) => `<label class="check"><input type="checkbox" name="filter-${name}" value="${h(value)}" ${selected ? "checked" : ""}>${h(label)}<small>${count}</small></label>`;
   $("#pos-filters").innerHTML = Object.entries(POS).map(([key,label]) => checkbox("pos",key,label,counts("pos",key),previous.pos.has(key))).join("");
   const domains = [...new Set([...DOMAINS,...state.entries.flatMap(e => e.domains)])];
-  $("#domain-filters").innerHTML = [...domains,"未分类"].map(d => checkbox("domain",d,d,counts("domains",d),previous.domains.has(d))).join("");
+  $("#domain-filters").innerHTML = domains.map(d => checkbox("domain",d,d,counts("domains",d),previous.domains.has(d))).join("");
   $("#total-stat").textContent = state.entries.length.toLocaleString();
   $("#example-stat").textContent = state.entries.filter(e => e.example).length.toLocaleString();
 }
@@ -28,7 +28,7 @@ function render() {
   const pages = Math.max(1, Math.ceil(entries.length / state.pageSize));
   state.page = Math.min(state.page,pages);
   $("#result-count").textContent = `找到 ${entries.length} 个词条 · 共 ${state.entries.length} 个`;
-  $("#cards").innerHTML = entries.slice((state.page-1)*state.pageSize,state.page*state.pageSize).map(e => `<article class="word-card"><div class="card-top"><span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos] || e.pos)}</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3><button class="term-button" data-entry="${h(e.id)}">${h(e.term)}</button></h3><p class="card-meaning">${h(e.meaning)}</p><div class="card-tags">${(e.domains.length ? e.domains : ["未分类"]).slice(0,3).map(d => `<span class="tag">${h(d)}</span>`).join("")}</div><div class="card-bottom"><span class="${e.example ? "example-marker" : ""}">${e.example ? "▤ 含论文例句" : "○ 例句待补充"}</span><span>${canEdit(e,state.user,state.admin) ? "可编辑" : e.provenance ? "原始收录" : "社区贡献"}</span></div></article>`).join("") || `<div class="empty"><h3>${filters().mine && !state.user ? "登录后查看你的贡献" : "还没有找到匹配的词汇"}</h3><p>试试其他关键词，或重置筛选条件。</p></div>`;
+  $("#cards").innerHTML = entries.slice((state.page-1)*state.pageSize,state.page*state.pageSize).map(e => `<article class="word-card"><div class="card-top"><span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos] || e.pos)}</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3><button class="term-button" data-entry="${h(e.id)}">${h(e.term)}</button></h3><p class="card-meaning">${h(e.meaning)}</p><div class="card-tags">${e.domains.slice(0,3).map(d => `<span class="tag">${h(d)}</span>`).join("")}</div><div class="card-bottom"><span class="${e.example ? "example-marker" : ""}">${e.example ? "▤ 含论文例句" : "○ 例句待补充"}</span><span>${canEdit(e,state.user,state.admin) ? "可编辑" : e.provenance ? "原始收录" : "社区贡献"}</span></div></article>`).join("") || `<div class="empty"><h3>${filters().mine && !state.user ? "登录后查看你的贡献" : "还没有找到匹配的词汇"}</h3><p>试试其他关键词，或重置筛选条件。</p></div>`;
   $("#pagination").innerHTML = entries.length ? `<button data-page="${state.page-1}" ${state.page === 1 ? "disabled" : ""}>← 上一页</button><span>${state.page} / ${pages}</span><button data-page="${state.page+1}" ${state.page === pages ? "disabled" : ""}>下一页 →</button>` : "";
 }
 function refreshView() { state.page = 1; render(); }

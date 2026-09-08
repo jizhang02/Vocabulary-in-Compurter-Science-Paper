@@ -64,7 +64,7 @@ python scripts/migrate_glossary.py
 python -m unittest discover -s tests -v
 ```
 
-迁移生成 `docs/data/vocabulary.json` 和 `supabase/seed.sql`。保留原始词性、行号、同形词及不同释义。少量领域标签来自脚本内的明确词项映射，其余标为“未分类”；原始拼写、词性、译文与引文未逐条校订。V1 留作历史资料，不与 V2 合并。
+迁移生成 `docs/data/vocabulary.json` 和 `supabase/seed.sql`。保留原始词性、行号、同形词及不同释义。全部 701 条已补齐领域，结果存于 `data/domain_annotations.json`；使用“通用”及六个专业领域，多标签可交叉检索。详见 [分类说明](docs/CLASSIFICATION.md)；原始拼写、词性、译文与引文未逐条校订。V1 留作历史资料，不与 V2 合并。
 
 种子 ID 取决于原始行号和列位置，初始化后不要移动 V2 原始行再导入。重跑相同种子不覆盖社区编辑，**但会恢复已删除的种子条目**，因此仅用于初始化，不用于日常同步。社区修改保存在数据库，不会自动提交回 GitHub。
 

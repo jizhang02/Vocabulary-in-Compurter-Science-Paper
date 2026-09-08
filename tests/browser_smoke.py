@@ -40,9 +40,17 @@ def main():
             page.locator('#search').fill('知识蒸馏')
             assert 'knowledge distillation' in page.locator('#cards').inner_text()
             page.locator('#reset').click()
-            page.locator('[name=filter-domain][value="医学影像"]').check()
-            assert page.locator('.word-card').count() == 4
+            page.locator('[name=filter-domain][value="医学"]').check()
+            assert '找到 43 个词条' in page.locator('#result-count').inner_text()
             page.locator('#has-example').check()
+            assert page.locator('.word-card').count() == 1
+            page.locator('#reset').click()
+            page.locator('[name=filter-domain][value="通用"]').check()
+            page.locator('#search').fill('in a nutshell')
+            assert page.locator('.word-card').count() == 1
+            page.locator('#reset').click()
+            page.locator('[name=filter-domain][value="自然语言处理"]').check()
+            page.locator('#search').fill('tokenization')
             assert page.locator('.word-card').count() == 1
             page.locator('#reset').click()
             page.locator('[name=filter-pos][value=verb]').check()
@@ -61,8 +69,8 @@ def main():
             # Exercise data handling, including stored markup and unsafe links.
             result = page.evaluate('''async () => {
               const m = await import('./lib.js');
-              const entry = {term:'<img src=x onerror=alert(1)>',meaning:'测试',example:'',source:'',domains:['医学影像'],tags:['方法'],owner_id:'alice',pos:'noun'};
-              const filters = {query:'测试',pos:new Set(['noun']),domains:new Set(['医学影像']),example:false,mine:true};
+              const entry = {term:'<img src=x onerror=alert(1)>',meaning:'测试',example:'',source:'',domains:['医学'],tags:['方法'],owner_id:'alice',pos:'noun'};
+              const filters = {query:'测试',pos:new Set(['noun']),domains:new Set(['医学']),example:false,mine:true};
               return {
                 escaped: !m.escapeHtml(entry.term).includes('<img'),
                 unsafe: m.safeUrl('javascript:alert(1)') === '',

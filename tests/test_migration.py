@@ -10,6 +10,28 @@ spec.loader.exec_module(migration)
 
 
 class MigrationTests(unittest.TestCase):
+    def test_domain_coverage_and_semantic_boundaries(self):
+        entries = json.loads((ROOT / 'docs/data/vocabulary.json').read_text(encoding='utf-8'))
+        allowed = set(migration.ANNOTATIONS['allowed_domains'])
+        self.assertEqual(len(migration.ANNOTATIONS['entries']), len(entries))
+        for entry in entries:
+            self.assertTrue(entry['domains'], entry['term'])
+            self.assertTrue(set(entry['domains']) <= allowed, entry['term'])
+            self.assertEqual(len(entry['domains']), len(set(entry['domains'])))
+        by_term = {e['term']: e for e in entries}
+        # A medical/ML source does not make an ordinary expression a technical term.
+        self.assertEqual(by_term['substantial']['domains'], ['通用'])
+        self.assertEqual(by_term['with respect to']['domains'], ['通用'])
+        self.assertEqual(by_term['in a nutshell']['domains'], ['通用'])
+        self.assertIn('自然语言处理', by_term['tokenization']['domains'])
+        self.assertIn('医学', by_term['hypointense']['domains'])
+        self.assertIn('数学', by_term['posteriori probability']['domains'])
+        self.assertIn('机器学习', by_term['knowledge distillation']['domains'])
+        self.assertEqual(by_term['valve']['domains'], ['通用'])
+        self.assertEqual(by_term['prime']['domains'], ['通用'])
+        original = by_term['substantial']
+        self.assertEqual(migration.domains_for(original['id'], 'new word', original['meaning'], original['pos']), [])
+
     def test_rows_preserved_and_placeholders_removed(self):
         entries = migration.parse_markdown((ROOT / "docs/glossary_v2.md").read_text(encoding="utf-8"))
         self.assertGreater(len(entries), 600)

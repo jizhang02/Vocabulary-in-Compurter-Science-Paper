@@ -4,7 +4,11 @@
     "term": "concatenate",
     "meaning": "连接",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "concatenate the object prediction probability vector with region features.",
     "source": "Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks, 2020.",
@@ -19,7 +23,9 @@
     "term": "impede",
     "meaning": "阻碍",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "Collectively, these impede the conventional use of deep learning.",
     "source": "Deep Learning for Whole Slide Image Analysis: An Overview 2019.",
@@ -34,7 +40,9 @@
     "term": "discern",
     "meaning": "辨别",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "we provide a multi-dimensional framework synthesizing what is known about DT and discern two important thematical patterns.",
     "source": "A Systematic Review of the Literature on Digital Transformation: Insights and Implications for Strategy and Organizational Change, 2020.",
@@ -49,7 +57,9 @@
     "term": "glean",
     "meaning": "搜集",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "and use the insights we glean from this to justify the empirically excellent performance of focal loss.",
     "source": "Calibrating Deep Neural Networks using Focal Loss, 2020.",
@@ -64,7 +74,11 @@
     "term": "parse",
     "meaning": "解析",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "How can a neural network with a fixed architecture parse an image into a part-whole hierarchy which has a different structure for each image?.",
     "source": "How to Represent Part-Whole Hierarchies in a Neural Network, 2021.",
@@ -79,7 +93,9 @@
     "term": "replicate",
     "meaning": "复制",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "Artificial intelligence (AI) is the science that allows computers to replicate human intelligence in areas such as decision-making.",
     "source": "Outlier Detection in High Dimensional Data, 2021.",
@@ -94,7 +110,9 @@
     "term": "tweak",
     "meaning": "调整",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "why should practitioners tweak the L2 regularization.",
     "source": "What is the effect of Importance Weighting in Deep Learning? 2018.",
@@ -109,7 +127,9 @@
     "term": "obviate",
     "meaning": "避免",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "We aim to obviate this unrealistic setting by developing a methodology for benchmarking denoising techniques on real photographs.",
     "source": "Benchmarking Denoising Algorithms with Real Photographs, 2017.",
@@ -124,7 +144,9 @@
     "term": "overlay",
     "meaning": "覆盖",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "P2P systems are virtual networks in the application layer with a specific overlay topology and supported by routing protocols.",
     "source": "Peer-to-peer overlay techniques for vehicular ad hoc networks: Survey and challenges, 2020.",
@@ -139,7 +161,9 @@
     "term": "demise",
     "meaning": "消亡",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "Cancer is the considered to be a primary reason for world’s population demise.",
     "source": "Early Diagnosis of Lung Cancer Using Computer Aided Detection via Lung Segmentation Approach, 2021.",
@@ -154,7 +178,9 @@
     "term": "encompass",
     "meaning": "包含",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "Our approach utilizes a four-layer federated architecture that encompasses data at various levels of structure and representation.",
     "source": "Query Based Construction of Chronic Disease Datasets, 2024.",
@@ -169,7 +195,11 @@
     "term": "aggregate",
     "meaning": "汇集",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "For a final prediction, we now take all networks and aggregate their output into a Gaussian mixture distribution.",
     "source": "A Hybrid Feature Fusion Deep Learning Framework for Leukemia Cancer Detection in Microscopic Blood Sample Using Gated Recurrent Unit and Uncertainty Quantification, 2024.",
@@ -184,7 +214,9 @@
     "term": "deteriorate",
     "meaning": "恶化",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "However, results deteriorate in case of spatial deformations.",
     "source": "journal, 2020.",
@@ -199,7 +231,9 @@
     "term": "mitigate",
     "meaning": "缓解",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -214,7 +248,9 @@
     "term": "investigate",
     "meaning": "调查",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -229,7 +265,9 @@
     "term": "constitute",
     "meaning": "构成",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -244,7 +282,9 @@
     "term": "utilize",
     "meaning": "利用",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -259,7 +299,9 @@
     "term": "highlight",
     "meaning": "突出",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -274,7 +316,9 @@
     "term": "probe",
     "meaning": "探索",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -289,7 +333,9 @@
     "term": "hamper",
     "meaning": "阻碍",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -304,7 +350,9 @@
     "term": "posit",
     "meaning": "断定",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -319,7 +367,9 @@
     "term": "conform",
     "meaning": "符合",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -334,7 +384,9 @@
     "term": "accommodate",
     "meaning": "容纳",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -349,7 +401,9 @@
     "term": "facilitate",
     "meaning": "促进",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -364,7 +418,9 @@
     "term": "reveal",
     "meaning": "揭示",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -379,7 +435,9 @@
     "term": "incorporate",
     "meaning": "结合",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -394,7 +452,11 @@
     "term": "penalize",
     "meaning": "惩罚",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -409,7 +471,9 @@
     "term": "demonstrate",
     "meaning": "表明",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -424,7 +488,9 @@
     "term": "distinguish",
     "meaning": "区分",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -439,7 +505,9 @@
     "term": "violate",
     "meaning": "违背",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -454,7 +522,10 @@
     "term": "truncate",
     "meaning": "截短",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -469,7 +540,9 @@
     "term": "conduct",
     "meaning": "进行",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -484,7 +557,10 @@
     "term": "crop",
     "meaning": "裁剪",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -499,7 +575,9 @@
     "term": "overcome",
     "meaning": "克服",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -514,7 +592,9 @@
     "term": "exceed",
     "meaning": "超过",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -529,7 +609,9 @@
     "term": "address",
     "meaning": "解决",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -544,7 +626,9 @@
     "term": "outperform",
     "meaning": "超过",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -559,7 +643,9 @@
     "term": "propagate",
     "meaning": "传播",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -574,7 +660,9 @@
     "term": "lever",
     "meaning": "利用",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -589,7 +677,9 @@
     "term": "influx",
     "meaning": "涌入",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -604,7 +694,9 @@
     "term": "counteract",
     "meaning": "抵消",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -619,7 +711,9 @@
     "term": "sidestep",
     "meaning": "回避",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -634,7 +728,9 @@
     "term": "exacerbate",
     "meaning": "加剧",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -649,7 +745,9 @@
     "term": "reincarnate",
     "meaning": "化身",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -664,7 +762,9 @@
     "term": "evade",
     "meaning": "逃避",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -679,7 +779,9 @@
     "term": "obfuscate",
     "meaning": "混淆",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -694,7 +796,9 @@
     "term": "confront",
     "meaning": "面对",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -709,7 +813,9 @@
     "term": "permute",
     "meaning": "置换",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -724,7 +830,9 @@
     "term": "demarcate",
     "meaning": "标定",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -739,7 +847,9 @@
     "term": "circumvent",
     "meaning": "规避",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -754,7 +864,9 @@
     "term": "involve",
     "meaning": "涉及",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -769,7 +881,11 @@
     "term": "delineate",
     "meaning": "勾画",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -784,7 +900,9 @@
     "term": "refine",
     "meaning": "细化",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -799,7 +917,9 @@
     "term": "deploy",
     "meaning": "部署",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -814,7 +934,10 @@
     "term": "exploit",
     "meaning": "利用",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -829,7 +952,9 @@
     "term": "formulate",
     "meaning": "制定",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -844,7 +969,9 @@
     "term": "tabulate",
     "meaning": "制表",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -859,7 +986,9 @@
     "term": "mimic",
     "meaning": "模仿",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -874,7 +1003,9 @@
     "term": "incur",
     "meaning": "招致",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -889,7 +1020,9 @@
     "term": "diverge",
     "meaning": "发散",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -904,7 +1037,9 @@
     "term": "entangle",
     "meaning": "纠缠",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -919,7 +1054,9 @@
     "term": "sought",
     "meaning": "寻求",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -934,7 +1071,9 @@
     "term": "warrant",
     "meaning": "证明",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -949,7 +1088,11 @@
     "term": "reword",
     "meaning": "改写",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -964,7 +1107,9 @@
     "term": "speculate",
     "meaning": "推测",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -979,7 +1124,9 @@
     "term": "pervade",
     "meaning": "渗透",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -994,7 +1141,9 @@
     "term": "foster",
     "meaning": "培育",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1009,7 +1158,11 @@
     "term": "inference",
     "meaning": "推理",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1024,7 +1177,9 @@
     "term": "introspect",
     "meaning": "内省",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1039,7 +1194,9 @@
     "term": "decompose",
     "meaning": "分解",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1054,7 +1211,10 @@
     "term": "occlude",
     "meaning": "遮挡",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1069,7 +1229,9 @@
     "term": "reconcile",
     "meaning": "调和",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1084,7 +1246,9 @@
     "term": "conceive",
     "meaning": "设想",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1099,7 +1263,9 @@
     "term": "extrapolate",
     "meaning": "外推",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1114,7 +1280,9 @@
     "term": "deem",
     "meaning": "认为",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1129,7 +1297,9 @@
     "term": "elucidate",
     "meaning": "解释",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1144,7 +1314,9 @@
     "term": "demystify",
     "meaning": "揭秘",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1159,7 +1331,9 @@
     "term": "assess",
     "meaning": "评估",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1174,7 +1348,9 @@
     "term": "confound",
     "meaning": "困惑",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1189,7 +1365,9 @@
     "term": "coincide",
     "meaning": "重合",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1204,7 +1382,9 @@
     "term": "standardize",
     "meaning": "标准化",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1219,7 +1399,9 @@
     "term": "inculcate",
     "meaning": "灌输",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1234,7 +1416,9 @@
     "term": "scrutinize",
     "meaning": "仔细检查",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1249,7 +1433,9 @@
     "term": "mandate",
     "meaning": "授权",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1264,7 +1450,9 @@
     "term": "propell",
     "meaning": "推进",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1279,7 +1467,9 @@
     "term": "confront",
     "meaning": "面对",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1294,7 +1484,9 @@
     "term": "inhibit",
     "meaning": "抑制",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1309,7 +1501,9 @@
     "term": "envision",
     "meaning": "预见",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1324,7 +1518,9 @@
     "term": "manifest",
     "meaning": "表现",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1339,7 +1535,9 @@
     "term": "jusity",
     "meaning": "证明",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1354,7 +1552,9 @@
     "term": "appraise",
     "meaning": "评价",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1369,7 +1569,9 @@
     "term": "remedy",
     "meaning": "补救",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1384,7 +1586,9 @@
     "term": "squash",
     "meaning": "压缩",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1399,7 +1603,9 @@
     "term": "endow",
     "meaning": "赋予",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1414,7 +1620,9 @@
     "term": "compensate",
     "meaning": "补偿",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1429,7 +1637,10 @@
     "term": "disentangle",
     "meaning": "解开",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1444,7 +1655,9 @@
     "term": "impinge",
     "meaning": "撞击",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1459,7 +1672,9 @@
     "term": "resort",
     "meaning": "采取",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1474,7 +1689,11 @@
     "term": "superimpose",
     "meaning": "叠加",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1489,7 +1708,9 @@
     "term": "achieve",
     "meaning": "实现",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1504,7 +1725,9 @@
     "term": "delve",
     "meaning": "钻研",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1519,7 +1742,9 @@
     "term": "discern",
     "meaning": "辨别",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1534,7 +1759,9 @@
     "term": "testify",
     "meaning": "作证",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1549,7 +1776,9 @@
     "term": "elucidate",
     "meaning": "阐明",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1564,7 +1793,9 @@
     "term": "oscillate",
     "meaning": "摆动",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1579,7 +1810,9 @@
     "term": "gauge",
     "meaning": "测量",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1594,7 +1827,9 @@
     "term": "demystify",
     "meaning": "揭开神秘面纱",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1609,7 +1844,9 @@
     "term": "foster",
     "meaning": "促进",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1624,7 +1861,9 @@
     "term": "embark",
     "meaning": "从事",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1639,7 +1878,9 @@
     "term": "foretell",
     "meaning": "预言",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1654,7 +1895,9 @@
     "term": "eschew",
     "meaning": "避开",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1669,7 +1912,9 @@
     "term": "forgo",
     "meaning": "放弃",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1684,7 +1929,9 @@
     "term": "perpetuate",
     "meaning": "延续",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1699,7 +1946,9 @@
     "term": "troubleshoot",
     "meaning": "排除故障",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1714,7 +1963,9 @@
     "term": "endeavour",
     "meaning": "努力",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1729,7 +1980,9 @@
     "term": "conceptualise",
     "meaning": "概念化",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1744,7 +1997,9 @@
     "term": "interwine",
     "meaning": "交织",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1759,7 +2014,9 @@
     "term": "trump",
     "meaning": "胜过",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1774,7 +2031,9 @@
     "term": "elaborate",
     "meaning": "阐述",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1789,7 +2048,9 @@
     "term": "deliberate",
     "meaning": "斟酌",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1804,7 +2065,11 @@
     "term": "distill",
     "meaning": "提炼",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1819,7 +2084,9 @@
     "term": "preclude",
     "meaning": "妨碍",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1834,7 +2101,9 @@
     "term": "compell",
     "meaning": "迫使",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1849,7 +2118,9 @@
     "term": "curate",
     "meaning": "策划",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1864,7 +2135,9 @@
     "term": "atrophy",
     "meaning": "萎缩",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1879,7 +2152,9 @@
     "term": "undergo",
     "meaning": "经历",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1894,7 +2169,9 @@
     "term": "ameliorate",
     "meaning": "改善",
     "pos": "verb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "A variety of analytic approximations exist which ameliorate, but do not remove.",
     "source": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.",
@@ -1910,7 +2187,9 @@
     "meaning": "体素的",
     "pos": "adjective-adverb",
     "domains": [
-      "医学影像"
+      "计算机科学",
+      "计算机视觉",
+      "医学"
     ],
     "tags": [],
     "example": "We made a voxelwise comparison between the activity maps generated using the proposed method.",
@@ -1926,7 +2205,9 @@
     "term": "substantial",
     "meaning": "大量的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "Our experiments show that this architecture yields substantial improvements on dense prediction tasks.",
     "source": "Vision Transformers for Dense Prediction 2021.",
@@ -1941,7 +2222,9 @@
     "term": "fairly",
     "meaning": "比较/公正地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "such that future contributions can be compared fairly and objectively with existing architectures.",
     "source": "A Fair Comparison of Graph Neural Networks for Graph Classification, 2019.",
@@ -1956,7 +2239,11 @@
     "term": "shallow",
     "meaning": "浅的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "a distinction that is particularly relevant for choosing between deep and shallow feature maps.",
     "source": "A Unifying Review of Deep and Shallow Anomaly Detection, 2020.",
@@ -1971,7 +2258,9 @@
     "term": "consecutive",
     "meaning": "连续的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -1986,7 +2275,11 @@
     "term": "robust",
     "meaning": "强大的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2001,7 +2294,9 @@
     "term": "plausible",
     "meaning": "合理的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2016,7 +2311,9 @@
     "term": "superfluous",
     "meaning": "多余的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2031,7 +2328,9 @@
     "term": "undisclosed",
     "meaning": "未公开的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2046,7 +2345,9 @@
     "term": "interdependent",
     "meaning": "互相依存",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2061,7 +2362,9 @@
     "term": "empirical",
     "meaning": "经验性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2076,7 +2379,9 @@
     "term": "impactful",
     "meaning": "影响非常大的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2091,7 +2396,9 @@
     "term": "negligible",
     "meaning": "微不足道的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2106,7 +2413,9 @@
     "term": "thoroughly",
     "meaning": "彻底地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2121,7 +2430,9 @@
     "term": "adequate",
     "meaning": "充足的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2136,7 +2447,9 @@
     "term": "regulatory",
     "meaning": "监管的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2151,7 +2464,9 @@
     "term": "identical",
     "meaning": "一样的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2166,7 +2481,9 @@
     "term": "notably",
     "meaning": "特别是",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2181,7 +2498,9 @@
     "term": "trivially",
     "meaning": "容易地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2196,7 +2515,9 @@
     "term": "agnostic",
     "meaning": "不可知的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2211,7 +2532,9 @@
     "term": "distinct",
     "meaning": "不同的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2226,7 +2549,11 @@
     "term": "salient",
     "meaning": "突出的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2241,7 +2568,9 @@
     "term": "rightfully",
     "meaning": "正确地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2257,8 +2586,7 @@
     "meaning": "腹部的",
     "pos": "adjective-adverb",
     "domains": [
-      "医学",
-      "解剖学"
+      "医学"
     ],
     "tags": [],
     "example": "",
@@ -2274,7 +2602,9 @@
     "term": "latter",
     "meaning": "后者",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2289,7 +2619,9 @@
     "term": "sufficiently",
     "meaning": "充足地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2304,7 +2636,9 @@
     "term": "favorable",
     "meaning": "有利的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2319,7 +2653,9 @@
     "term": "heterogeneous",
     "meaning": "异质的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2334,7 +2670,9 @@
     "term": "succinct",
     "meaning": "简洁的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2349,7 +2687,11 @@
     "term": "stochastic",
     "meaning": "随机的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2364,7 +2706,9 @@
     "term": "monotonically",
     "meaning": "单调的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2379,7 +2723,9 @@
     "term": "aforementioned",
     "meaning": "上述的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2394,7 +2740,9 @@
     "term": "malignant",
     "meaning": "恶性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2409,7 +2757,9 @@
     "term": "plausible",
     "meaning": "可行的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2424,7 +2774,9 @@
     "term": "conventional",
     "meaning": "常规的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2439,7 +2791,9 @@
     "term": "remarkable",
     "meaning": "卓越的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2454,7 +2808,9 @@
     "term": "modular",
     "meaning": "模块化",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2469,7 +2825,9 @@
     "term": "progressively",
     "meaning": "逐步地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2484,7 +2842,9 @@
     "term": "reproducible",
     "meaning": "可重复性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2499,7 +2859,9 @@
     "term": "apical",
     "meaning": "顶部的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2514,7 +2876,9 @@
     "term": "synergistic",
     "meaning": "协同的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2529,7 +2893,10 @@
     "term": "adversarial",
     "meaning": "对抗性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2544,7 +2911,9 @@
     "term": "quasi",
     "meaning": "准",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2559,7 +2928,9 @@
     "term": "imperceptible",
     "meaning": "难以察觉的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2574,7 +2945,9 @@
     "term": "subtle",
     "meaning": "微妙的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2589,7 +2962,9 @@
     "term": "perceptible",
     "meaning": "可察觉的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2604,7 +2979,9 @@
     "term": "intriguing",
     "meaning": "有趣的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2619,7 +2996,9 @@
     "term": "susceptible",
     "meaning": "易受影响的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2634,7 +3013,9 @@
     "term": "tremendous",
     "meaning": "巨大的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2649,7 +3030,9 @@
     "term": "prevalent",
     "meaning": "广布的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2664,7 +3047,9 @@
     "term": "reliant",
     "meaning": "依赖的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2679,7 +3064,11 @@
     "term": "acoustic",
     "meaning": "声学的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2694,7 +3083,9 @@
     "term": "indistiguishable",
     "meaning": "难以区分的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2709,7 +3100,9 @@
     "term": "genuine",
     "meaning": "真正的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2724,7 +3117,9 @@
     "term": "intractable",
     "meaning": "棘手的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2739,7 +3134,9 @@
     "term": "nontrivial",
     "meaning": "不平凡的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2754,7 +3151,9 @@
     "term": "abundant",
     "meaning": "丰富的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2769,7 +3168,9 @@
     "term": "inherently",
     "meaning": "固有地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2784,7 +3185,9 @@
     "term": "ambiguous",
     "meaning": "含糊的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2799,7 +3202,9 @@
     "term": "laborious",
     "meaning": "费力的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2814,7 +3219,9 @@
     "term": "superseded",
     "meaning": "被代替的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2829,7 +3236,9 @@
     "term": "vulnerable",
     "meaning": "脆弱的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2844,7 +3253,9 @@
     "term": "concrete",
     "meaning": "具体的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2859,7 +3270,9 @@
     "term": "scarce",
     "meaning": "稀缺的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2874,7 +3287,9 @@
     "term": "rigorous",
     "meaning": "严谨的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2889,7 +3304,9 @@
     "term": "seminal",
     "meaning": "开创性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2904,7 +3321,9 @@
     "term": "logically",
     "meaning": "顺理成章地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2919,7 +3338,9 @@
     "term": "trivial",
     "meaning": "不重要的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2934,7 +3355,9 @@
     "term": "prominent",
     "meaning": "突出的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2949,7 +3372,9 @@
     "term": "dilated",
     "meaning": "扩张的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2964,7 +3389,9 @@
     "term": "contemporary",
     "meaning": "当代的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2979,7 +3406,9 @@
     "term": "brittle",
     "meaning": "脆弱的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -2994,7 +3423,9 @@
     "term": "thereby",
     "meaning": "从而",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3009,7 +3440,9 @@
     "term": "doable",
     "meaning": "可行的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3024,7 +3457,9 @@
     "term": "pseudo",
     "meaning": "伪的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3039,7 +3474,9 @@
     "term": "transparent",
     "meaning": "透明的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3054,7 +3491,9 @@
     "term": "pivotal",
     "meaning": "关键的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3069,7 +3508,9 @@
     "term": "premature",
     "meaning": "过早的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3084,7 +3525,9 @@
     "term": "non-exclusive",
     "meaning": "非排他性",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3099,7 +3542,9 @@
     "term": "notably",
     "meaning": "值得注意的是",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3114,7 +3559,9 @@
     "term": "inadequate",
     "meaning": "不够的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3129,7 +3576,9 @@
     "term": "methodological",
     "meaning": "方法上的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3144,7 +3593,9 @@
     "term": "actionable",
     "meaning": "可行的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3159,7 +3610,9 @@
     "term": "incapable",
     "meaning": "无法",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3174,7 +3627,9 @@
     "term": "hybrid",
     "meaning": "混合的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3189,7 +3644,10 @@
     "term": "latent",
     "meaning": "潜在的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3204,7 +3662,9 @@
     "term": "conceivable",
     "meaning": "可以想到的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3219,7 +3679,9 @@
     "term": "unreservedly",
     "meaning": "毫无保留地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3234,7 +3696,9 @@
     "term": "condensed",
     "meaning": "浓缩的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3249,7 +3713,9 @@
     "term": "holistic",
     "meaning": "整体的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3264,7 +3730,9 @@
     "term": "interwoven",
     "meaning": "交织的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3279,7 +3747,9 @@
     "term": "obsolete",
     "meaning": "过时的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3294,7 +3764,9 @@
     "term": "emerging",
     "meaning": "新兴的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3309,7 +3781,9 @@
     "term": "invasive",
     "meaning": "侵入性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3324,7 +3798,9 @@
     "term": "drastically",
     "meaning": "剧烈地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3339,7 +3815,9 @@
     "term": "primordial",
     "meaning": "原始的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3354,7 +3832,9 @@
     "term": "astounding",
     "meaning": "惊人的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3369,7 +3849,9 @@
     "term": "parenchymal",
     "meaning": "实质的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3384,7 +3866,9 @@
     "term": "whereby",
     "meaning": "从而",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3399,7 +3883,9 @@
     "term": "chronological",
     "meaning": "按时间顺序的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3414,7 +3900,9 @@
     "term": "ubiquitous",
     "meaning": "无处不在的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3429,7 +3917,11 @@
     "term": "anisotropic",
     "meaning": "各向异性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3444,7 +3936,11 @@
     "term": "isotropic",
     "meaning": "各向同性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3459,7 +3955,9 @@
     "term": "cumbersome",
     "meaning": "麻烦的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3474,7 +3972,9 @@
     "term": "exemplary",
     "meaning": "示范性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3489,7 +3989,9 @@
     "term": "overarching",
     "meaning": "总体的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3504,7 +4006,9 @@
     "term": "nonetheless",
     "meaning": "尽管如此",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3519,7 +4023,9 @@
     "term": "unduly",
     "meaning": "过分地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3534,7 +4040,9 @@
     "term": "forthcoming",
     "meaning": "即将来临的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3549,7 +4057,9 @@
     "term": "admissible",
     "meaning": "可接受的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3564,7 +4074,9 @@
     "term": "symbiotic",
     "meaning": "共生的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3579,7 +4091,9 @@
     "term": "lethal",
     "meaning": "致命的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3594,7 +4108,9 @@
     "term": "infallible",
     "meaning": "可靠的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3609,7 +4125,9 @@
     "term": "detrimental",
     "meaning": "有害的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3624,7 +4142,9 @@
     "term": "intact",
     "meaning": "完整的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3639,7 +4159,9 @@
     "term": "concurrent",
     "meaning": "同时的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3654,7 +4176,9 @@
     "term": "innate",
     "meaning": "先天的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3669,7 +4193,9 @@
     "term": "paramount",
     "meaning": "首要的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3684,7 +4210,9 @@
     "term": "solely",
     "meaning": "独自的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3699,7 +4227,9 @@
     "term": "therapeutic",
     "meaning": "治疗的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3714,7 +4244,9 @@
     "term": "canonical",
     "meaning": "典型的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3729,7 +4261,9 @@
     "term": "vague",
     "meaning": "模糊的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3744,7 +4278,9 @@
     "term": "capricious",
     "meaning": "变化无常的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3759,7 +4295,9 @@
     "term": "planar",
     "meaning": "平面的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3774,7 +4312,9 @@
     "term": "tailored",
     "meaning": "量身定制的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3789,7 +4329,9 @@
     "term": "intrinsic",
     "meaning": "固有的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3804,7 +4346,9 @@
     "term": "seamlessly",
     "meaning": "无缝地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3819,7 +4363,9 @@
     "term": "intuitively",
     "meaning": "直观地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3834,7 +4380,9 @@
     "term": "holonomic",
     "meaning": "完整的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3849,7 +4397,9 @@
     "term": "informative",
     "meaning": "信息丰富的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3864,7 +4414,9 @@
     "term": "prime",
     "meaning": "主要的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3879,7 +4431,10 @@
     "term": "reciprocal",
     "meaning": "相互的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3894,7 +4449,9 @@
     "term": "quadratic",
     "meaning": "二次的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3909,7 +4466,9 @@
     "term": "noninvasively",
     "meaning": "无创地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3924,7 +4483,9 @@
     "term": "grounded",
     "meaning": "扎实的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3939,7 +4500,9 @@
     "term": "soundly",
     "meaning": "可靠地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3954,7 +4517,9 @@
     "term": "eminent",
     "meaning": "杰出的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3969,7 +4534,9 @@
     "term": "nascent",
     "meaning": "新生的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3984,7 +4551,9 @@
     "term": "intrinsically",
     "meaning": "本质上",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -3999,7 +4568,9 @@
     "term": "concise",
     "meaning": "简洁的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4014,7 +4585,10 @@
     "term": "ternary",
     "meaning": "三元的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4029,7 +4603,10 @@
     "term": "binary",
     "meaning": "二元的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4044,7 +4621,9 @@
     "term": "resilient",
     "meaning": "有弹性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4059,7 +4638,9 @@
     "term": "anomalous",
     "meaning": "异常的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4074,7 +4655,9 @@
     "term": "encyclopedic",
     "meaning": "百科全书般的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4089,7 +4672,9 @@
     "term": "spurious",
     "meaning": "虚假的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4104,7 +4689,9 @@
     "term": "prototypical",
     "meaning": "典型的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4119,7 +4706,9 @@
     "term": "groundbreaking",
     "meaning": "开创性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4134,7 +4723,9 @@
     "term": "interchangeably",
     "meaning": "可互换地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4149,7 +4740,9 @@
     "term": "compulsory",
     "meaning": "强制性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4164,7 +4757,9 @@
     "term": "verbal",
     "meaning": "口头上",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4179,7 +4774,9 @@
     "term": "inscrutable",
     "meaning": "费解的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4194,7 +4791,9 @@
     "term": "deceptive",
     "meaning": "欺骗性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4209,7 +4808,9 @@
     "term": "opaque",
     "meaning": "不透明",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4224,7 +4825,11 @@
     "term": "counterfactual",
     "meaning": "反事实的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4239,7 +4844,9 @@
     "term": "pervasive",
     "meaning": "无处不在的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4254,7 +4861,9 @@
     "term": "burgeoning",
     "meaning": "蓬勃发展的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4269,7 +4878,11 @@
     "term": "parsimonious",
     "meaning": "简约的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4284,7 +4897,9 @@
     "term": "arguably",
     "meaning": "可以说",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4299,7 +4914,9 @@
     "term": "favourable",
     "meaning": "有利的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4314,7 +4931,9 @@
     "term": "tractable",
     "meaning": "可操作的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4329,7 +4948,9 @@
     "term": "mutable",
     "meaning": "可变的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4344,7 +4965,9 @@
     "term": "albeit",
     "meaning": "尽管",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4359,7 +4982,9 @@
     "term": "unprecedented",
     "meaning": "前所未有的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4374,7 +4999,9 @@
     "term": "pertinent",
     "meaning": "中肯的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4389,7 +5016,9 @@
     "term": "penultimate",
     "meaning": "倒数第二个",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4404,7 +5033,9 @@
     "term": "uncurated",
     "meaning": "未经整理的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4419,7 +5050,9 @@
     "term": "off-putting",
     "meaning": "令人不快的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4434,7 +5067,9 @@
     "term": "accommodating",
     "meaning": "通融的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4449,7 +5084,9 @@
     "term": "homogeneous",
     "meaning": "均质",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4464,7 +5101,9 @@
     "term": "scarce",
     "meaning": "稀缺",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4479,7 +5118,9 @@
     "term": "marginal",
     "meaning": "微不足道的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4494,7 +5135,9 @@
     "term": "interim",
     "meaning": "暂时的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4509,7 +5152,9 @@
     "term": "purportedly",
     "meaning": "据称是",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4524,7 +5169,9 @@
     "term": "retrospectively",
     "meaning": "回顾性地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4539,7 +5186,12 @@
     "term": "optimal",
     "meaning": "最佳的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4554,7 +5206,9 @@
     "term": "metastatic",
     "meaning": "转移性的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4569,7 +5223,9 @@
     "term": "interrelated",
     "meaning": "相互关联",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4584,7 +5240,9 @@
     "term": "deleterious",
     "meaning": "有害的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4599,7 +5257,9 @@
     "term": "anthropomorphic",
     "meaning": "拟人化的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4614,7 +5274,9 @@
     "term": "problematic",
     "meaning": "有问题的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4629,7 +5291,9 @@
     "term": "peripheral",
     "meaning": "周围的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4644,7 +5308,9 @@
     "term": "unwieldy",
     "meaning": "笨重的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4659,7 +5325,9 @@
     "term": "expeditious",
     "meaning": "快速的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4674,7 +5342,9 @@
     "term": "concurrently",
     "meaning": "同时",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4689,7 +5359,9 @@
     "term": "dedicated",
     "meaning": "专用的",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4704,7 +5376,11 @@
     "term": "tractable",
     "meaning": "易处理",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "learning, sampling, inference, and evaluation are still analytically or computationally tractable.",
     "source": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.",
@@ -4719,7 +5395,9 @@
     "term": "aptly",
     "meaning": "恰当地",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "these models are unable to aptly describe structure in rich datasets.",
     "source": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.",
@@ -4734,7 +5412,9 @@
     "term": "subpar",
     "meaning": "欠佳",
     "pos": "adjective-adverb",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "it reaches subpar performance on medical image segmentation.",
     "source": "Medical Image Analysis, 2025.",
@@ -4749,7 +5429,9 @@
     "term": "downside",
     "meaning": "缺点",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "hus addressing the downside of previous methods.",
     "source": "BEVFusion: A Simple and Robust LiDAR-Camera Fusion Framework, 2022.",
@@ -4764,7 +5446,9 @@
     "term": "approach",
     "meaning": "方法",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "hence, approaches for deep learning from private training data.",
     "source": "MixMatch: A Holistic Approach to Semi-Supervised Learning, 2019.",
@@ -4779,7 +5463,11 @@
     "term": "perturbation",
     "meaning": "扰动",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "by introducing the concept of extremal perturbations.",
     "source": "Understanding Deep Networks via Extremal Perturbations and Smooth Masks, 2019.",
@@ -4794,7 +5482,11 @@
     "term": "factorization",
     "meaning": "因式分解",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "developed a solution to the unsupervised concept discovery problem by using matrix factorizations in the latent spaces of neural networks.",
     "source": "CRAFT: Concept Recursive Activation FacTorization for Explainability, 2022.",
@@ -4809,7 +5501,10 @@
     "term": "generalizability",
     "meaning": "泛化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4824,7 +5519,10 @@
     "term": "intervention",
     "meaning": "干预",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4839,7 +5537,9 @@
     "term": "versatility",
     "meaning": "多功能性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4854,7 +5554,9 @@
     "term": "criteria",
     "meaning": "标准",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4869,7 +5571,9 @@
     "term": "merit",
     "meaning": "优点",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4884,7 +5588,9 @@
     "term": "heuristic",
     "meaning": "启发式",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4899,7 +5605,9 @@
     "term": "hurdles",
     "meaning": "障碍",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4914,7 +5622,9 @@
     "term": "inferior",
     "meaning": "低级",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4929,7 +5639,9 @@
     "term": "identification",
     "meaning": "识别",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4944,7 +5656,10 @@
     "term": "localisation",
     "meaning": "定位",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4959,7 +5674,11 @@
     "term": "bias",
     "meaning": "偏差",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4974,7 +5693,10 @@
     "term": "manifestations",
     "meaning": "表现",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -4989,7 +5711,10 @@
     "term": "deviation",
     "meaning": "偏差",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5004,7 +5729,10 @@
     "term": "anomalies",
     "meaning": "异常",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5019,7 +5747,9 @@
     "term": "assessment",
     "meaning": "评估",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5034,7 +5764,9 @@
     "term": "heterogeneity",
     "meaning": "异质性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5049,7 +5781,9 @@
     "term": "vulnerability",
     "meaning": "漏洞",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5064,7 +5798,9 @@
     "term": "deployment",
     "meaning": "部署",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5079,7 +5815,9 @@
     "term": "proxy",
     "meaning": "代理",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5094,7 +5832,9 @@
     "term": "intention",
     "meaning": "意图",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5109,7 +5849,9 @@
     "term": "aggregation",
     "meaning": "聚合",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5124,7 +5866,9 @@
     "term": "surveillance",
     "meaning": "监视",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5139,7 +5883,9 @@
     "term": "plethora",
     "meaning": "过多",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5154,7 +5900,9 @@
     "term": "counterparts",
     "meaning": "对方",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5169,7 +5917,9 @@
     "term": "scarcity",
     "meaning": "稀缺性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5184,7 +5934,9 @@
     "term": "commonalities",
     "meaning": "共同点",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5199,7 +5951,9 @@
     "term": "counterfeiters",
     "meaning": "造假者",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5214,7 +5968,9 @@
     "term": "novice",
     "meaning": "新手",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5229,7 +5985,11 @@
     "term": "likelihood",
     "meaning": "可能性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5244,7 +6004,9 @@
     "term": "countermeasures",
     "meaning": "对策",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5259,7 +6021,9 @@
     "term": "workhorse",
     "meaning": "主力",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5274,7 +6038,9 @@
     "term": "artefacts",
     "meaning": "人工",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5289,7 +6055,9 @@
     "term": "inhomogeneity",
     "meaning": "不均匀性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5304,7 +6072,10 @@
     "term": "chunk",
     "meaning": "块",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5319,7 +6090,10 @@
     "term": "consensus",
     "meaning": "共识",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5334,7 +6108,9 @@
     "term": "proliferation",
     "meaning": "增殖",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5349,7 +6125,11 @@
     "term": "biometric",
     "meaning": "生物特征",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5364,7 +6144,9 @@
     "term": "undertaking",
     "meaning": "任务",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5379,7 +6161,9 @@
     "term": "insight",
     "meaning": "见解",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5394,7 +6178,10 @@
     "term": "remainder",
     "meaning": "剩余",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5409,7 +6196,9 @@
     "term": "milestone",
     "meaning": "里程碑",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5424,7 +6213,9 @@
     "term": "novelty",
     "meaning": "新颖性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5439,7 +6230,9 @@
     "term": "synergy",
     "meaning": "协同作用",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5454,7 +6247,9 @@
     "term": "reproducibility",
     "meaning": "重现性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5469,7 +6264,9 @@
     "term": "scenario",
     "meaning": "情景",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5484,7 +6281,9 @@
     "term": "resurgence",
     "meaning": "复活",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5499,7 +6298,10 @@
     "term": "assembly",
     "meaning": "部件",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5514,7 +6316,9 @@
     "term": "typos",
     "meaning": "错别字",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5529,7 +6333,10 @@
     "term": "interpretability",
     "meaning": "可解释性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5544,7 +6351,11 @@
     "term": "saliency",
     "meaning": "显著性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5559,7 +6370,9 @@
     "term": "barrier",
     "meaning": "壁垒",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5574,7 +6387,9 @@
     "term": "indication",
     "meaning": "指示",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5589,7 +6404,9 @@
     "term": "practitioners",
     "meaning": "从业者",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5604,7 +6421,10 @@
     "term": "sentiment",
     "meaning": "情绪",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5619,7 +6439,9 @@
     "term": "facet",
     "meaning": "方面",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5634,7 +6456,9 @@
     "term": "recipient",
     "meaning": "接受者",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5649,7 +6473,10 @@
     "term": "surrogate",
     "meaning": "替代",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5664,7 +6491,9 @@
     "term": "decomposition",
     "meaning": "分解",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5679,7 +6508,9 @@
     "term": "neonate",
     "meaning": "新生儿",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5694,7 +6525,9 @@
     "term": "gestation",
     "meaning": "妊娠",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5709,7 +6542,9 @@
     "term": "precaution",
     "meaning": "防范措施",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5724,7 +6559,9 @@
     "term": "peril",
     "meaning": "危险",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5739,7 +6576,10 @@
     "term": "counterfactuals",
     "meaning": "反事实",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5754,7 +6594,9 @@
     "term": "bail",
     "meaning": "保释",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5769,7 +6611,9 @@
     "term": "ethics",
     "meaning": "伦理",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5784,7 +6628,9 @@
     "term": "agnostic",
     "meaning": "不可知论者",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5799,7 +6645,9 @@
     "term": "taxonomy",
     "meaning": "分类",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5814,7 +6662,9 @@
     "term": "clinics",
     "meaning": "诊所",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5829,7 +6679,9 @@
     "term": "category",
     "meaning": "类别",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5844,7 +6696,9 @@
     "term": "analogy",
     "meaning": "比喻",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5859,7 +6713,9 @@
     "term": "suitability",
     "meaning": "适应性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5874,7 +6730,9 @@
     "term": "instantiation",
     "meaning": "实例化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5889,7 +6747,9 @@
     "term": "scope",
     "meaning": "范围",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5904,7 +6764,9 @@
     "term": "prerequisite",
     "meaning": "先决条件",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5919,7 +6781,9 @@
     "term": "plausibility",
     "meaning": "合理性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5934,7 +6798,11 @@
     "term": "sketch",
     "meaning": "草图",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5949,7 +6817,9 @@
     "term": "traceability",
     "meaning": "可追溯性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5964,7 +6834,9 @@
     "term": "traits",
     "meaning": "特征",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5979,7 +6851,10 @@
     "term": "magnification",
     "meaning": "放大",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -5994,7 +6869,9 @@
     "term": "paucity",
     "meaning": "贫乏",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6009,7 +6886,9 @@
     "term": "therapy",
     "meaning": "治疗",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6024,7 +6903,9 @@
     "term": "epilogue",
     "meaning": "结语",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6039,7 +6920,9 @@
     "term": "turnaround",
     "meaning": "周转时间",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6054,7 +6937,9 @@
     "term": "schema",
     "meaning": "图式",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6069,7 +6954,9 @@
     "term": "analogs",
     "meaning": "类似物",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6084,7 +6971,9 @@
     "term": "harmonization",
     "meaning": "协调",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6099,7 +6988,9 @@
     "term": "percentile",
     "meaning": "百分位",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6114,7 +7005,9 @@
     "term": "precursor",
     "meaning": "先导",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6129,7 +7022,9 @@
     "term": "discrepancy",
     "meaning": "差异",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6144,7 +7039,9 @@
     "term": "ingredient",
     "meaning": "成分",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6159,7 +7056,9 @@
     "term": "disparity",
     "meaning": "差距",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6174,7 +7073,9 @@
     "term": "offspring",
     "meaning": "后代",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6189,7 +7090,9 @@
     "term": "peculiarity",
     "meaning": "特色",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6204,7 +7107,10 @@
     "term": "inpainting",
     "meaning": "修补",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6219,7 +7125,10 @@
     "term": "aberration",
     "meaning": "像差",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6234,7 +7143,9 @@
     "term": "alteration",
     "meaning": "改造",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6249,7 +7160,10 @@
     "term": "distortion",
     "meaning": "畸变",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6264,7 +7178,9 @@
     "term": "rationale",
     "meaning": "基本原理",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6279,7 +7195,11 @@
     "term": "exemplar",
     "meaning": "范例",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6294,7 +7214,9 @@
     "term": "hypointense",
     "meaning": "低调",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6309,7 +7231,10 @@
     "term": "screening",
     "meaning": "筛选",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6324,7 +7249,9 @@
     "term": "prognosis",
     "meaning": "预测",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6339,7 +7266,9 @@
     "term": "dysfunction",
     "meaning": "功能障碍",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6354,7 +7283,9 @@
     "term": "ambiguity",
     "meaning": "模棱两可",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6369,7 +7300,9 @@
     "term": "interference",
     "meaning": "干扰",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6384,7 +7317,10 @@
     "term": "deformation",
     "meaning": "形变",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6399,7 +7335,9 @@
     "term": "variations",
     "meaning": "变化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6414,7 +7352,9 @@
     "term": "interdependency",
     "meaning": "相互依存",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6429,7 +7369,9 @@
     "term": "severity",
     "meaning": "严重程度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6444,7 +7386,9 @@
     "term": "indices",
     "meaning": "指标",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6459,7 +7403,9 @@
     "term": "quantification",
     "meaning": "量化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6474,7 +7420,9 @@
     "term": "relatedness",
     "meaning": "相关性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6489,7 +7437,9 @@
     "term": "violation",
     "meaning": "违法",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6504,7 +7454,9 @@
     "term": "redundancy",
     "meaning": "冗余",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6519,7 +7471,9 @@
     "term": "convexity",
     "meaning": "凸度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6534,7 +7488,11 @@
     "term": "dimensionality",
     "meaning": "维度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6549,7 +7507,9 @@
     "term": "correlations",
     "meaning": "相关性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6564,7 +7524,9 @@
     "term": "homogeneity",
     "meaning": "同质性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6579,7 +7541,9 @@
     "term": "valve",
     "meaning": "阀门",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6594,7 +7558,10 @@
     "term": "magnitude",
     "meaning": "大小",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6609,7 +7576,9 @@
     "term": "singularity",
     "meaning": "奇点",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6624,7 +7593,9 @@
     "term": "caveats",
     "meaning": "注意事项",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6639,7 +7610,10 @@
     "term": "synonym",
     "meaning": "代名词",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6654,7 +7628,9 @@
     "term": "perimeter",
     "meaning": "周长",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6669,7 +7645,9 @@
     "term": "cohort",
     "meaning": "群组",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6684,7 +7662,9 @@
     "term": "workloads",
     "meaning": "工作量",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6699,7 +7679,9 @@
     "term": "prospect",
     "meaning": "前景",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6714,7 +7696,11 @@
     "term": "occlusion",
     "meaning": "阻挡",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6729,7 +7715,9 @@
     "term": "blockage",
     "meaning": "阻挡",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6744,7 +7732,9 @@
     "term": "superiority",
     "meaning": "优势",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6759,7 +7749,9 @@
     "term": "commensalism",
     "meaning": "互惠",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6774,7 +7766,9 @@
     "term": "vendors",
     "meaning": "供应商",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6789,7 +7783,9 @@
     "term": "compound",
     "meaning": "复合",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6804,7 +7800,9 @@
     "term": "succinctness",
     "meaning": "简洁",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6819,7 +7817,9 @@
     "term": "inspection",
     "meaning": "检查",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6834,7 +7834,9 @@
     "term": "desideratum",
     "meaning": "迫切需要",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6849,7 +7851,9 @@
     "term": "layman",
     "meaning": "外行",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6864,7 +7868,10 @@
     "term": "stimuli",
     "meaning": "刺激",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6879,7 +7886,9 @@
     "term": "distinction",
     "meaning": "区别",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6894,7 +7903,9 @@
     "term": "aesthetics",
     "meaning": "美学",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6909,7 +7920,9 @@
     "term": "surge",
     "meaning": "涌",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6924,7 +7937,9 @@
     "term": "supremacy",
     "meaning": "霸权",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6939,7 +7954,9 @@
     "term": "thoroughness",
     "meaning": "彻底性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6954,7 +7971,10 @@
     "term": "fidelity",
     "meaning": "保真度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6969,7 +7989,9 @@
     "term": "conspecifics",
     "meaning": "特定种类",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6984,7 +8006,10 @@
     "term": "prototype",
     "meaning": "原型",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -6999,7 +8024,9 @@
     "term": "propaganda",
     "meaning": "宣传",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7014,7 +8041,9 @@
     "term": "advent",
     "meaning": "来临",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7029,7 +8058,11 @@
     "term": "glossary",
     "meaning": "词汇表",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7044,7 +8077,9 @@
     "term": "initiatives",
     "meaning": "主动性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7059,7 +8094,9 @@
     "term": "rigor",
     "meaning": "严格",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7074,7 +8111,11 @@
     "term": "causality",
     "meaning": "因果关系",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7089,7 +8130,9 @@
     "term": "desiderata",
     "meaning": "愿景",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7104,7 +8147,10 @@
     "term": "intelligibility",
     "meaning": "可理解性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7119,7 +8165,9 @@
     "term": "knockoff",
     "meaning": "仿制品",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7134,7 +8182,9 @@
     "term": "mimick",
     "meaning": "模仿",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7149,7 +8199,9 @@
     "term": "stakeholders",
     "meaning": "利益相关者",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "We focus on three important stakeholders: patient, healthcare professionals, research/material.",
     "source": "The Rise of Small Language Models in Healthcare: A Comprehensive Survey, 2025.",
@@ -7164,7 +8216,9 @@
     "term": "ramifications",
     "meaning": "后果",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7179,7 +8233,9 @@
     "term": "tenet",
     "meaning": "宗旨",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7194,7 +8250,9 @@
     "term": "impediment",
     "meaning": "阻碍",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7209,7 +8267,9 @@
     "term": "chasm",
     "meaning": "裂口",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7224,7 +8284,9 @@
     "term": "walkthrough",
     "meaning": "演练",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7239,7 +8301,9 @@
     "term": "onus",
     "meaning": "责任",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7254,7 +8318,9 @@
     "term": "chronology",
     "meaning": "年表",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7269,7 +8335,9 @@
     "term": "greenhorn",
     "meaning": "新手",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7284,7 +8352,9 @@
     "term": "snippets",
     "meaning": "片段",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7299,7 +8369,9 @@
     "term": "gist",
     "meaning": "要领",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7314,7 +8386,9 @@
     "term": "scalability",
     "meaning": "可扩展性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7329,7 +8403,9 @@
     "term": "workaround",
     "meaning": "解决方法",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7344,7 +8420,9 @@
     "term": "morphism",
     "meaning": "蜕变",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7359,7 +8437,9 @@
     "term": "regime",
     "meaning": "制度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7374,7 +8454,9 @@
     "term": "mitigation",
     "meaning": "减轻",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7389,7 +8471,12 @@
     "term": "hallucinations",
     "meaning": "幻觉",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "自然语言处理",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7404,7 +8491,11 @@
     "term": "jargon",
     "meaning": "行话",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7419,7 +8510,9 @@
     "term": "boilerplate",
     "meaning": "规章制度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7434,7 +8527,9 @@
     "term": "caveat",
     "meaning": "注意事项",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7449,7 +8544,9 @@
     "term": "syllabus",
     "meaning": "教学大纲",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7464,7 +8561,9 @@
     "term": "weighing",
     "meaning": "权衡",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7479,7 +8578,9 @@
     "term": "profile",
     "meaning": "概况",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7494,7 +8595,11 @@
     "term": "prompt",
     "meaning": "提示",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7509,7 +8614,9 @@
     "term": "excerpt",
     "meaning": "节选",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7524,7 +8631,9 @@
     "term": "conformity",
     "meaning": "符合性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7539,7 +8648,9 @@
     "term": "impetus",
     "meaning": "动力",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7554,7 +8665,9 @@
     "term": "nomenclature",
     "meaning": "名词解释",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7569,7 +8682,9 @@
     "term": "sinogram",
     "meaning": "正弦图",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7584,7 +8699,9 @@
     "term": "etiology",
     "meaning": "病因",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7599,7 +8716,9 @@
     "term": "summation",
     "meaning": "合计",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7614,7 +8733,9 @@
     "term": "velocity",
     "meaning": "速度",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7629,7 +8750,9 @@
     "term": "replicas",
     "meaning": "副本",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7644,7 +8767,9 @@
     "term": "benchmark",
     "meaning": "基准",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7659,7 +8784,11 @@
     "term": "delineation",
     "meaning": "划定",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "计算机视觉",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7674,7 +8803,9 @@
     "term": "isoline",
     "meaning": "等值线",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7689,7 +8820,9 @@
     "term": "methodology",
     "meaning": "方法论",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7704,7 +8837,9 @@
     "term": "convention",
     "meaning": "共识",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7719,7 +8854,11 @@
     "term": "modalities",
     "meaning": "方式",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7734,7 +8873,9 @@
     "term": "cardinality",
     "meaning": "基数",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7749,7 +8890,10 @@
     "term": "rectifier",
     "meaning": "整流器",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7764,7 +8908,10 @@
     "term": "corpora",
     "meaning": "语料库",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7779,7 +8926,9 @@
     "term": "taxonomic",
     "meaning": "分类学",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7794,7 +8943,10 @@
     "term": "tokenization",
     "meaning": "标记化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7809,7 +8961,10 @@
     "term": "lemmatization",
     "meaning": "词形化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7824,7 +8979,11 @@
     "term": "acronyms",
     "meaning": "首字母缩写词",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7839,7 +8998,11 @@
     "term": "colloquialism",
     "meaning": "口语化",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学",
+      "自然语言处理"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7854,7 +9017,9 @@
     "term": "transducer",
     "meaning": "传感器",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7869,7 +9034,9 @@
     "term": "quadrants",
     "meaning": "象限",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7884,7 +9051,9 @@
     "term": "axiom",
     "meaning": "公理",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7899,7 +9068,9 @@
     "term": "dichotomy",
     "meaning": "二分法",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7914,7 +9085,9 @@
     "term": "binomial",
     "meaning": "二项式",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7929,7 +9102,9 @@
     "term": "multinomial",
     "meaning": "多项式",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7944,7 +9119,9 @@
     "term": "daemon",
     "meaning": "守护进程",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7959,7 +9136,9 @@
     "term": "ontology",
     "meaning": "本体论",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7974,7 +9153,9 @@
     "term": "trajectory",
     "meaning": "弹道",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -7989,7 +9170,11 @@
     "term": "extrapolation",
     "meaning": "外推法",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8004,7 +9189,9 @@
     "term": "polynomial",
     "meaning": "多项式",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8019,7 +9206,9 @@
     "term": "accountability",
     "meaning": "问责制",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8034,7 +9223,11 @@
     "term": "tractability",
     "meaning": "易处理性",
     "pos": "noun",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "Here, we develop an approach that simultaneously achieves both flexibility and tractability.",
     "source": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics, 2015.",
@@ -8049,7 +9242,9 @@
     "term": "with respect to",
     "meaning": "关于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "AI is a concept that mimics human intelligence with respect to learning and problem solving.",
     "source": "Current Developments of Artificial Intelligence in Digital Pathology and Its Future Clinical Applications in Gastrointestinal Cancers, 2022.",
@@ -8064,7 +9259,9 @@
     "term": "from...perspecitve",
     "meaning": "从...角度",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "This work offers a thorough understanding of LLMs from a practical perspective,.",
     "source": "Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond 2023.",
@@ -8079,7 +9276,9 @@
     "term": "correspond to",
     "meaning": "对应于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "In our model, the layer structure and topology correspond to the discretisation choices of temporal and spatial operators.",
     "source": "GRAND: Graph Neural Diffusion, 2021.",
@@ -8094,7 +9293,9 @@
     "term": "strove to",
     "meaning": "致力于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "we strove to develop a novel framework using DNNs in an end-to-end manner for contact prediction.",
     "source": "DeepECA: an end-to-end learning framework for protein contact prediction from a multiple sequence alignment, 2020.",
@@ -8109,7 +9310,9 @@
     "term": "herein this work",
     "meaning": "在本工作",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8124,7 +9327,9 @@
     "term": "are dedicated to",
     "meaning": "致力于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8139,7 +9344,9 @@
     "term": "in terms of",
     "meaning": "就...而言",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8154,7 +9361,9 @@
     "term": "reside on",
     "meaning": "在于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8169,7 +9378,9 @@
     "term": "with the advent of",
     "meaning": "随着...的到来",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8184,7 +9395,9 @@
     "term": "de facto",
     "meaning": "事实上",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8199,7 +9412,9 @@
     "term": "due to",
     "meaning": "由于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8214,7 +9429,9 @@
     "term": "attributed to the fact that",
     "meaning": "归因于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8229,7 +9446,9 @@
     "term": "First and foremost",
     "meaning": "首先",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8244,7 +9463,9 @@
     "term": "by a huge margin",
     "meaning": "大幅度",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8259,7 +9480,9 @@
     "term": "Therein",
     "meaning": "在其中",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8274,7 +9497,9 @@
     "term": "w.r.t.with respect to",
     "meaning": "关于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8289,7 +9514,9 @@
     "term": "rule of thumb",
     "meaning": "经验法则",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8304,7 +9531,10 @@
     "term": "on the fly",
     "meaning": "同时",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8319,7 +9549,9 @@
     "term": "vice versa",
     "meaning": "反之亦然",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8334,7 +9566,9 @@
     "term": "excel in",
     "meaning": "在...优秀",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8349,7 +9583,9 @@
     "term": "adverse discrepancy",
     "meaning": "不利差异",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8364,7 +9600,10 @@
     "term": "soft surrogate",
     "meaning": "软代理",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8379,7 +9618,9 @@
     "term": "empirically investigate",
     "meaning": "实证研究",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8394,7 +9635,9 @@
     "term": "lies in",
     "meaning": "在于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8409,7 +9652,9 @@
     "term": "pit against",
     "meaning": "反对",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8424,7 +9669,9 @@
     "term": "is analogous to",
     "meaning": "类似于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8439,7 +9686,9 @@
     "term": "ravel out",
     "meaning": "散开",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8455,8 +9704,7 @@
     "meaning": "纵隔结构",
     "pos": "phrase",
     "domains": [
-      "医学",
-      "解剖学"
+      "医学"
     ],
     "tags": [],
     "example": "",
@@ -8472,7 +9720,9 @@
     "term": "orally-given",
     "meaning": "口头给予",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8488,8 +9738,7 @@
     "meaning": "矢状面",
     "pos": "phrase",
     "domains": [
-      "医学影像",
-      "解剖学"
+      "医学"
     ],
     "tags": [],
     "example": "",
@@ -8506,8 +9755,7 @@
     "meaning": "轴向视图",
     "pos": "phrase",
     "domains": [
-      "医学影像",
-      "解剖学"
+      "医学"
     ],
     "tags": [],
     "example": "",
@@ -8524,8 +9772,7 @@
     "meaning": "冠状视图",
     "pos": "phrase",
     "domains": [
-      "医学影像",
-      "解剖学"
+      "医学"
     ],
     "tags": [],
     "example": "",
@@ -8541,7 +9788,9 @@
     "term": "give rise to",
     "meaning": "会发生",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8556,7 +9805,9 @@
     "term": "plethora of",
     "meaning": "过多的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8571,7 +9822,9 @@
     "term": "ad hoc",
     "meaning": "特设的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8586,7 +9839,9 @@
     "term": "bells and whistles",
     "meaning": "花里胡哨的东西",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8601,7 +9856,9 @@
     "term": "a substantial amount of",
     "meaning": "大量的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8616,7 +9873,9 @@
     "term": "an essential component",
     "meaning": "必不可少的组成部分",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8631,7 +9890,9 @@
     "term": "a broad range of applications",
     "meaning": "广泛的应用",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8646,7 +9907,9 @@
     "term": "play a central role",
     "meaning": "发挥中心作用",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8661,7 +9924,9 @@
     "term": "a paradigm shift",
     "meaning": "范式转变",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8676,7 +9941,9 @@
     "term": "courtesy of",
     "meaning": "由...提供",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8691,7 +9958,9 @@
     "term": "a.k.a also known as",
     "meaning": "又名",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8706,7 +9975,9 @@
     "term": "underlying cause",
     "meaning": "根本原因",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8721,7 +9992,9 @@
     "term": "by a large margin",
     "meaning": "大大地",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8736,7 +10009,9 @@
     "term": "is composed of",
     "meaning": "由...组成",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8751,7 +10026,10 @@
     "term": "lateral connection",
     "meaning": "横向连接",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8766,7 +10044,9 @@
     "term": "e.g for example",
     "meaning": "举个例子",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8781,7 +10061,9 @@
     "term": "i.e in other words",
     "meaning": "也就是说",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8796,7 +10078,9 @@
     "term": "along with",
     "meaning": "随着",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8811,7 +10095,9 @@
     "term": "sought to",
     "meaning": "力求",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8826,7 +10112,9 @@
     "term": "quantitative performance",
     "meaning": "定量性能",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8841,7 +10129,9 @@
     "term": "aggregate level",
     "meaning": "总水平",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8856,7 +10146,9 @@
     "term": "across-the-board",
     "meaning": "全面",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8871,7 +10163,9 @@
     "term": "lie ahead",
     "meaning": "在前面",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8886,7 +10180,9 @@
     "term": "for the sake of",
     "meaning": "为了",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8901,7 +10197,9 @@
     "term": "lay down",
     "meaning": "制定",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8916,7 +10214,9 @@
     "term": "in-depth discussion",
     "meaning": "深入讨论",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8931,7 +10231,9 @@
     "term": "error-prone",
     "meaning": "容易出错的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8946,7 +10248,9 @@
     "term": "stark contrast",
     "meaning": "鲜明对比",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8961,7 +10265,9 @@
     "term": "post-hoc",
     "meaning": "事后",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8976,7 +10282,10 @@
     "term": "model-agnostic",
     "meaning": "与模型无关",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -8991,7 +10300,9 @@
     "term": "high-stakes",
     "meaning": "高风险",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9006,7 +10317,9 @@
     "term": "a paucity of",
     "meaning": "贫乏",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9021,7 +10334,9 @@
     "term": "an abundance of",
     "meaning": "大量的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9036,7 +10351,9 @@
     "term": "adequacy of",
     "meaning": "足够的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9051,7 +10368,9 @@
     "term": "in-depth",
     "meaning": "深入的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9066,7 +10385,9 @@
     "term": "is tantamount to",
     "meaning": "等于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9081,7 +10402,9 @@
     "term": "self-explanatory",
     "meaning": "不言自明的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9096,7 +10419,10 @@
     "term": "a pilot study",
     "meaning": "初步研究",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9112,6 +10438,7 @@
     "meaning": "潜在空间",
     "pos": "phrase",
     "domains": [
+      "计算机科学",
       "机器学习"
     ],
     "tags": [],
@@ -9128,7 +10455,9 @@
     "term": "follow suit",
     "meaning": "跟风",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9143,7 +10472,9 @@
     "term": "downstream processing",
     "meaning": "下游加工",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9158,7 +10489,9 @@
     "term": "heuristic rules",
     "meaning": "启发式规则",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9173,7 +10506,9 @@
     "term": "plug-and-play",
     "meaning": "即插即用",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9188,7 +10523,9 @@
     "term": "out-of-the-box thinking",
     "meaning": "开箱即用思维",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9203,7 +10540,9 @@
     "term": "off-the-shelf",
     "meaning": "现成的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9218,7 +10557,9 @@
     "term": "hand-crafted",
     "meaning": "手工制作",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9233,7 +10574,9 @@
     "term": "presumably speaking",
     "meaning": "据推测",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9248,7 +10591,9 @@
     "term": "on parole",
     "meaning": "假释",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9263,7 +10608,9 @@
     "term": "is contingent on",
     "meaning": "取决于",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9278,7 +10625,9 @@
     "term": "boils down to",
     "meaning": "归结为",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9293,7 +10642,9 @@
     "term": "aside from",
     "meaning": "除了",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9308,7 +10659,9 @@
     "term": "devoid of",
     "meaning": "缺乏",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9323,7 +10676,9 @@
     "term": "accounts for",
     "meaning": "占",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9338,7 +10693,9 @@
     "term": "hold for",
     "meaning": "保持",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9353,7 +10710,9 @@
     "term": "is capable of",
     "meaning": "有能力",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9368,7 +10727,9 @@
     "term": "is consistent with",
     "meaning": "与...一致",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9383,7 +10744,9 @@
     "term": "a panorama of",
     "meaning": "的全景",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9398,7 +10761,9 @@
     "term": "a breadth of",
     "meaning": "广度",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9413,7 +10778,9 @@
     "term": "labor intensive",
     "meaning": "劳动密集型",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9428,7 +10795,9 @@
     "term": "state of affairs",
     "meaning": "事态",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9443,7 +10812,9 @@
     "term": "in-depth analysis",
     "meaning": "深入分析",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9458,7 +10829,9 @@
     "term": "to this end",
     "meaning": "为此",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9473,7 +10846,9 @@
     "term": "as such",
     "meaning": "因此",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9488,7 +10863,9 @@
     "term": "overarching goal",
     "meaning": "总体目标",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9503,7 +10880,9 @@
     "term": "in compliance with",
     "meaning": "遵守",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9518,7 +10897,9 @@
     "term": "per se",
     "meaning": "本身",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9533,7 +10914,9 @@
     "term": "one-off",
     "meaning": "一次性的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9548,7 +10931,9 @@
     "term": "wary of",
     "meaning": "警惕",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9563,7 +10948,9 @@
     "term": "of utmost importance",
     "meaning": "最重要的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9578,7 +10965,9 @@
     "term": "ante-hoc",
     "meaning": "事前",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9593,7 +10982,9 @@
     "term": "high-stakes",
     "meaning": "高风险",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9608,7 +10999,9 @@
     "term": "vicinity of",
     "meaning": "的附近",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9623,7 +11016,9 @@
     "term": "forefront of",
     "meaning": "最前沿",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9638,7 +11033,9 @@
     "term": "facets of",
     "meaning": "的方面",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9653,7 +11050,9 @@
     "term": "field guide",
     "meaning": "实地指南",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9668,7 +11067,9 @@
     "term": "held accountable for",
     "meaning": "负责",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9683,7 +11084,9 @@
     "term": "daunting task",
     "meaning": "艰巨的任务",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9698,7 +11101,9 @@
     "term": "much-needed",
     "meaning": "急需的",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9713,7 +11118,9 @@
     "term": "the uninitiated",
     "meaning": "初学者",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9728,7 +11135,9 @@
     "term": "shed light on",
     "meaning": "阐明",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9743,7 +11152,9 @@
     "term": "high-stakes decision",
     "meaning": "高风险决策",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9758,7 +11169,9 @@
     "term": "it bears mentioning",
     "meaning": "值得一提",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9773,7 +11186,10 @@
     "term": "at scale",
     "meaning": "在规模上",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用",
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9788,7 +11204,9 @@
     "term": "to some extent",
     "meaning": "在某种程度上",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9803,7 +11221,10 @@
     "term": "downstream tasks",
     "meaning": "下游任务",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9818,7 +11239,9 @@
     "term": "in-depth study",
     "meaning": "深入研究",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9833,7 +11256,9 @@
     "term": "deceptively simple",
     "meaning": "很简单",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9848,7 +11273,9 @@
     "term": "in all but a few cases",
     "meaning": "除少数情况下",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9863,7 +11290,9 @@
     "term": "low-hanging fruit",
     "meaning": "容易实现的目标",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9878,7 +11307,9 @@
     "term": "ex nihilo",
     "meaning": "凭空捏造",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9893,7 +11324,9 @@
     "term": "refrain from",
     "meaning": "避免",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9908,7 +11341,9 @@
     "term": "preliminary experiment",
     "meaning": "初步实验",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9923,7 +11358,9 @@
     "term": "in accordance with",
     "meaning": "按照",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9938,7 +11375,9 @@
     "term": "streamlined schemes",
     "meaning": "精简的计划",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9953,7 +11392,9 @@
     "term": "whilst",
     "meaning": "与此同时",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9968,7 +11409,9 @@
     "term": "proof-of-concept study",
     "meaning": "概念验证",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9983,7 +11426,10 @@
     "term": "in silico",
     "meaning": "通过计算机模拟",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -9998,7 +11444,9 @@
     "term": "trial-and-error",
     "meaning": "试错法",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10013,7 +11461,9 @@
     "term": "day-to-day",
     "meaning": "日常",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10028,7 +11478,9 @@
     "term": "in the course of",
     "meaning": "在...的进程中",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10043,7 +11495,9 @@
     "term": "in-house",
     "meaning": "内部",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10058,7 +11512,9 @@
     "term": "inversely proportional",
     "meaning": "成反比",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10073,7 +11529,9 @@
     "term": "denominator and numerator",
     "meaning": "分母和分子",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10088,7 +11546,9 @@
     "term": "dichotomous data",
     "meaning": "二分数据",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10103,7 +11563,10 @@
     "term": "multilabel datasets",
     "meaning": "多标签数据库",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10118,7 +11581,9 @@
     "term": "Tick Symbol",
     "meaning": "对勾√",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10133,7 +11598,9 @@
     "term": "crowdsourcing platforms",
     "meaning": "众包平台",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10148,7 +11615,9 @@
     "term": "coupling coefficient",
     "meaning": "耦合系数",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10163,7 +11632,10 @@
     "term": "discriminative learning",
     "meaning": "判别式学习",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10178,7 +11650,9 @@
     "term": "computation cost",
     "meaning": "计算消费",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10193,7 +11667,9 @@
     "term": "network configuration",
     "meaning": "网络配置",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10208,7 +11684,10 @@
     "term": "ablation studies",
     "meaning": "消融研究",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10240,7 +11719,11 @@
     "term": "probabilistic approach",
     "meaning": "概率方法",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10255,7 +11738,10 @@
     "term": "training from scratch",
     "meaning": "从基本训练",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10270,7 +11756,10 @@
     "term": "data driven approaches",
     "meaning": "数据驱动方法",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10286,7 +11775,9 @@
     "meaning": "后验概率",
     "pos": "phrase",
     "domains": [
-      "统计学"
+      "计算机科学",
+      "机器学习",
+      "数学"
     ],
     "tags": [],
     "example": "",
@@ -10302,7 +11793,11 @@
     "term": "multiple modalities",
     "meaning": "多模态",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10317,7 +11812,10 @@
     "term": "quantitative analysis",
     "meaning": "定量分析",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10332,7 +11830,12 @@
     "term": "scale invariance",
     "meaning": "尺度不变性",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习",
+      "计算机视觉",
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10348,6 +11851,7 @@
     "meaning": "知识蒸馏",
     "pos": "phrase",
     "domains": [
+      "计算机科学",
       "机器学习"
     ],
     "tags": [],
@@ -10364,7 +11868,9 @@
     "term": "sanity check",
     "meaning": "合理性检验",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10380,8 +11886,9 @@
     "meaning": "组套索",
     "pos": "phrase",
     "domains": [
-      "统计学",
-      "机器学习"
+      "计算机科学",
+      "机器学习",
+      "数学"
     ],
     "tags": [],
     "example": "",
@@ -10397,7 +11904,9 @@
     "term": "quasi-mathematical",
     "meaning": "准数学",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "数学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10429,7 +11938,9 @@
     "term": "verbose mode",
     "meaning": "详细模式",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10444,7 +11955,10 @@
     "term": "categorical label",
     "meaning": "分类别的标签",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10459,7 +11973,9 @@
     "term": "interim conclusion",
     "meaning": "中期总结",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10474,7 +11990,10 @@
     "term": "representational limitation",
     "meaning": "代表性的限制",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "计算机科学",
+      "机器学习"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10507,6 +12026,8 @@
     "meaning": "感受野",
     "pos": "phrase",
     "domains": [
+      "计算机科学",
+      "机器学习",
       "计算机视觉"
     ],
     "tags": [],
@@ -10523,7 +12044,10 @@
     "term": "retrospective analysis",
     "meaning": "回顾性分析",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用",
+      "医学"
+    ],
     "tags": [],
     "example": "",
     "source": "",
@@ -10538,7 +12062,9 @@
     "term": "in a nutshell",
     "meaning": "简而言之",
     "pos": "phrase",
-    "domains": [],
+    "domains": [
+      "通用"
+    ],
     "tags": [],
     "example": "",
     "source": "",

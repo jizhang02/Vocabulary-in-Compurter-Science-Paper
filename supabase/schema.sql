@@ -27,7 +27,7 @@ create table public.entries (
   id uuid primary key default gen_random_uuid(),
   term text not null check(length(btrim(term)) between 1 and 200),
   meaning text not null check(length(btrim(meaning)) between 1 and 1000),
-  pos text not null check(pos in ('verb','noun','adjective','adverb','adjective-adverb','phrase','other')),
+  pos text not null check(pos in ('verb','noun','adjective-adverb','phrase')),
   domains text[] not null default '{}' check(private.valid_tags(domains)),
   tags text[] not null default '{}' check(private.valid_tags(tags)),
   example text not null default '' check(length(example) <= 5000),

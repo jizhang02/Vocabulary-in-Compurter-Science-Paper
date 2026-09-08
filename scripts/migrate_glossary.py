@@ -7,16 +7,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POSITIONS = {"Verb": "verb", "Adjective/Adverb": "adjective-adverb", "Noun": "noun", "Phrase": "phrase"}
-# A small, explicitly curated term map, not a model's predicted classification.
-DOMAINS = {
-    "voxelwise": ["医学影像"], "abdominal": ["医学", "解剖学"],
-    "sagittal view": ["医学影像", "解剖学"], "axial view": ["医学影像", "解剖学"],
-    "coronal view": ["医学影像", "解剖学"], "mediastinal structures": ["医学", "解剖学"],
-    "knowledge distillation": ["机器学习"], "latent space": ["机器学习"],
-    "receptive field": ["计算机视觉"], "group lasso": ["统计学", "机器学习"],
-    "harmonic mean": ["数学"], "posteriori probability": ["统计学"],
-    "linear superposition": ["数学"], "composite functions": ["数学"],
-}
+# Explicit per-entry semantic annotations, not spaCy predictions. New entries are
+# never silently classified as general; a changed source must be reviewed again.
+ANNOTATIONS = json.loads((ROOT / "data/domain_annotations.json").read_text(encoding="utf-8"))
+
+
+def domains_for(entry_id, term, meaning, pos):
+    annotation = ANNOTATIONS["entries"].get(entry_id)
+    if annotation and (annotation["term"], annotation["meaning"], annotation["pos"]) == (term, meaning, pos):
+        return list(annotation["domains"])
+    return []
 
 
 def plain(value):
@@ -41,10 +41,11 @@ def parse_markdown(text):
             source = plain(details.split("`", 2)[-1]) if match else ""
             if example.lower() in {"sentence.", "sentence"}:
                 example, source = "", ""
+            entry_id = str(uuid.uuid5(uuid.NAMESPACE_URL, f"vocab-v2:{line_number}:{offset}"))
             entries.append({
-                "id": str(uuid.uuid5(uuid.NAMESPACE_URL, f"vocab-v2:{line_number}:{offset}")),
+                "id": entry_id,
                 "term": plain(term), "meaning": plain(meaning), "pos": position,
-                "domains": DOMAINS.get(plain(term).lower(), []), "tags": [],
+                "domains": domains_for(entry_id, plain(term), plain(meaning), position), "tags": [],
                 "example": example, "source": source, "source_url": "",
                 "owner_id": None, "author_name": "Jing Zhang · 原始词表",
                 "provenance": f"glossary_v2.md:L{line_number}", "revision": 1,
@@ -54,6 +55,9 @@ def parse_markdown(text):
 
 def main():
     entries = parse_markdown((ROOT / "docs/glossary_v2.md").read_text(encoding="utf-8"))
+    missing = [entry["term"] for entry in entries if not entry["domains"]]
+    if missing:
+        raise ValueError(f"Review data/domain_annotations.json for new or changed entries before rebuilding: {missing}")
     target = ROOT / "docs/data/vocabulary.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
