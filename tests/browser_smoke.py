@@ -34,16 +34,26 @@ def main():
             page.locator('#search').fill('concatenate')
             assert page.locator('.word-card').count() == 1
             page.get_by_role('button',name='concatenate',exact=True).click()
-            assert 'Oscar:' in page.locator('#entry-detail').inner_text()
+            assert 'Learning Depth with Convolutional Spatial Propagation Network.' in page.locator('#entry-detail').inner_text()
+            assert 'IEEE transactions on pattern analysis and machine intelligence' in page.locator('.citation-meta').inner_text()
+            assert '2019-10-15' in page.locator('.citation-meta').inner_text()
+            assert page.get_by_role('link', name='查看原始来源 ↗').count() == 1
             assert page.locator('[data-edit]').count() == 0
+            page.keyboard.press('Escape')
+            assert page.locator('#example-stat').inner_text() == '701'
+            page.locator('#search').fill('greenhorn')
+            assert '自拟例句' in page.locator('#cards').inner_text()
+            page.get_by_role('button', name='greenhorn', exact=True).click()
+            assert '非论文原文' in page.locator('#entry-detail').inner_text()
+            assert '编写日期' in page.locator('.citation-meta').inner_text()
+            assert page.locator('#entry-detail a').count() == 0
             page.keyboard.press('Escape')
             page.locator('#search').fill('知识蒸馏')
             assert 'knowledge distillation' in page.locator('#cards').inner_text()
             page.locator('#reset').click()
             page.locator('[name=filter-domain][value="医学"]').check()
             assert '找到 43 个词条' in page.locator('#result-count').inner_text()
-            page.locator('#has-example').check()
-            assert page.locator('.word-card').count() == 1
+            assert page.locator('.word-card').count() >= 1
             page.locator('#reset').click()
             page.locator('[name=filter-domain][value="通用"]').check()
             page.locator('#search').fill('in a nutshell')
@@ -51,7 +61,8 @@ def main():
             page.locator('#reset').click()
             page.locator('[name=filter-domain][value="自然语言处理"]').check()
             page.locator('#search').fill('tokenization')
-            assert page.locator('.word-card').count() == 1
+            assert page.get_by_role('button', name='tokenization', exact=True).count() == 1
+            assert 'lemmatization' in page.locator('#cards').inner_text()
             page.locator('#reset').click()
             page.locator('[name=filter-pos][value=verb]').check()
             assert all(x == '动词' for x in page.locator('.word-card .pos-badge').all_text_contents())
@@ -70,7 +81,7 @@ def main():
             result = page.evaluate('''async () => {
               const m = await import('./lib.js');
               const entry = {term:'<img src=x onerror=alert(1)>',meaning:'测试',example:'',source:'',domains:['医学'],tags:['方法'],owner_id:'alice',pos:'noun'};
-              const filters = {query:'测试',pos:new Set(['noun']),domains:new Set(['医学']),example:false,mine:true};
+              const filters = {query:'测试',pos:new Set(['noun']),domains:new Set(['医学']),mine:true};
               return {
                 escaped: !m.escapeHtml(entry.term).includes('<img'),
                 unsafe: m.safeUrl('javascript:alert(1)') === '',

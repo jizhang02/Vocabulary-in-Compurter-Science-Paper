@@ -6,7 +6,7 @@
 
 ## 当前版本
 
-- **701 个词条、31 个真实例句**；清理空词条及 `sentence.` 占位例句。
+- **701 个词条、701 个带例句词条**；清理空词条及 `sentence.` 占位例句。
 - 搜索英文、中文释义、例句、来源和标签；按词性、多个专业领域、例句完整度及“我的贡献”交叉筛选。
 - 卡片 / 列表、字母 / 最近更新排序、分页、随机词条、手机适配。
 - GitHub 和邮箱验证码登录；作者管理自己的条目，管理员管理全部条目。
@@ -98,3 +98,17 @@ tests/                 数据、浏览器和数据库测试
 ```
 
 项目发起者：Jing Zhang · [GitHub](https://github.com/jizhang02)
+
+## 例句与出处（2026-09-09）
+
+全部 **701 个词条**均有例句：**686 条论文原句或短摘录**，来自 **641 篇文献**；另 **15 条自拟例句**明确标注“AI 辅助编写，非论文原文”。自拟条目没有虚构的论文标题、期刊或论文链接，其日期为编写日期。
+
+卡片展示例句、期刊/会议和日期；点击可查看论文标题、原文位置与链接。搜索支持这些字段。优先使用 ICML、CVPR、ICCV、AISTATS、TACL、Computational Linguistics、TPAMI、Medical Image Analysis、Nature、Science、Cell、Nature Medicine、PNAS 等来源，少数罕见表达采用其他正式期刊。不把所有来源统一称作“顶级”，不将预印本或 workshop 标为主会。
+
+来源通过 PMLR 官方论文元数据、Europe PMC 摘要及出版方页面检索。先检查目标词实际出现，再筛除缩写同形词、明显错义匹配及不完整的片段。每篇来源累计最多摘录 25 个英文词；多词条共享同一短句时不重复扩展引用。长句以省略号标明摘录范围，点击链接可读上下文。日期保留真实精度；期刊优先采用明确的在线发表日期，未提供时只记录年份。会议日期采用论文集的出版日期或明确的会议月份，不猜测月日。
+
+`data/example_annotations.json` 保存例句与出处；`data/example_evidence.json` 保存匹配写法、核查链接、核查日期和例句摘要值。执行 `python scripts/migrate_glossary.py` 会重新应用覆盖层并生成静态词库和 SQL 种子，不会丢失补充内容。原始 Markdown 和词条 ID 保留。
+
+少量原词条存在拼写、词性和释义问题。本次保留原条目，在来源说明中标注规范写法，例如 `propell → propel`、`jusity → justify`、`from...perspecitve → from … perspective`。`herein this work` 和 `presumably speaking` 使用更自然的表达示例。例句及初始释义仍可由读者进一步校订。
+
+已有 Supabase 数据库先运行 `supabase/migrations/20260909_example_sources.sql` 添加字段；新数据库使用 `schema.sql` 和 `seed.sql`。种子脚本不会覆盖现有社区编辑。此次更新的是本地静态快照和新安装种子，未修改任何云端数据库。

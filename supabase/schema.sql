@@ -32,6 +32,9 @@ create table public.entries (
   tags text[] not null default '{}' check(private.valid_tags(tags)),
   example text not null default '' check(length(example) <= 5000),
   source text not null default '' check(length(source) <= 1000),
+  source_venue text not null default '' check(length(source_venue) <= 200),
+  source_date text not null default '' check(source_date = '' or source_date ~ '^[0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?$'),
+  source_location text not null default '' check(length(source_location) <= 300),
   source_url text not null default '' check(length(source_url) <= 2000 and (source_url = '' or source_url ~ '^https?://')),
   owner_id uuid references auth.users(id) on delete set null default auth.uid(),
   author_name text not null default '社区读者' check(length(btrim(author_name)) between 1 and 100),
@@ -100,9 +103,9 @@ for each row execute function private.audit_entry();
 alter table public.entries enable row level security;
 revoke all on public.entries from public, anon, authenticated;
 grant select on public.entries to anon, authenticated;
-grant insert (term,meaning,pos,domains,tags,example,source,source_url,owner_id,author_name)
+grant insert (term,meaning,pos,domains,tags,example,source,source_venue,source_date,source_location,source_url,owner_id,author_name)
   on public.entries to authenticated;
-grant update (term,meaning,pos,domains,tags,example,source,source_url)
+grant update (term,meaning,pos,domains,tags,example,source,source_venue,source_date,source_location,source_url)
   on public.entries to authenticated;
 grant delete on public.entries to authenticated;
 

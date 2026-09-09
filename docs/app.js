@@ -1,13 +1,15 @@
-import { POS, DOMAINS, escapeHtml as h, tagsFrom, safeUrl, canEdit, filterEntries } from "./lib.js";
+import { POS, DOMAINS, escapeHtml as h, tagsFrom, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js";
 
+const authorNickname = entry => entry.author_name === "Jing Zhang · 原始词表" ? "Jing Zhang" : (entry.author_name || "社区读者");
+const isAuthored = entry => entry.source_venue === "自拟例句";
 const $ = selector => document.querySelector(selector);
-const state = { entries: [], user: null, admin: false, client: null, online: false, page: 1, pageSize: 18, editing: null, authEpoch: 0 };
+const state = { entries: [], mine: false, user: null, admin: false, client: null, online: false, page: 1, pageSize: 18, editing: null, authEpoch: 0 };
 const config = window.VOCAB_CONFIG || {};
 let toastTimer;
 function toast(message) { $("#toast").textContent = message; $("#toast").hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $("#toast").hidden = true, 5000); }
 function status(message, online = false) { $("#connection-status").textContent = message; $("#connection-status").classList.toggle("online", online); }
 function filters() {
-  return {query: $("#search").value, pos: new Set([...document.querySelectorAll("[name=filter-pos]:checked")].map(x => x.value)), domains: new Set([...document.querySelectorAll("[name=filter-domain]:checked")].map(x => x.value)), example: $("#has-example").checked, mine: $("#mine").checked};
+  return {query: $("#search").value, pos: new Set([...document.querySelectorAll("[name=filter-pos]:checked")].map(x => x.value)), domains: new Set([...document.querySelectorAll("[name=filter-domain]:checked")].map(x => x.value)), mine: state.mine};
 }
 function buildFilters() {
   const previous = filters();
@@ -28,7 +30,7 @@ function render() {
   const pages = Math.max(1, Math.ceil(entries.length / state.pageSize));
   state.page = Math.min(state.page,pages);
   $("#result-count").textContent = `找到 ${entries.length} 个词条 · 共 ${state.entries.length} 个`;
-  $("#cards").innerHTML = entries.slice((state.page-1)*state.pageSize,state.page*state.pageSize).map(e => `<article class="word-card"><div class="card-top"><span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos] || e.pos)}</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3><button class="term-button" data-entry="${h(e.id)}">${h(e.term)}</button></h3><p class="card-meaning">${h(e.meaning)}</p><div class="card-tags">${e.domains.slice(0,3).map(d => `<span class="tag">${h(d)}</span>`).join("")}</div><div class="card-bottom"><span class="${e.example ? "example-marker" : ""}">${e.example ? "▤ 含论文例句" : "○ 例句待补充"}</span><span>${canEdit(e,state.user,state.admin) ? "可编辑" : e.provenance ? "原始收录" : "社区贡献"}</span></div></article>`).join("") || `<div class="empty"><h3>${filters().mine && !state.user ? "登录后查看你的贡献" : "还没有找到匹配的词汇"}</h3><p>试试其他关键词，或重置筛选条件。</p></div>`;
+  $("#cards").innerHTML = entries.slice((state.page-1)*state.pageSize,state.page*state.pageSize).map(e => `<article class="word-card"><div class="card-top"><span class="card-arrow" aria-hidden="true">↗</span></div><h3><button class="term-button" data-entry="${h(e.id)}">${h(e.term)}</button></h3><p class="card-meaning">${h(e.meaning)}</p>${e.example ? `<div class="card-example"><p>${highlightExample(e)}</p><span>${h([e.source_venue,e.source_date].filter(Boolean).join(" · ") || "出处待补全")}</span></div>` : ""}<div class="card-bottom"><div class="card-tags"><span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos] || e.pos)}</span>${e.domains.slice(0,3).map(d => `<span class="tag">${h(d)}</span>`).join("")}</div><span class="card-author" title="贡献者：${h(authorNickname(e))}">${h(authorNickname(e))}</span></div></article>`).join("") || `<div class="empty"><h3>${filters().mine && !state.user ? "登录后查看你的贡献" : "还没有找到匹配的词汇"}</h3><p>试试其他关键词，或重置筛选条件。</p></div>`;
   $("#pagination").innerHTML = entries.length ? `<button data-page="${state.page-1}" ${state.page === 1 ? "disabled" : ""}>← 上一页</button><span>${state.page} / ${pages}</span><button data-page="${state.page+1}" ${state.page === pages ? "disabled" : ""}>下一页 →</button>` : "";
 }
 function refreshView() { state.page = 1; render(); }
@@ -36,7 +38,7 @@ function openEntry(id) {
   const e = state.entries.find(entry => entry.id === id);
   if (!e) return;
   const url = safeUrl(e.source_url);
-  $("#entry-detail").innerHTML = `<span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos])}</span><h2 id="entry-title" class="detail-term">${h(e.term)}</h2><p class="detail-meaning">${h(e.meaning)}</p><div class="detail-tags">${[...e.domains,...e.tags].map(t=>`<span class="tag">${h(t)}</span>`).join("") || '<span class="tag">领域待分类</span>'}</div>${e.example ? `<blockquote class="detail-example">${h(e.example)}</blockquote>` : '<p class="form-note">这个词还没有例句，期待补充实际论文中的用法。</p>'}<p class="detail-source">${h(e.source)}${url ? `<br><a href="${h(url)}" target="_blank" rel="noopener noreferrer">查看原始来源 ↗</a>` : ""}</p><p class="detail-author">贡献者：${h(e.author_name)}${e.updated_at ? ` · 更新于 ${h(new Date(e.updated_at).toLocaleDateString("zh-CN"))}` : ""}${e.provenance ? `<br>原始位置：${h(e.provenance)} · 词性与释义待持续校订` : ""}</p>${state.online && canEdit(e,state.user,state.admin) ? `<div class="detail-actions"><button class="button primary" data-edit="${h(e.id)}">修改词汇</button><button class="button danger" data-delete="${h(e.id)}">删除词汇</button></div>` : ""}`;
+  $("#entry-detail").innerHTML = `<span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos])}</span><h2 id="entry-title" class="detail-term">${h(e.term)}</h2><p class="detail-meaning">${h(e.meaning)}</p><div class="detail-tags">${[...e.domains,...e.tags].map(t=>`<span class="tag">${h(t)}</span>`).join("") || '<span class="tag">领域待分类</span>'}</div>${e.example ? `${isAuthored(e) ? '<p class="example-kind-note">自拟例句 · 非论文原文</p>' : ""}<blockquote class="detail-example">${highlightExample(e)}</blockquote>` : '<p class="form-note">这个词还没有例句，期待补充实际论文中的用法。</p>'}<dl class="citation-meta"><div><dt>${isAuthored(e) ? "例句类型" : "期刊 / 会议"}</dt><dd>${h(e.source_venue || "待补充")}</dd></div><div><dt>${isAuthored(e) ? "编写日期" : "发表日期"}</dt><dd>${h(e.source_date || "待补充")}</dd></div><div><dt>来源说明</dt><dd>${h(e.source_location || "待补充")}</dd></div></dl><p class="detail-source">${h(e.source)}${url ? `<br><a href="${h(url)}" target="_blank" rel="noopener noreferrer">查看原始来源 ↗</a>` : ""}</p><p class="detail-author">贡献者：${h(authorNickname(e))}${e.updated_at ? ` · 更新于 ${h(new Date(e.updated_at).toLocaleDateString("zh-CN"))}` : ""}${e.provenance ? `<br>原始位置：${h(e.provenance)} · 词性与释义待持续校订` : ""}</p>${state.online && canEdit(e,state.user,state.admin) ? `<div class="detail-actions"><button class="button primary" data-edit="${h(e.id)}">修改词汇</button><button class="button danger" data-delete="${h(e.id)}">删除词汇</button></div>` : ""}`;
   $("#entry-dialog").showModal();
 }
 function openAuth() {
@@ -50,7 +52,7 @@ function openEditor(entry = null) {
   state.editing = entry;
   $("#editor").reset(); $("#editor-error").textContent = "";
   $("#editor-title").textContent = entry ? "修改词汇" : "添加词汇";
-  for (const field of ["term","meaning","pos","domains","tags","example","source","source_url"]) {
+  for (const field of ["term","meaning","pos","domains","tags","example","source","source_venue","source_date","source_location","source_url"]) {
     const value = entry?.[field] ?? (field === "pos" ? "noun" : "");
     $("#editor").elements[field].value = Array.isArray(value) ? value.join("，") : value;
   }
@@ -82,8 +84,7 @@ async function updateUser(user) {
     state.admin = !error && data === true;
   }
   $("#auth-button").textContent = user ? `${state.admin ? "管理员" : "已登录"} · 退出` : "登录 / 注册";
-  $("#mine").disabled = !user;
-  if (!user) $("#mine").checked = false;
+  if (!user) state.mine = false;
   render();
 }
 async function saveEntry(event) {
@@ -92,9 +93,10 @@ async function saveEntry(event) {
   try {
     if (!state.online || !state.user) throw new Error("请先登录后再保存。");
     const form = new FormData(event.target);
-    const row = Object.fromEntries(["term","meaning","pos","example","source","source_url"].map(k => [k,form.get(k).trim()]));
+    const row = Object.fromEntries(["term","meaning","pos","example","source","source_venue","source_date","source_location","source_url"].map(k => [k,form.get(k).trim()]));
     row.domains = tagsFrom(form.get("domains")); row.tags = tagsFrom(form.get("tags"));
     if (!row.term || !row.meaning) throw new Error("词汇和释义不能只包含空格。");
+    if (row.source_date && !/^\d{4}(-(?:0[1-9]|1[0-2])(-(?:0[1-9]|[12]\d|3[01]))?)?$/.test(row.source_date)) throw new Error("发表日期请填写 YYYY、YYYY-MM 或 YYYY-MM-DD。");
     if (row.source_url && !safeUrl(row.source_url)) throw new Error("来源链接必须以 http:// 或 https:// 开头。");
     if (state.editing) {
       const {data,error} = await state.client.from("entries").update(row).eq("id",state.editing.id).eq("revision",state.editing.revision).select();
@@ -127,7 +129,6 @@ async function deleteEntry(id,button) {
 }
 
 $("#editor").elements.pos.innerHTML = Object.entries(POS).map(([key,value])=>`<option value="${key}">${value}</option>`).join("");
-$("#mine").disabled = true;
 document.addEventListener("click",event => {
   const close = event.target.closest("[data-close]"); if (close) close.closest("dialog").close();
   const entry = event.target.closest("[data-entry]"); if (entry) openEntry(entry.dataset.entry);
@@ -138,8 +139,16 @@ document.addEventListener("click",event => {
 $("#search").addEventListener("input",refreshView);
 $("#sort").addEventListener("change",refreshView);
 $(".filters").addEventListener("change",refreshView);
-$("#reset").onclick = () => { $("#search").value = ""; document.querySelectorAll(".filters input").forEach(x=>x.checked=false); refreshView(); };
+$("#reset").onclick = () => { state.mine = false; $("#search").value = ""; document.querySelectorAll(".filters input").forEach(x=>x.checked=false); refreshView(); };
 for (const id of ["add-entry","contribute"]) $(`#${id}`).onclick = () => openEditor();
+$("#my-contributions").onclick = () => {
+  if (!state.user) { openAuth(); return; }
+  $("#search").value = "";
+  document.querySelectorAll(".filters input").forEach(input => input.checked = false);
+  state.mine = true;
+  refreshView();
+  $("#library").scrollIntoView({behavior:"smooth",block:"start"});
+};
 $("#about").onclick = () => $("#about-dialog").showModal();
 $("#random-entry").onclick = () => { const entries = selectedEntries(); if (entries.length) openEntry(entries[Math.floor(Math.random()*entries.length)].id); else toast("当前筛选没有词汇，可以先重置筛选。"); };
 for (const view of ["grid","list"]) $(`#${view}-view`).onclick = () => { $("#cards").classList.toggle("list-mode",view === "list"); for (const key of ["grid","list"]) { $(`#${key}-view`).classList.toggle("selected",key === view); $(`#${key}-view`).setAttribute("aria-pressed",String(key === view)); } };

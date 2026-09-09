@@ -32,7 +32,7 @@ def main():
             page.locator('#otp').fill('123456')
             page.locator('#otp-form button').click()
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
-            page.locator('#mine').check()
+            page.locator('#my-contributions').click()
             assert page.locator('.word-card').count() == 1
             page.locator('#reset').click()
             page.get_by_role('button',name='other term',exact=True).click()
@@ -72,7 +72,8 @@ def main():
             assert 'other term' not in page.locator('#cards').inner_text()
             page.locator('#auth-button').click()
             page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
-            assert page.locator('#mine').is_disabled()
+            assert page.locator('#mine').count() == 0
+            assert page.locator('.word-card').count() == 2
             assert not errors,errors
             browser.close()
             print('PASS: GitHub and email UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')

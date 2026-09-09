@@ -112,3 +112,5 @@ GitHub 与邮箱是否关联到同一用户，以 Users 中的 UUID 为准。如
 - 浏览器 SDK 固定为 `2.57.4`，从 jsDelivr 加载。未配置云项目不请求 SDK；CDN 受限时可改为本地打包。
 - spaCy 是离线工具，未接入公开网页；在线使用需独立部署 Python 服务、校验用户并限制请求。
 - 费用、配额和邮件额度以服务控制台的实际方案为准。
+
+已有数据库升级例句来源字段：先运行 `supabase/migrations/20260909_example_sources.sql`，再发布新前端。原有词条不会被 seed.sql 覆盖。
