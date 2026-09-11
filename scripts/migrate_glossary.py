@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POSITIONS = {"Verb": "verb", "Adjective/Adverb": "adjective-adverb", "Noun": "noun", "Phrase": "phrase"}
-# Explicit per-entry semantic annotations, not spaCy predictions. New entries are
+# Explicit per-entry semantic annotations. New entries are
 # never silently classified as general; a changed source must be reviewed again.
 ANNOTATIONS = json.loads((ROOT / "data/domain_annotations.json").read_text(encoding="utf-8"))
 

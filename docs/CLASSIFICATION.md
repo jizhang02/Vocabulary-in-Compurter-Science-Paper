@@ -4,7 +4,7 @@
 
 现有 **701 个词条均已添加领域标签**，词汇、译文、例句和原始四类词性保持不变。
 
-标签由 Codex 阅读全部词项、中文释义及现有 31 个例句后，按常见语义与研究用法整理，**没有使用 spaCy，也不是经独立专家验证的分类标准**。每个词条的结果保存在仓库 `data/domain_annotations.json`，可按词条 ID 检查和修订；部分歧义项附有说明。
+标签由 Codex 阅读全部词项、中文释义及现有 31 个例句后，按常见语义与研究用法整理，**属于语义整理，并非经独立专家验证的分类标准**。每个词条的结果保存在仓库 `data/domain_annotations.json`，可按词条 ID 检查和修订；部分歧义项附有说明。
 
 | 领域 | 词条数 |
 | --- | ---: |
@@ -38,11 +38,5 @@
 ## 尚未处理的原词表问题
 
 本次不改动词性、拼写或释义。有些词的原释义过泛或可能不准确，例如 `hypointense` 的“低调”、`prognosis` 的“预测”和 `morphism` 的“蜕变”；分类注释中已记录，需要另一步校订。`inference` 仍在原词表的动词部分，也未在本次调整。
-
-## spaCy 到底在哪里
-
-当前主页、搜索、筛选与本次分类均没有调用 spaCy。本机尚未安装它。`scripts/suggest_tags.py` 是预留的离线 Python 工具，安装 spaCy 和英文模型后由维护者手动运行，输出 token 词性、lemma 和候选名词短语；`domain_tags` 明确为空，不会改写词库。
-
-spaCy 的词性、词形和句法分析能力适合后续辅助整理。通用英文 pipeline 并不直接输出本网站的“医学 / 机器学习”等自定义领域标签；要自动产生这些标签，需要另外设计规则或训练并评估分类组件，然后由贡献者确认。参见 [spaCy 语言学功能](https://spacy.io/usage/linguistic-features) 和 [英文模型说明](https://spacy.io/models/en)。
 
 部分语义核对参考：[数学中的 Morphism](https://encyclopediaofmath.org/wiki/Morphism)、[Holonomic system](https://encyclopediaofmath.org/wiki/Holonomic_system)。这些资料不是全部 701 条分类的逐项证据；整体标签属于可修订的语义整理结果。

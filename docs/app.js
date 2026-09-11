@@ -1,5 +1,7 @@
 import { POS, DOMAINS, escapeHtml as h, tagsFrom, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js";
 
+const POS_SHORT = {verb:"v", "adjective-adverb":"adj/adv", noun:"n", phrase:"phr"};
+
 const authorNickname = entry => entry.author_name === "Jing Zhang · 原始词表" ? "Jing Zhang" : (entry.author_name || "社区读者");
 const isAuthored = entry => entry.source_venue === "自拟例句";
 const $ = selector => document.querySelector(selector);
@@ -23,6 +25,12 @@ function buildFilters() {
 }
 function selectedEntries() {
   const entries = filterEntries(state.entries, filters(), state.user);
+  if ($("#sort").value === "random") {
+    for (const entry of entries) {
+      if (!randomOrder.has(entry.id)) randomOrder.set(entry.id, Math.random());
+    }
+    return entries.sort((a,b) => randomOrder.get(a.id) - randomOrder.get(b.id) || a.id.localeCompare(b.id));
+  }
   return entries.sort((a,b) => $("#sort").value === "recent" ? (b.updated_at || "").localeCompare(a.updated_at || "") || a.term.localeCompare(b.term,"en") : a.term.localeCompare(b.term,"en") * ($("#sort").value === "za" ? -1 : 1));
 }
 function render() {
@@ -30,7 +38,7 @@ function render() {
   const pages = Math.max(1, Math.ceil(entries.length / state.pageSize));
   state.page = Math.min(state.page,pages);
   $("#result-count").textContent = `找到 ${entries.length} 个词条 · 共 ${state.entries.length} 个`;
-  $("#cards").innerHTML = entries.slice((state.page-1)*state.pageSize,state.page*state.pageSize).map(e => `<article class="word-card"><div class="card-top"><span class="card-arrow" aria-hidden="true">↗</span></div><h3><button class="term-button" data-entry="${h(e.id)}">${h(e.term)}</button></h3><p class="card-meaning">${h(e.meaning)}</p>${e.example ? `<div class="card-example"><p>${highlightExample(e)}</p><span>${h([e.source_venue,e.source_date].filter(Boolean).join(" · ") || "出处待补全")}</span></div>` : ""}<div class="card-bottom"><div class="card-tags"><span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos] || e.pos)}</span>${e.domains.slice(0,3).map(d => `<span class="tag">${h(d)}</span>`).join("")}</div><span class="card-author" title="贡献者：${h(authorNickname(e))}">${h(authorNickname(e))}</span></div></article>`).join("") || `<div class="empty"><h3>${filters().mine && !state.user ? "登录后查看你的贡献" : "还没有找到匹配的词汇"}</h3><p>试试其他关键词，或重置筛选条件。</p></div>`;
+  $("#cards").innerHTML = entries.slice((state.page-1)*state.pageSize,state.page*state.pageSize).map(e => `<article class="word-card"><button class="card-toggle card-expand" data-entry="${h(e.id)}" aria-label="展开 ${h(e.term)}" aria-haspopup="dialog" title="展开词条"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9 3 3m0 6V3h6m6 12 6 6m-6 0h6v-6"/></svg></button><h3><span class="term-button">${h(e.term)}</span></h3><p class="card-meaning"><span>${h(e.meaning)}</span><span class="card-pos" title="${h(POS[e.pos] || e.pos)}">${h(POS_SHORT[e.pos] || e.pos)}</span></p>${e.example ? `<div class="card-example"><p>${highlightExample(e)}</p><span>${h([e.source_venue,e.source_date].filter(Boolean).join(" · ") || "出处待补全")}</span></div>` : ""}<div class="card-bottom"><div class="card-tags">${e.domains.slice(0,3).map(d => `<span class="tag">${h(d)}</span>`).join("")}</div><span class="card-author" title="贡献者：${h(authorNickname(e))}">${h(authorNickname(e))}</span></div></article>`).join("") || `<div class="empty"><h3>${filters().mine && !state.user ? "登录后查看你的贡献" : "还没有找到匹配的词汇"}</h3><p>试试其他关键词，或重置筛选条件。</p></div>`;
   $("#pagination").innerHTML = entries.length ? `<button data-page="${state.page-1}" ${state.page === 1 ? "disabled" : ""}>← 上一页</button><span>${state.page} / ${pages}</span><button data-page="${state.page+1}" ${state.page === pages ? "disabled" : ""}>下一页 →</button>` : "";
 }
 function refreshView() { state.page = 1; render(); }
@@ -38,7 +46,7 @@ function openEntry(id) {
   const e = state.entries.find(entry => entry.id === id);
   if (!e) return;
   const url = safeUrl(e.source_url);
-  $("#entry-detail").innerHTML = `<span class="pos-badge pos-${h(e.pos)}">${h(POS[e.pos])}</span><h2 id="entry-title" class="detail-term">${h(e.term)}</h2><p class="detail-meaning">${h(e.meaning)}</p><div class="detail-tags">${[...e.domains,...e.tags].map(t=>`<span class="tag">${h(t)}</span>`).join("") || '<span class="tag">领域待分类</span>'}</div>${e.example ? `${isAuthored(e) ? '<p class="example-kind-note">自拟例句 · 非论文原文</p>' : ""}<blockquote class="detail-example">${highlightExample(e)}</blockquote>` : '<p class="form-note">这个词还没有例句，期待补充实际论文中的用法。</p>'}<dl class="citation-meta"><div><dt>${isAuthored(e) ? "例句类型" : "期刊 / 会议"}</dt><dd>${h(e.source_venue || "待补充")}</dd></div><div><dt>${isAuthored(e) ? "编写日期" : "发表日期"}</dt><dd>${h(e.source_date || "待补充")}</dd></div><div><dt>来源说明</dt><dd>${h(e.source_location || "待补充")}</dd></div></dl><p class="detail-source">${h(e.source)}${url ? `<br><a href="${h(url)}" target="_blank" rel="noopener noreferrer">查看原始来源 ↗</a>` : ""}</p><p class="detail-author">贡献者：${h(authorNickname(e))}${e.updated_at ? ` · 更新于 ${h(new Date(e.updated_at).toLocaleDateString("zh-CN"))}` : ""}${e.provenance ? `<br>原始位置：${h(e.provenance)} · 词性与释义待持续校订` : ""}</p>${state.online && canEdit(e,state.user,state.admin) ? `<div class="detail-actions"><button class="button primary" data-edit="${h(e.id)}">修改词汇</button><button class="button danger" data-delete="${h(e.id)}">删除词汇</button></div>` : ""}`;
+  $("#entry-detail").innerHTML = `<div class="detail-heading"><h2 id="entry-title" class="detail-term">${h(e.term)}</h2><div class="detail-heading-meta"><p class="detail-meaning"><span>${h(e.meaning)}</span> <span class="card-pos" title="${h(POS[e.pos] || e.pos)}">${h(POS_SHORT[e.pos] || e.pos)}</span></p><div class="detail-tags">${[...e.domains,...e.tags].map(t=>`<span class="tag">${h(t)}</span>`).join("") || '<span class="tag">领域待分类</span>'}</div></div></div>${e.example ? `<section class="example-block" aria-labelledby="example-block-title"><h3 id="example-block-title">${isAuthored(e) ? "自拟例句" : "原文例句"}${isAuthored(e) ? '<span class="example-block-note">非论文原文</span>' : ""}</h3><blockquote class="detail-example">${highlightExample(e)}</blockquote></section>` : '<p class="form-note">这个词还没有例句，期待补充实际论文中的用法。</p>'}<dl class="citation-meta"><div class="citation-venue"><dt>${isAuthored(e) ? "例句类型" : "期刊 / 会议"}</dt><dd title="${h(e.source_venue || "待补充")}">${h(e.source_venue || "待补充")}</dd></div><div class="citation-date"><dt>${isAuthored(e) ? "编写日期" : "发表日期"}</dt><dd>${h(e.source_date || "待补充")}</dd></div><div><dt>${isAuthored(e) ? "例句标题" : "论文标题"}</dt><dd>${h(e.source || "待补充")}</dd></div></dl><div class="detail-footer">${url ? `<p class="detail-source"><a href="${h(url)}" target="_blank" rel="noopener noreferrer">查看原始来源 ↗</a></p>` : ""}<p class="detail-author">贡献者：${h(authorNickname(e))}${e.updated_at ? ` · 更新于 ${h(new Date(e.updated_at).toLocaleDateString("zh-CN"))}` : ""}</p></div>${state.online && canEdit(e,state.user,state.admin) ? `<div class="detail-actions"><button class="button primary" data-edit="${h(e.id)}">修改词汇</button><button class="button danger" data-delete="${h(e.id)}">删除词汇</button></div>` : ""}`;
   $("#entry-dialog").showModal();
 }
 function openAuth() {
@@ -137,10 +145,14 @@ document.addEventListener("click",event => {
   const page = event.target.closest("[data-page]"); if (page) { state.page = Number(page.dataset.page); render(); $("#library").scrollIntoView({behavior:"instant"}); }
 });
 $("#search").addEventListener("input",refreshView);
-$("#sort").addEventListener("change",refreshView);
+const randomOrder = new Map();
+$("#sort").addEventListener("change",() => {
+  if ($("#sort").value === "random") randomOrder.clear();
+  refreshView();
+});
 $(".filters").addEventListener("change",refreshView);
 $("#reset").onclick = () => { state.mine = false; $("#search").value = ""; document.querySelectorAll(".filters input").forEach(x=>x.checked=false); refreshView(); };
-for (const id of ["add-entry","contribute"]) $(`#${id}`).onclick = () => openEditor();
+$("#add-entry").onclick = () => openEditor();
 $("#my-contributions").onclick = () => {
   if (!state.user) { openAuth(); return; }
   $("#search").value = "";
@@ -149,7 +161,6 @@ $("#my-contributions").onclick = () => {
   refreshView();
   $("#library").scrollIntoView({behavior:"smooth",block:"start"});
 };
-$("#about").onclick = () => $("#about-dialog").showModal();
 $("#random-entry").onclick = () => { const entries = selectedEntries(); if (entries.length) openEntry(entries[Math.floor(Math.random()*entries.length)].id); else toast("当前筛选没有词汇，可以先重置筛选。"); };
 for (const view of ["grid","list"]) $(`#${view}-view`).onclick = () => { $("#cards").classList.toggle("list-mode",view === "list"); for (const key of ["grid","list"]) { $(`#${key}-view`).classList.toggle("selected",key === view); $(`#${key}-view`).setAttribute("aria-pressed",String(key === view)); } };
 document.addEventListener("keydown",event => { if (event.key === "/" && !document.querySelector("dialog[open]") && !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)) { event.preventDefault(); $("#search").focus(); } });

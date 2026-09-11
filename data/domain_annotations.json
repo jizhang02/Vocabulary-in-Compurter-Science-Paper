@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "method": "Codex semantic annotation of the existing 701 entries; not spaCy predictions or an independently validated taxonomy.",
+  "method": "Codex semantic annotation of the existing 701 entries; not an independently validated taxonomy.",
   "scope": "Terms, Chinese meanings and the 31 available examples were inspected. General expressions are not assigned a paper topic solely because of their source.",
   "allowed_domains": [
     "通用",

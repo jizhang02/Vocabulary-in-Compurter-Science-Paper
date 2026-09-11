@@ -33,7 +33,7 @@ def main():
             page.screenshot(path=str(output / 'desktop.png'),full_page=True)
             page.locator('#search').fill('concatenate')
             assert page.locator('.word-card').count() == 1
-            page.get_by_role('button',name='concatenate',exact=True).click()
+            page.get_by_role('button',name='展开 concatenate',exact=True).click()
             assert 'Learning Depth with Convolutional Spatial Propagation Network.' in page.locator('#entry-detail').inner_text()
             assert 'IEEE transactions on pattern analysis and machine intelligence' in page.locator('.citation-meta').inner_text()
             assert '2019-10-15' in page.locator('.citation-meta').inner_text()
@@ -43,7 +43,7 @@ def main():
             assert page.locator('#example-stat').inner_text() == '701'
             page.locator('#search').fill('greenhorn')
             assert '自拟例句' in page.locator('#cards').inner_text()
-            page.get_by_role('button', name='greenhorn', exact=True).click()
+            page.get_by_role('button', name='展开 greenhorn', exact=True).click()
             assert '非论文原文' in page.locator('#entry-detail').inner_text()
             assert '编写日期' in page.locator('.citation-meta').inner_text()
             assert page.locator('#entry-detail a').count() == 0
@@ -61,11 +61,12 @@ def main():
             page.locator('#reset').click()
             page.locator('[name=filter-domain][value="自然语言处理"]').check()
             page.locator('#search').fill('tokenization')
-            assert page.get_by_role('button', name='tokenization', exact=True).count() == 1
+            assert page.get_by_role('button', name='展开 tokenization', exact=True).count() == 1
             assert 'lemmatization' in page.locator('#cards').inner_text()
             page.locator('#reset').click()
             page.locator('[name=filter-pos][value=verb]').check()
-            assert all(x == '动词' for x in page.locator('.word-card .pos-badge').all_text_contents())
+            assert page.locator('.word-card .card-pos').count() == 18
+            assert all(x == 'v' for x in page.locator('.word-card .card-pos').all_text_contents())
             page.locator('#reset').click()
             page.get_by_role('button',name='下一页 →').click()
             assert '2 /' in page.locator('#pagination').inner_text()

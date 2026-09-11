@@ -7,13 +7,12 @@
 ## 当前版本
 
 - **701 个词条、701 个带例句词条**；清理空词条及 `sentence.` 占位例句。
-- 搜索英文、中文释义、例句、来源和标签；按词性、多个专业领域、例句完整度及“我的贡献”交叉筛选。
+- 搜索英文、中文释义、例句、来源和标签；按词性、多个专业领域、例句完整度及“我的创建”交叉筛选。
 - 卡片 / 列表、字母 / 最近更新排序、分页、随机词条、手机适配。
 - GitHub 和邮箱验证码登录；作者管理自己的条目，管理员管理全部条目。
 - 数据库行级权限、不可由客户端修改的作者归属、编辑版本冲突检查、私有修改历史。
-- 可选 spaCy 离线工具：输出词性、词形和候选名词短语，供人工审核。
 
-**部署状态：本地代码已准备好，尚未连接云项目或公开发布。** `docs/config.js` 为空时使用仓库词表，只读访问可独立运行。连接 Supabase 后，以云数据库为唯一社区数据源。
+**部署方式：GitHub Pages 发布 `master` 分支的 `/docs` 目录；社区数据库尚待配置。** `docs/config.js` 为空时使用仓库词表，只读访问可独立运行。连接 Supabase 后，以云数据库为唯一社区数据源。
 
 ## 本地预览
 
@@ -31,7 +30,7 @@ python -m http.server 8765 --bind 127.0.0.1 --directory docs
 
 按 [部署指南](docs/DEPLOYMENT.md) 配置 GitHub Pages、Supabase、GitHub OAuth、邮箱验证码及管理员。
 
-预期网址为 `https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/`，需发布后才可访问。
+网站地址：[PaperLex](https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/)。登录及创建、修改、删除须完成下面的 Supabase 配置。
 
 | 访问者 | 浏览 / 搜索 | 添加 | 修改 / 删除自己的词 | 修改 / 删除他人的词 |
 | --- | --- | --- | --- | --- |
@@ -40,22 +39,6 @@ python -m http.server 8765 --bind 127.0.0.1 --directory docs
 | 管理员 | ✓ | ✓ | ✓ | ✓ |
 
 原始词条 `owner_id` 留空，由管理员管理。管理员身份由私有表中的 Auth 用户 UUID 决定，不依据前端昵称或邮箱字符串。
-
-## spaCy：辅助整理，不自动发布
-
-输入论文例句 / 摘要 → 词性与词形 → 候选短语 → 人工确认 → 网页添加。
-
-```bash
-# 建议在 Python 3.11 / 3.12 独立环境中运行
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements-nlp.txt
-python -m spacy download en_core_web_sm
-python scripts/suggest_tags.py --text "We delineate the left atrium in magnetic resonance images." --output suggestions.json
-```
-
-`--input abstract.txt` 支持 UTF-8 文件。词性依赖上下文；名词短语候选不等于经验证的专业术语。工具不翻译、不自动赋予专业领域标签、不写入数据库。当前网页没有在线 spaCy 按钮，GitHub Pages 不运行 Python。后续可独立部署受限 Python API，让用户确认建议后保存。医学术语需单独评估领域语料与模型。参见 [spaCy 官方功能说明](https://spacy.io/usage/linguistic-features)。
 
 ## 数据维护
 
@@ -80,7 +63,7 @@ npm install --no-save @electric-sql/pglite
 node tests/database.mjs
 ```
 
-已通过：迁移检查、Edge 桌面/手机浏览检查、模拟 SDK 的登录和 CRUD 界面测试、PGlite PostgreSQL 中的真实 RLS 与审计测试。`supabase/verify_permissions.sql` 可在隔离 Supabase 测试项目中验证，事务最终回滚。**真实 OAuth、邮件发送与线上 RLS 尚需配置后联调；spaCy 模型未在本机安装验证。**
+已通过：迁移检查、Edge 桌面/手机浏览检查、模拟 SDK 的登录和 CRUD 界面测试、PGlite PostgreSQL 中的真实 RLS 与审计测试。`supabase/verify_permissions.sql` 可在隔离 Supabase 测试项目中验证，事务最终回滚。**真实 OAuth、邮件发送与线上 RLS 尚需配置后联调。**
 
 ## 结构
 
@@ -93,7 +76,7 @@ docs/                  GitHub Pages 发布目录
   data/vocabulary.json 原始静态快照
   DEPLOYMENT.md        部署步骤
 supabase/              schema、种子、权限测试
-scripts/               Markdown 迁移、spaCy 建议工具
+scripts/               Markdown 迁移与数据整理
 tests/                 数据、浏览器和数据库测试
 ```
 

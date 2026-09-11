@@ -35,12 +35,12 @@ def main():
             page.locator('#my-contributions').click()
             assert page.locator('.word-card').count() == 1
             page.locator('#reset').click()
-            page.get_by_role('button',name='other term',exact=True).click()
+            page.get_by_role('button',name='展开 other term',exact=True).click()
             assert page.locator('[data-edit]').count() == 0
             assert page.locator('#entry-detail img').count() == 0
             assert page.locator('#entry-detail a').count() == 0
             page.keyboard.press('Escape')
-            page.get_by_role('button',name='own term',exact=True).click()
+            page.get_by_role('button',name='展开 own term',exact=True).click()
             page.get_by_role('button',name='修改词汇',exact=True).click()
             page.locator('[name=meaning]').fill('修改后的释义')
             page.evaluate('mockRefresh()')
@@ -55,7 +55,7 @@ def main():
             page.locator('[name=domains]').fill('机器学习，医学影像')
             page.locator('#save-entry').click()
             page.wait_for_function("document.querySelector('#total-stat').textContent === '3'")
-            page.get_by_role('button',name='own term',exact=True).click()
+            page.get_by_role('button',name='展开 own term',exact=True).click()
             page.get_by_role('button',name='修改词汇',exact=True).click()
             page.evaluate('window.mockConflict=true')
             page.locator('#save-entry').click()
@@ -64,7 +64,7 @@ def main():
             page.keyboard.press('Escape')
             page.evaluate('window.mockConflict=false; mockSignIn("admin")')
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('管理员')")
-            page.get_by_role('button',name='other term',exact=True).click()
+            page.get_by_role('button',name='展开 other term',exact=True).click()
             assert page.locator('[data-edit]').count() == 1
             page.on('dialog',lambda dialog:dialog.accept())
             page.get_by_role('button',name='删除词汇',exact=True).click()
