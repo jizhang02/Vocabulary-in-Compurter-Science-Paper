@@ -100,7 +100,7 @@ def main():
             page.set_viewport_size({'width':390,'height':844})
             page.screenshot(path=str(output / 'mobile.png'),full_page=True)
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-            page.get_by_role('button',name='✳ 随机认识一个词').click()
+            page.get_by_role('button',name='✳ 随机识词').click()
             assert page.locator('#entry-dialog').is_visible()
             assert page.evaluate('document.querySelector("#entry-dialog").getBoundingClientRect().width <= innerWidth')
             assert not errors,errors

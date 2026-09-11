@@ -89,3 +89,6 @@
 .results-summary p{margin:0}
 #return-home{font-size:12px;color:var(--green);white-space:nowrap;padding:4px 0}
 #return-home:hover{text-decoration:underline}
+
+.hero-stats{align-items:center;flex-wrap:nowrap;gap:16px}.hero-stats>span{white-space:nowrap}.hero-stats #add-entry,.hero-stats #random-entry{min-height:48px;flex-shrink:0}.search-row .search-box{max-width:none}
+@media(max-width:740px){.hero-stats{gap:10px}.hero-stats #add-entry,.hero-stats #random-entry{padding:9px 10px;font-size:12px;gap:6px}.hero-stats strong{font-size:18px;margin-right:2px}.hero-stats .random-symbol{display:none}.search-row{display:flex}}
