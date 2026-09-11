@@ -18,7 +18,7 @@ def main():
             page = browser.new_page()
             errors = []
             page.on('pageerror',lambda e:errors.append(str(e)))
-            page.route('**/config.js',lambda route:route.fulfill(content_type='text/javascript',body='window.VOCAB_CONFIG={supabaseUrl:"https://example.supabase.co",supabasePublishableKey:"test"};'))
+            page.route('**/config.js*',lambda route:route.fulfill(content_type='text/javascript',body='window.VOCAB_CONFIG={supabaseUrl:"https://example.supabase.co",supabasePublishableKey:"test"};'))
             page.route('https://cdn.jsdelivr.net/**',lambda route:route.fulfill(content_type='text/javascript',body=(ROOT/'tests/mock_supabase.js').read_text(encoding='utf-8')))
             page.goto(f'http://127.0.0.1:{server.server_port}/docs/')
             page.wait_for_function("document.querySelector('#total-stat').textContent === '2'")

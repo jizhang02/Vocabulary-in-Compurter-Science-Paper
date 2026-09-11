@@ -27,6 +27,7 @@ def main():
             page = browser.new_page(viewport={'width':1440,'height':1080},device_scale_factor=1)
             errors = []
             page.on('pageerror',lambda error: errors.append(str(error)))
+            page.route('**/config.js*', lambda route: route.fulfill(content_type='text/javascript', body='window.VOCAB_CONFIG = {};'))
             page.goto(url)
             page.wait_for_function("document.querySelector('#total-stat').textContent === '701'")
             assert page.locator('.word-card').count() == 18
