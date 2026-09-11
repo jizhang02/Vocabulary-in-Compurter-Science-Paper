@@ -10,7 +10,7 @@ GitHub Pages 托管前端，Supabase 提供共享数据库与登录。GitHub Pag
 
 1. 在 [Supabase](https://supabase.com/dashboard) 创建你自己管理的新项目。
 2. 在 SQL Editor 运行 `supabase/schema.sql`。只在新项目初始化时执行一次。
-3. 运行 `supabase/seed.sql` 导入 701 个原始词条。
+3. 运行 `supabase/seed.sql` 导入 701 个原始词条，再运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql` 启用新增词条防重。
 4. 确认 `public.entries` 已启用 RLS，并存在四项策略，不要关闭 RLS。
 5. 找到 Project URL 和 publishable key，填入 `docs/config.js`：
 
@@ -103,3 +103,9 @@ on conflict do nothing;
 Supabase 根据 7 天内的低活跃度决定是否暂停，未提供可用公开密钥读取的精确暂停倒计时。定时读取可用于检查服务并增加数据库活动，但不能保证免于暂停。暂停后网页仍能浏览内置词表，社区数据与登录、编辑功能暂不可用，需要到 Supabase 后台恢复。[Supabase 暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
 
 GitHub 公共仓库连续 60 天没有活动时，定时工作流会自动停用，需要在 Actions 重新启用。此检查不会自动恢复已经暂停的 Supabase 项目。[GitHub 定时任务限制](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows)
+
+## 已有项目启用词条防重
+
+在 Supabase SQL Editor 运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql`。网页保存前会查询最新词库，忽略大小写、首尾空格、连续空格及全角形式，阻止相同名称的新增或改名。数据库升级用于防止同时提交和直接 API 写入产生重复；前端检查不能替代数据库规则。
+
+升级保留原始词表中已有的同名条目，不自动合并或删除；这些条目仍可编辑释义。最后一个同名词条被删除或改名后，该名称可重新创建。迁移可重复执行，无需重新导入原始词表。

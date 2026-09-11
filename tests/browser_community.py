@@ -51,6 +51,11 @@ def main():
             page.wait_for_selector('#editor-dialog',state='hidden')
             assert '修改后的释义' in page.locator('#cards').inner_text()
             page.locator('#add-entry').click()
+            page.locator('[name=term]').fill('  OWN   TERM  ')
+            page.locator('[name=meaning]').fill('重复测试')
+            page.locator('#save-entry').click()
+            page.wait_for_function("document.querySelector('#editor-error').textContent.includes('已存在')")
+            assert page.evaluate("mockCalls.filter(c => c[0] === 'insert').length") == 0
             page.locator('[name=term]').fill('new term')
             page.locator('[name=meaning]').fill('新词')
             page.locator('[name=domains][value=机器学习]').check()

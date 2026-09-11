@@ -1,4 +1,4 @@
-import { POS, DOMAINS, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js";
+import { POS, DOMAINS, termKey, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js?v=20260911-13";
 
 const POS_SHORT = {verb:"v", "adjective-adverb":"adj/adv", noun:"n", phrase:"phr"};
 
@@ -108,6 +108,11 @@ async function saveEntry(event) {
     if (!row.term || !row.meaning) throw new Error("词汇和释义不能只包含空格。");
     if (row.source_date && !/^\d{4}(-(?:0[1-9]|1[0-2])(-(?:0[1-9]|[12]\d|3[01]))?)?$/.test(row.source_date)) throw new Error("发表日期请填写 YYYY、YYYY-MM 或 YYYY-MM-DD。");
     if (row.source_url && !safeUrl(row.source_url)) throw new Error("来源链接必须以 http:// 或 https:// 开头。");
+    if (!state.editing || termKey(row.term) !== termKey(state.editing.term)) {
+      await loadCloud();
+      const existing = state.entries.find(entry => entry.id !== state.editing?.id && termKey(entry.term) === termKey(row.term));
+      if (existing) throw new Error(`「${existing.term}」已存在，无需重复添加。请在词库中查看已有词条。`);
+    }
     if (state.editing) {
       const {data,error} = await state.client.from("entries").update(row).eq("id",state.editing.id).eq("revision",state.editing.revision).select();
       if (error) throw error;
@@ -121,7 +126,7 @@ async function saveEntry(event) {
     }
     $("#editor-dialog").close(); toast("词汇已保存，感谢你的贡献。");
     try { await loadCloud(); } catch { status("保存成功，但列表刷新失败。请刷新网页获取最新词库。"); }
-  } catch (error) { $("#editor-error").textContent = error.message || "保存失败，请稍后重试。"; }
+  } catch (error) { $("#editor-error").textContent = error.code === "23505" ? "该词汇或短语已存在，无需重复添加。请在词库中查看已有词条。" : error.message || "保存失败，请稍后重试。"; }
   finally { button.disabled = false; }
 }
 async function deleteEntry(id,button) {

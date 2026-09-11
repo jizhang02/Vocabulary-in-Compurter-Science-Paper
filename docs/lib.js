@@ -49,3 +49,5 @@ export function highlightExample(entry) {
   }
   return result + escapeHtml(text.slice(end));
 }
+
+export const termKey = value => String(value ?? "").normalize("NFKC").toLowerCase().replace(/\s+/gu, " ").trim();
