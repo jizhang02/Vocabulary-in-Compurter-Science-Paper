@@ -1,0 +1,25 @@
+name: Cloud vocabulary health
+
+on:
+  schedule:
+    - cron: '23 8 * * *'
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - .github/workflows/cloud-health.yml
+      - scripts/check_cloud.py
+      - docs/config.js
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.repository == 'jizhang02/Vocabulary-in-Compurter-Science-Paper'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read a public vocabulary entry
+        run: python3 scripts/check_cloud.py

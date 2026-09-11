@@ -95,3 +95,11 @@ on conflict do nothing;
 - 费用、配额和邮件额度以服务控制台的实际方案为准。
 
 已有数据库升级例句来源字段：先运行 `supabase/migrations/20260909_example_sources.sql`，再发布新前端。原有词条不会被 seed.sql 覆盖。
+
+## 定时连通检查与免费项目暂停
+
+`.github/workflows/cloud-health.yml` 每天 UTC 08:23 运行一次 `scripts/check_cloud.py`，只读取一个公开词条，不写入数据。也可在 GitHub Actions 的 Cloud vocabulary health 中手动运行。使用网页已有的公开密钥，无需配置管理密钥。运行失败时，可在 Actions 查看错误。
+
+Supabase 根据 7 天内的低活跃度决定是否暂停，未提供可用公开密钥读取的精确暂停倒计时。定时读取可用于检查服务并增加数据库活动，但不能保证免于暂停。暂停后网页仍能浏览内置词表，社区数据与登录、编辑功能暂不可用，需要到 Supabase 后台恢复。[Supabase 暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
+
+GitHub 公共仓库连续 60 天没有活动时，定时工作流会自动停用，需要在 Actions 重新启用。此检查不会自动恢复已经暂停的 Supabase 项目。[GitHub 定时任务限制](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows)

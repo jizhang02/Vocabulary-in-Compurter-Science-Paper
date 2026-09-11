@@ -1,4 +1,4 @@
-import { POS, DOMAINS, escapeHtml as h, tagsFrom, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js";
+import { POS, DOMAINS, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js";
 
 const POS_SHORT = {verb:"v", "adjective-adverb":"adj/adv", noun:"n", phrase:"phr"};
 
@@ -59,10 +59,12 @@ function openEditor(entry = null) {
   state.editing = entry;
   $("#editor").reset(); $("#editor-error").textContent = "";
   $("#editor-title").textContent = entry ? "修改词汇" : "添加词汇";
-  for (const field of ["term","meaning","pos","domains","tags","example","source","source_venue","source_date","source_location","source_url"]) {
+  for (const field of ["term","meaning","pos","example","source","source_venue","source_date","source_url"]) {
     const value = entry?.[field] ?? (field === "pos" ? "noun" : "");
     $("#editor").elements[field].value = Array.isArray(value) ? value.join("，") : value;
   }
+  const domains = [...new Set([...DOMAINS, ...(entry?.domains || [])])];
+  $("#editor-domains").innerHTML = domains.map(domain => `<label><input type="checkbox" name="domains" value="${h(domain)}" ${entry?.domains.includes(domain) ? "checked" : ""}>${h(domain)}</label>`).join("");
   $("#entry-dialog").close(); $("#editor-dialog").showModal();
 }
 async function loadCloud() {
@@ -100,8 +102,9 @@ async function saveEntry(event) {
   try {
     if (!state.online || !state.user) throw new Error("请先登录后再保存。");
     const form = new FormData(event.target);
-    const row = Object.fromEntries(["term","meaning","pos","example","source","source_venue","source_date","source_location","source_url"].map(k => [k,form.get(k).trim()]));
-    row.domains = tagsFrom(form.get("domains")); row.tags = tagsFrom(form.get("tags"));
+    const row = Object.fromEntries(["term","meaning","pos","example","source","source_venue","source_date","source_url"].map(k => [k,form.get(k).trim()]));
+    row.domains = form.getAll("domains");
+    if (!state.editing) { row.tags = []; row.source_location = ""; }
     if (!row.term || !row.meaning) throw new Error("词汇和释义不能只包含空格。");
     if (row.source_date && !/^\d{4}(-(?:0[1-9]|1[0-2])(-(?:0[1-9]|[12]\d|3[01]))?)?$/.test(row.source_date)) throw new Error("发表日期请填写 YYYY、YYYY-MM 或 YYYY-MM-DD。");
     if (row.source_url && !safeUrl(row.source_url)) throw new Error("来源链接必须以 http:// 或 https:// 开头。");
