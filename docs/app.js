@@ -256,3 +256,12 @@ async function start() {
   } catch (error) { state.online = false; status(`社区连接失败，当前仅浏览原始词表，编辑暂不可用。${error.message || "请稍后刷新重试。"}`); }
 }
 void start();
+
+// Keep the action row aligned with the heading across viewport and font changes.
+const heroTitleLine = document.querySelector('#hero-title-line');
+const heroActions = document.querySelector('.hero-stats');
+if (heroTitleLine && heroActions) {
+  const syncHeroWidth = () => heroActions.style.setProperty('--hero-title-width', `${heroTitleLine.getBoundingClientRect().width}px`);
+  syncHeroWidth();
+  new ResizeObserver(syncHeroWidth).observe(heroTitleLine);
+}
