@@ -33,6 +33,7 @@ function selectedEntries() {
   return entries.sort((a,b) => $("#sort").value === "recent" ? (b.updated_at || "").localeCompare(a.updated_at || "") || a.term.localeCompare(b.term,"en") : a.term.localeCompare(b.term,"en") * ($("#sort").value === "za" ? -1 : 1));
 }
 function render() {
+  $("#return-home").hidden = !state.mine;
   const entries = selectedEntries();
   const pages = Math.max(1, Math.ceil(entries.length / state.pageSize));
   state.page = Math.min(state.page,pages);
@@ -212,6 +213,7 @@ $("#sort").addEventListener("change",() => {
 });
 $(".filters").addEventListener("change",refreshView);
 $("#reset").onclick = () => { state.mine = false; $("#search").value = ""; document.querySelectorAll(".filters input").forEach(x=>x.checked=false); refreshView(); };
+$("#return-home").onclick = () => { $("#reset").click(); $("#library").scrollIntoView({behavior:"smooth",block:"start"}); };
 $("#add-entry").onclick = () => openEditor();
 $("#my-contributions").onclick = () => {
   if (!state.user) { openAuth(); return; }

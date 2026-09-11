@@ -84,3 +84,8 @@
 
 .search-row #add-entry{flex-shrink:0;min-height:56px;white-space:nowrap}
 @media(max-width:740px){.search-row{display:grid;grid-template-columns:auto minmax(0,1fr)}.search-row #add-entry{min-height:50px;padding:10px 12px}.search-row #random-entry{grid-column:2;justify-self:end}}
+
+.results-summary{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-right:auto;min-width:0}
+.results-summary p{margin:0}
+#return-home{font-size:12px;color:var(--green);white-space:nowrap;padding:4px 0}
+#return-home:hover{text-decoration:underline}

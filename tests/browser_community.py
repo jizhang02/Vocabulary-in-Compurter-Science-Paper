@@ -33,7 +33,10 @@ def main():
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
             page.locator('#my-contributions').click()
             assert page.locator('.word-card').count() == 1
-            page.locator('#reset').click()
+            assert page.locator('#return-home').is_visible()
+            page.locator('#return-home').click()
+            assert page.locator('.word-card').count() == 2
+            assert page.locator('#return-home').is_hidden()
             page.get_by_role('button',name='展开 other term',exact=True).click()
             assert page.locator('[data-edit]').count() == 0
             assert page.locator('#entry-detail img').count() == 0

@@ -7,9 +7,9 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>PaperLex · 论文词汇共建</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260911-15">
+  <link rel="stylesheet" href="styles.css?v=20260911-16">
   <script src="config.js?v=cloud-1"></script>
-  <script type="module" src="app.js?v=20260911-15"></script>
+  <script type="module" src="app.js?v=20260911-16"></script>
 </head>
 <body id="top">
   <a class="skip" href="#library">跳至词汇库</a>
@@ -28,7 +28,7 @@
 
       <div class="search-row"><button id="add-entry" class="button primary">＋ 添加词汇</button><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索英文、中文释义、例句或标签…" aria-label="搜索词汇"><kbd>/</kbd></label><button id="random-entry" class="random-button"><span class="random-symbol">✳</span> <span>随机认识一个词</span><span class="random-arrow" aria-hidden="true">↗</span></button></div>
       <div class="collection-layout"><aside class="filters" aria-label="筛选词汇"><div class="filter-heading">筛选词汇 <button id="reset" class="text-button">重置</button></div><fieldset><legend>词性 <span>PART OF SPEECH</span></legend><div id="pos-filters"></div></fieldset><fieldset><legend>专业领域 <span>DOMAIN</span></legend><div id="domain-filters"></div></fieldset><p class="filter-tip">“通用”用于跨领域表达。同组多选取并集，不同组交叉筛选。</p></aside>
-      <div class="results"><div class="results-toolbar"><p id="result-count" role="status" aria-live="polite">加载中…</p><label class="sort-label">排序<select id="sort"><option value="az">字母 A → Z</option><option value="za">字母 Z → A</option><option value="recent">最近更新</option><option value="random" selected>随机乱序</option></select></label><div class="view-switch" aria-label="显示方式"><button id="grid-view" class="selected" aria-label="卡片视图" aria-pressed="true">▦</button><button id="list-view" aria-label="列表视图" aria-pressed="false">☰</button></div></div><div id="cards" class="cards"></div><div id="pagination" class="pagination"></div></div></div>
+      <div class="results"><div class="results-toolbar"><div class="results-summary"><p id="result-count" role="status" aria-live="polite">加载中…</p><button id="return-home" class="text-button" type="button" hidden>← 返回主页</button></div><label class="sort-label">排序<select id="sort"><option value="az">字母 A → Z</option><option value="za">字母 Z → A</option><option value="recent">最近更新</option><option value="random" selected>随机乱序</option></select></label><div class="view-switch" aria-label="显示方式"><button id="grid-view" class="selected" aria-label="卡片视图" aria-pressed="true">▦</button><button id="list-view" aria-label="列表视图" aria-pressed="false">☰</button></div></div><div id="cards" class="cards"></div><div id="pagination" class="pagination"></div></div></div>
     </section>
   </main>
   <footer class="wrap"><span><a href="#top" aria-label="PaperLex，返回顶部" title="返回顶部"><b>PaperLex</b></a> · 从阅读中来，到研究中去。</span><span>Made for curious minds.</span></footer>
