@@ -20,7 +20,7 @@ function buildFilters() {
   $("#pos-filters").innerHTML = Object.entries(POS).map(([key,label]) => checkbox("pos",key,label,counts("pos",key),previous.pos.has(key))).join("");
   const domains = [...new Set([...DOMAINS,...state.entries.flatMap(e => e.domains)])];
   $("#domain-filters").innerHTML = domains.map(d => checkbox("domain",d,d,counts("domains",d),previous.domains.has(d))).join("");
-  $("#total-stat").textContent = state.entries.length.toLocaleString();
+
 }
 function selectedEntries() {
   const entries = filterEntries(state.entries, filters(), state.user);

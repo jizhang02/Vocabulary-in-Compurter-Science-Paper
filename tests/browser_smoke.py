@@ -29,7 +29,7 @@ def main():
             page.on('pageerror',lambda error: errors.append(str(error)))
             page.route('**/config.js*', lambda route: route.fulfill(content_type='text/javascript', body='window.VOCAB_CONFIG = {};'))
             page.goto(url)
-            page.wait_for_function("document.querySelector('#total-stat').textContent === '701'")
+            page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 701 个')")
             assert page.locator('.word-card').count() == 18
             page.screenshot(path=str(output / 'desktop.png'),full_page=True)
             page.locator('#search').fill('concatenate')

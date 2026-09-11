@@ -21,7 +21,7 @@ def main():
             page.route('**/config.js*',lambda route:route.fulfill(content_type='text/javascript',body='window.VOCAB_CONFIG={supabaseUrl:"https://example.supabase.co",supabasePublishableKey:"test"};'))
             page.route('https://cdn.jsdelivr.net/**',lambda route:route.fulfill(content_type='text/javascript',body=(ROOT/'tests/mock_supabase.js').read_text(encoding='utf-8')))
             page.goto(f'http://127.0.0.1:{server.server_port}/docs/')
-            page.wait_for_function("document.querySelector('#total-stat').textContent === '2'")
+            page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 2 个')")
             # Cloud is authoritative: bundled entries must not reappear.
             assert page.locator('.word-card').count() == 2
             page.locator('#auth-button').click()
@@ -71,7 +71,7 @@ def main():
             page.locator('[name=domains][value=机器学习]').check()
             page.locator('[name=domains][value=医学]').check()
             page.locator('#save-entry').click()
-            page.wait_for_function("document.querySelector('#total-stat').textContent === '3'")
+            page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 3 个')")
             assert page.evaluate("mockCalls.some(c => c[0] === 'insert' && c[1].domains.length === 2 && c[1].domains.includes('医学'))")
             page.get_by_role('button',name='展开 own term',exact=True).click()
             page.get_by_role('button',name='修改词汇',exact=True).click()
@@ -86,7 +86,7 @@ def main():
             assert page.locator('[data-edit]').count() == 1
             page.on('dialog',lambda dialog:dialog.accept())
             page.get_by_role('button',name='删除词汇',exact=True).click()
-            page.wait_for_function("document.querySelector('#total-stat').textContent === '2'")
+            page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 2 个')")
             assert 'other term' not in page.locator('#cards').inner_text()
             page.locator('#auth-button').click()
             page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
