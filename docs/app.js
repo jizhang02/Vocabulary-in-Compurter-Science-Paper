@@ -56,6 +56,7 @@ function openEditor(entry = null) {
   if (!state.online) { openAuth(); return; }
   if (!state.user) { openAuth(); return; }
   if (entry && !canEdit(entry,state.user,state.admin)) return;
+  resetTermCheck();
   state.editing = entry;
   $("#editor").reset(); $("#editor-error").textContent = "";
   $("#editor-title").textContent = entry ? "修改词汇" : "添加词汇";
@@ -67,7 +68,7 @@ function openEditor(entry = null) {
   $("#editor-domains").innerHTML = domains.map(domain => `<label><input type="checkbox" name="domains" value="${h(domain)}" ${entry?.domains.includes(domain) ? "checked" : ""}>${h(domain)}</label>`).join("");
   $("#entry-dialog").close(); $("#editor-dialog").showModal();
 }
-async function loadCloud() {
+async function fetchCloudEntries() {
   const entries = [];
   // Keyset pagination remains correct when a project sets its API row cap below 1,000.
   let last = null;
@@ -79,9 +80,61 @@ async function loadCloud() {
     if (!data.length) break;
     entries.push(...data); last = data.at(-1).id;
   }
-  state.entries = entries; state.online = true; buildFilters(); render();
+  return entries;
+}
+async function loadCloud() {
+  state.entries = await fetchCloudEntries(); state.online = true; buildFilters(); render();
   status("",true);
 }
+let termCheckTimer, termCheckEpoch = 0, existingTermId = null;
+function resetTermCheck() {
+  clearTimeout(termCheckTimer); termCheckEpoch++; existingTermId = null;
+  $("#editor").elements.term.setCustomValidity("");
+  $("#editor").elements.term.removeAttribute("aria-invalid");
+  $("#term-feedback").hidden = true; $("#view-existing-term").hidden = true;
+}
+function showTermCheck(existing, message) {
+  const input = $("#editor").elements.term;
+  existingTermId = existing?.id || null;
+  input.setCustomValidity(existing ? "该词汇或短语已存在，无需重复添加。" : "");
+  input.setAttribute("aria-invalid", String(Boolean(existing)));
+  $("#term-feedback").textContent = existing ? `「${existing.term}」已存在，无需重复添加。` : message;
+  $("#term-feedback").classList.toggle("error", Boolean(existing));
+  $("#term-feedback").hidden = false;
+  $("#view-existing-term").hidden = !existing;
+}
+function scheduleTermCheck(immediate = false) {
+  resetTermCheck();
+  const key = termKey($("#editor").elements.term.value);
+  if (!key || key === termKey(state.editing?.term)) return;
+  const epoch = termCheckEpoch;
+  const match = entries => entries.find(entry => entry.id !== state.editing?.id && termKey(entry.term) === key);
+  showTermCheck(match(state.entries), "正在检查是否已存在…");
+  termCheckTimer = setTimeout(async () => {
+    try {
+      const entries = await fetchCloudEntries();
+      if (epoch !== termCheckEpoch || !$("#editor-dialog").open) return;
+      const existing = match(entries);
+      if (existing) {
+        const index = state.entries.findIndex(entry => entry.id === existing.id);
+        if (index < 0) state.entries.push(existing); else state.entries[index] = existing;
+      }
+      showTermCheck(existing, "暂未发现重复，可以继续填写。");
+    } catch {
+      if (epoch !== termCheckEpoch || !$("#editor-dialog").open) return;
+      showTermCheck(match(state.entries), "暂时无法检查最新词库，保存时会再次验证。");
+    }
+  }, immediate ? 0 : 400);
+}
+$("#editor").elements.term.addEventListener("input", event => {
+  if (event.isComposing) { resetTermCheck(); return; }
+  scheduleTermCheck();
+});
+$("#editor").elements.term.addEventListener("compositionend", () => scheduleTermCheck());
+$("#editor").elements.term.addEventListener("blur", () => scheduleTermCheck(true));
+$("#editor-dialog").addEventListener("close", resetTermCheck);
+$("#view-existing-term").onclick = () => { if (existingTermId) openEntry(existingTermId); };
+
 async function updateUser(user) {
   const epoch = ++state.authEpoch;
   const changed = state.user?.id !== user?.id;

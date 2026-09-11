@@ -52,11 +52,18 @@ def main():
             assert '修改后的释义' in page.locator('#cards').inner_text()
             page.locator('#add-entry').click()
             page.locator('[name=term]').fill('  OWN   TERM  ')
-            page.locator('[name=meaning]').fill('重复测试')
-            page.locator('#save-entry').click()
-            page.wait_for_function("document.querySelector('#editor-error').textContent.includes('已存在')")
+            page.locator('[name=term]').press('Tab')
+            page.wait_for_function("document.querySelector('#term-feedback').textContent.includes('已存在')")
+            assert page.locator('[name=meaning]').input_value() == ''
+            assert page.locator('[name=term]').evaluate('(e) => !e.checkValidity()')
+            page.locator('#view-existing-term').click()
+            assert page.locator('#entry-title').inner_text() == 'own term'
+            page.keyboard.press('Escape')
+            assert page.locator('#editor-dialog').is_visible()
             assert page.evaluate("mockCalls.filter(c => c[0] === 'insert').length") == 0
             page.locator('[name=term]').fill('new term')
+            page.wait_for_function("document.querySelector('#term-feedback').textContent.includes('可以继续填写')")
+            assert page.locator('[name=term]').evaluate('(e) => e.checkValidity()')
             page.locator('[name=meaning]').fill('新词')
             page.locator('[name=domains][value=机器学习]').check()
             page.locator('[name=domains][value=医学]').check()

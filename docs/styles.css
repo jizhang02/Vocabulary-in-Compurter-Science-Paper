@@ -76,3 +76,8 @@
 .editor-domains{display:flex;flex-wrap:wrap;gap:10px 14px}
 .editor-domains label{display:flex;flex-direction:row;align-items:center;gap:6px;margin:0;font-weight:400;cursor:pointer}
 .editor-domains input{width:15px;height:15px;margin:0;accent-color:var(--green)}
+
+.term-feedback{font-size:12px;line-height:1.6;margin:-5px 0 6px;color:var(--muted)}
+.term-feedback.error{color:#aa3c32}
+.term-existing{font-size:12px;padding:0 0 8px;color:var(--green)}
+#editor input[aria-invalid="true"]{border-color:#aa3c32}
