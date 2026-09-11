@@ -38,7 +38,7 @@ def main():
             assert 'Learning Depth with Convolutional Spatial Propagation Network.' in page.locator('#entry-detail').inner_text()
             assert 'IEEE transactions on pattern analysis and machine intelligence' in page.locator('.citation-meta').inner_text()
             assert '2019-10-15' in page.locator('.citation-meta').inner_text()
-            assert page.get_by_role('link', name='查看原始来源 ↗').count() == 1
+            assert page.get_by_role('link', name='查看原始来源').count() == 1
             assert page.locator('[data-edit]').count() == 0
             page.keyboard.press('Escape')
             assert page.locator('#example-stat').count() == 0

@@ -113,3 +113,5 @@
 .hero-stats{width:var(--hero-title-width,100%);max-width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .hero-stats #add-entry,.hero-stats #random-entry{width:100%;min-width:0}
 .hero-stats #random-entry .random-symbol{display:inline}
+
+footer.wrap{align-items:center;flex-wrap:nowrap}footer.wrap>span{min-width:0}footer.wrap .footer-github{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;margin-left:auto;border-radius:9px;color:var(--muted)}.footer-github:hover{color:var(--green);background:#e9eee4}.footer-github svg{display:block}
