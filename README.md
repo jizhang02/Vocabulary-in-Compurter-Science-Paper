@@ -9,7 +9,7 @@
 - **701 个词条、701 个带例句词条**；清理空词条及 `sentence.` 占位例句。
 - 搜索英文、中文释义、例句、来源和标签；按词性、多个专业领域、例句完整度及“我的创建”交叉筛选。
 - 卡片 / 列表、字母 / 最近更新排序、分页、随机词条、手机适配。
-- GitHub 和邮箱验证码登录；作者管理自己的条目，管理员管理全部条目。
+- GitHub 登录；作者管理自己的条目，管理员管理全部条目。
 - 数据库行级权限、不可由客户端修改的作者归属、编辑版本冲突检查、私有修改历史。
 
 **部署方式：GitHub Pages 发布 `master` 分支的 `/docs` 目录；社区数据库已连接，登录提供方和管理员仍需配置。** `docs/config.js` 为空时使用仓库词表，只读访问可独立运行。连接 Supabase 后，以云数据库为唯一社区数据源。
@@ -28,7 +28,7 @@ python -m http.server 8765 --bind 127.0.0.1 --directory docs
 
 ## 上线与权限
 
-按 [部署指南](docs/DEPLOYMENT.md) 配置 GitHub Pages、Supabase、GitHub OAuth、邮箱验证码及管理员。
+按 [部署指南](docs/DEPLOYMENT.md) 配置 GitHub Pages、Supabase、GitHub OAuth 及管理员。
 
 网站地址：[PaperLex](https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/)。登录及创建、修改、删除须完成下面的 Supabase 配置。
 

@@ -25,7 +25,7 @@ window.VOCAB_CONFIG = {
 
 社区内容保存在数据库，不会自动回写 GitHub。请定期导出数据库备份；种子脚本仅用于初始化，重跑会恢复已删除的种子词条。
 
-## 3. GitHub 与邮箱登录
+## 3. GitHub 登录
 
 在 Supabase Authentication → URL Configuration 设置：
 
@@ -43,25 +43,9 @@ window.VOCAB_CONFIG = {
 
 网页使用 PKCE，会话回调返回项目主页。[GitHub 登录官方指南](https://supabase.com/docs/guides/auth/social-login/auth-github)
 
-### 邮箱验证码
-
-1. 启用 Email Provider，允许新用户注册，不需要开启匿名登录。
-2. Authentication → Email Templates → Magic Link，将正文改为包含验证码：
-
-```html
-<h2>登录 PaperLex</h2>
-<p>你的登录验证码是：{{ .Token }}</p>
-<p>请在发起登录的网页输入验证码。如果不是你发起的请求，请忽略此邮件。</p>
-```
-
-3. 面向公众开放邮箱登录时，配置自己的 SMTP 服务并验证发送域名。Supabase 默认邮件服务用于测试，不应当作公众邮件交付服务。[SMTP 官方说明](https://supabase.com/docs/guides/auth/auth-smtp)
-4. 在网页输入邮箱，收到邮件后输入验证码，不用创建网站密码。
-
-`signInWithOtp` 默认发送 Magic Link，模板中的 `{{ .Token }}` 不能省略。[邮箱 OTP 官方指南](https://supabase.com/docs/guides/auth/auth-email-passwordless)
-
 ## 4. 你的管理员权限
 
-先在网页用你的 GitHub 或邮箱登录一次，再从 Supabase Authentication → Users 复制该账号的 **UUID**。在 SQL Editor 执行：
+先在网页用你的 GitHub 登录一次，再从 Supabase Authentication → Users 复制该账号的 **UUID**。在 SQL Editor 执行：
 
 ```sql
 insert into private.admins (user_id)
@@ -70,8 +54,6 @@ on conflict do nothing;
 ```
 
 刷新网页，右上角应显示“管理员 · 退出”。管理员列表不放到前端；昵称和显示邮箱不用于授权。
-
-GitHub 与邮箱是否关联到同一用户，以 Users 中的 UUID 为准。如果形成两个账号，而你希望两个都能管理，分别核对身份后登记两个 UUID。邮箱用户公开署名默认为“社区读者”，不把邮箱写入公开词条。
 
 ## 5. 发布 GitHub Pages
 
@@ -91,7 +73,7 @@ GitHub 与邮箱是否关联到同一用户，以 Users 中的 UUID 为准。如
 | 场景 | 预期 |
 | --- | --- |
 | 未登录访问、检索、打开词条 | 正常 |
-| GitHub / 测试邮箱登录 | 成功；邮件收到验证码 |
+| GitHub 登录 | 成功并返回网站 |
 | 用户 A 添加，刷新页面、另一浏览器查看 | 数据保留并公开可见 |
 | 用户 B 查看 A 的词条 | 无编辑入口，直接 API 越权也被拒绝 |
 | A 修改/删除自己的词 | 成功 |

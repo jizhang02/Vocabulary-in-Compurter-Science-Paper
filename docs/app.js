@@ -175,25 +175,6 @@ $("#github-login").onclick = async () => {
     if (error) throw error;
   } catch (error) { $("#auth-message").textContent = error.message; }
 };
-let otpEmail = "";
-$("#email-form").onsubmit = async event => {
-  event.preventDefault(); const button = event.target.querySelector("button"); button.disabled = true;
-  try {
-    const email = $("#email").value.trim();
-    const {error} = await state.client.auth.signInWithOtp({email,options:{shouldCreateUser:true}});
-    if (error) throw error;
-    otpEmail = email; $("#otp-form").hidden = false; $("#auth-message").textContent = "验证码已发送，请检查邮箱（包括垃圾邮件）。"; $("#otp").focus();
-  } catch (error) { $("#auth-message").textContent = error.message; } finally { button.disabled = false; }
-};
-$("#otp-form").onsubmit = async event => {
-  event.preventDefault(); const button = event.target.querySelector("button"); button.disabled = true;
-  try {
-    const {error} = await state.client.auth.verifyOtp({email:otpEmail,token:$("#otp").value.trim(),type:"email"});
-    if (error) throw error;
-    $("#auth-dialog").close(); toast("登录成功，现在可以添加词汇了。");
-  } catch (error) { $("#auth-message").textContent = error.message; } finally { button.disabled = false; }
-};
-
 async function start() {
   try {
     const response = await fetch(new URL("./data/vocabulary.json",import.meta.url));

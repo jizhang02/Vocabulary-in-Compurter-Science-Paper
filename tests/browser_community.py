@@ -27,10 +27,9 @@ def main():
             page.locator('#auth-button').click()
             page.locator('#github-login').click()
             assert page.evaluate("mockCalls.some(c=>c[0]==='oauth' && c[1].provider==='github' && c[1].options.redirectTo.endsWith('/docs/'))")
-            page.locator('#email').fill('alice@example.com')
-            page.locator('#email-form button').click()
-            page.locator('#otp').fill('123456')
-            page.locator('#otp-form button').click()
+            assert page.locator('#auth-dialog input').count() == 0
+            page.keyboard.press("Escape")  # OAuth normally navigates away from the dialog.
+            page.evaluate("mockSignIn('alice')")
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
             page.locator('#my-contributions').click()
             assert page.locator('.word-card').count() == 1
@@ -76,7 +75,7 @@ def main():
             assert page.locator('.word-card').count() == 2
             assert not errors,errors
             browser.close()
-            print('PASS: GitHub and email UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')
+            print('PASS: GitHub-only login UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')
     finally:
         server.shutdown()
 

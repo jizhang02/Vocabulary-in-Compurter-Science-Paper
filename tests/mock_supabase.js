@@ -16,8 +16,6 @@ export function createClient() {
       async getSession() { return {data:{session:user ? {user} : null}}; },
       async signOut() { user=null; listener('SIGNED_OUT',null); return {}; },
       async signInWithOAuth(options) { window.mockCalls.push(['oauth',options]); return {}; },
-      async signInWithOtp(options) { window.mockCalls.push(['sendOtp',options]); return {}; },
-      async verifyOtp(options) { window.mockCalls.push(['verifyOtp',options]); window.mockSignIn('alice'); return {}; },
     },
     async rpc(name) { return {data:name === 'is_admin' && user?.id === 'admin'}; },
     from() {
