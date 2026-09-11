@@ -81,3 +81,6 @@
 .term-feedback.error{color:#aa3c32}
 .term-existing{font-size:12px;padding:0 0 8px;color:var(--green)}
 #editor input[aria-invalid="true"]{border-color:#aa3c32}
+
+.search-row #add-entry{flex-shrink:0;min-height:56px;white-space:nowrap}
+@media(max-width:740px){.search-row{display:grid;grid-template-columns:auto minmax(0,1fr)}.search-row #add-entry{min-height:50px;padding:10px 12px}.search-row #random-entry{grid-column:2;justify-self:end}}

@@ -177,7 +177,7 @@ async function saveEntry(event) {
       const {error} = await state.client.from("entries").insert(row);
       if (error) throw error;
     }
-    $("#editor-dialog").close(); toast("词汇已保存，感谢你的贡献。");
+    $("#editor-dialog").close(); toast("词汇已保存，感谢你的分享。");
     try { await loadCloud(); } catch { status("保存成功，但列表刷新失败。请刷新网页获取最新词库。"); }
   } catch (error) { $("#editor-error").textContent = error.code === "23505" ? "该词汇或短语已存在，无需重复添加。请在词库中查看已有词条。" : error.message || "保存失败，请稍后重试。"; }
   finally { button.disabled = false; }
