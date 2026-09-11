@@ -47,7 +47,7 @@
 .detail-heading-meta{display:flex;flex:1;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px 12px;min-width:0;text-align:right}
 .detail-heading-meta .detail-meaning{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-end;gap:5px 8px;margin:0;font-size:16px}
 .detail-heading-meta .detail-tags{justify-content:flex-end;flex-wrap:wrap;margin:0;gap:5px;min-width:0}
-@media(max-width:540px){.detail-heading{gap:14px}.detail-heading .detail-term{font-size:28px;max-width:45%}.detail-heading-meta .detail-meaning{font-size:14px}}
+@media(max-width:540px){.detail-heading{flex-wrap:wrap;gap:12px 14px}.detail-heading .detail-term{flex:0 0 auto;font-size:28px;max-width:100%;overflow-wrap:anywhere}.detail-heading-meta{flex:1 1 120px}.detail-heading-meta .detail-meaning{font-size:14px}}
 .citation-meta{grid-template-columns:minmax(0,1fr);column-gap:20px}
 .citation-meta .citation-venue,.citation-meta .citation-date{display:flex;align-items:baseline;gap:8px;min-width:0}
 .citation-meta .citation-venue dt,.citation-meta .citation-date dt{flex-shrink:0;margin:0;white-space:nowrap;line-height:1.7}
