@@ -41,7 +41,7 @@ def main():
             assert page.get_by_role('link', name='查看原始来源 ↗').count() == 1
             assert page.locator('[data-edit]').count() == 0
             page.keyboard.press('Escape')
-            assert page.locator('#example-stat').inner_text() == '701'
+            assert page.locator('#example-stat').count() == 0
             page.locator('#search').fill('greenhorn')
             assert '自拟例句' in page.locator('#cards').inner_text()
             page.get_by_role('button', name='展开 greenhorn', exact=True).click()

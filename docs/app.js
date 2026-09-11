@@ -9,7 +9,7 @@ const state = { entries: [], mine: false, user: null, admin: false, client: null
 const config = window.VOCAB_CONFIG || {};
 let toastTimer;
 function toast(message) { $("#toast").textContent = message; $("#toast").hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $("#toast").hidden = true, 5000); }
-function status(message, online = false) { $("#connection-status").textContent = message; $("#connection-status").classList.toggle("online", online); }
+function status(message, online = false) { $("#connection-status").hidden = online; $("#connection-status").textContent = message; $("#connection-status").classList.toggle("online", online); }
 function filters() {
   return {query: $("#search").value, pos: new Set([...document.querySelectorAll("[name=filter-pos]:checked")].map(x => x.value)), domains: new Set([...document.querySelectorAll("[name=filter-domain]:checked")].map(x => x.value)), mine: state.mine};
 }
@@ -21,7 +21,6 @@ function buildFilters() {
   const domains = [...new Set([...DOMAINS,...state.entries.flatMap(e => e.domains)])];
   $("#domain-filters").innerHTML = domains.map(d => checkbox("domain",d,d,counts("domains",d),previous.domains.has(d))).join("");
   $("#total-stat").textContent = state.entries.length.toLocaleString();
-  $("#example-stat").textContent = state.entries.filter(e => e.example).length.toLocaleString();
 }
 function selectedEntries() {
   const entries = filterEntries(state.entries, filters(), state.user);
@@ -79,7 +78,7 @@ async function loadCloud() {
     entries.push(...data); last = data.at(-1).id;
   }
   state.entries = entries; state.online = true; buildFilters(); render();
-  status("社区词库已连接 · 浏览无需登录，登录后可添加和管理自己的词汇。",true);
+  status("",true);
 }
 async function updateUser(user) {
   const epoch = ++state.authEpoch;
