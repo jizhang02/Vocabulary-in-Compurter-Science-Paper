@@ -123,6 +123,42 @@ def main():
             page.reload()
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
             assert page.locator('#editor-dialog').is_hidden(), 'The pending action must be consumed once'
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
+            # Resume My Contributions after OAuth returns to a fresh page.
+            page.locator('#my-contributions').click()
+            assert page.locator('#auth-dialog').is_visible()
+            page.locator('#github-login').click()
+            page.reload()
+            page.wait_for_selector('#return-home', state='visible')
+            assert page.locator('.word-card').count() == 1
+            assert page.locator('.term-button').all_text_contents() == ['own term']
+            assert page.locator('#auth-dialog').is_hidden()
+            assert page.locator('#editor-dialog').is_hidden()
+            page.evaluate('mockRefresh()')
+            page.wait_for_timeout(100)
+            assert page.locator('#return-home').is_visible()
+            page.reload()
+            page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 2 个')")
+            assert page.locator('#return-home').is_hidden(), 'The mine action must be consumed once'
+            # The same action also resumes when sign-in completes in this page.
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
+            page.locator('#search').fill('no matching entry')
+            page.locator('#my-contributions').click()
+            page.evaluate("mockSignIn('alice')")
+            page.wait_for_selector('#return-home', state='visible')
+            assert page.locator('#search').input_value() == ''
+            assert page.locator('.term-button').all_text_contents() == ['own term']
+            assert page.locator('#auth-dialog').is_hidden()
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
+            page.locator('#my-contributions').click()
+            page.keyboard.press('Escape')
+            page.locator('#auth-button').click()
+            page.evaluate("mockSignIn('alice')")
+            page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
+            assert page.locator('#return-home').is_hidden(), 'Cancelled login must not resume My Contributions'
             assert not errors,errors
             browser.close()
             print('PASS: GitHub-only login UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')
