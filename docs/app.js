@@ -1,4 +1,4 @@
-import { POS, DOMAINS, termKey, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js?v=20260911-13";
+import { POS, DOMAINS, termKey, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js?v=20260914-1";
 
 const POS_SHORT = {verb:"v", "adjective-adverb":"adj/adv", noun:"n", phrase:"phr"};
 
@@ -7,6 +7,22 @@ const isAuthored = entry => entry.source_venue === "自拟例句";
 const $ = selector => document.querySelector(selector);
 const state = { entries: [], mine: false, user: null, admin: false, client: null, online: false, page: 1, pageSize: 18, editing: null, authEpoch: 0 };
 const config = window.VOCAB_CONFIG || {};
+const authActionKey = `paperlex:auth-action:${new URL("./", location.href).pathname}`;
+let pendingAdd = false;
+try { pendingAdd = sessionStorage.getItem(authActionKey) === "add"; } catch { /* Storage may be disabled. */ }
+function rememberAdd(value) {
+  pendingAdd = value;
+  try {
+    if (value) sessionStorage.setItem(authActionKey, "add");
+    else sessionStorage.removeItem(authActionKey);
+  } catch { /* In-page login can still resume without storage. */ }
+}
+function resumeAdd() {
+  if (!pendingAdd || !state.user || !state.online) return;
+  rememberAdd(false);
+  $("#auth-dialog").close();
+  openEditor();
+}
 let toastTimer;
 function toast(message) { $("#toast").textContent = message; $("#toast").hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $("#toast").hidden = true, 5000); }
 function status(message, online = false) { $("#connection-status").hidden = online; $("#connection-status").textContent = message; $("#connection-status").classList.toggle("online", online); }
@@ -49,13 +65,14 @@ function openEntry(id) {
   $("#entry-detail").innerHTML = `<div class="detail-heading"><h2 id="entry-title" class="detail-term">${h(e.term)}</h2><div class="detail-heading-meta"><p class="detail-meaning"><span>${h(e.meaning)}</span> <span class="card-pos" title="${h(POS[e.pos] || e.pos)}">${h(POS_SHORT[e.pos] || e.pos)}</span></p><div class="detail-tags">${[...e.domains,...e.tags].map(t=>`<span class="tag">${h(t)}</span>`).join("") || '<span class="tag">领域待分类</span>'}</div></div></div>${e.example ? `<section class="example-block" aria-labelledby="example-block-title"><h3 id="example-block-title">${isAuthored(e) ? "自拟例句" : "原文例句"}${isAuthored(e) ? '<span class="example-block-note">非论文原文</span>' : ""}</h3><blockquote class="detail-example">${highlightExample(e)}</blockquote></section>` : '<p class="form-note">这个词还没有例句，期待补充实际论文中的用法。</p>'}<dl class="citation-meta"><div class="citation-venue"><dt>${isAuthored(e) ? "例句类型" : "期刊 / 会议"}</dt><dd title="${h(e.source_venue || "待补充")}">${h(e.source_venue || "待补充")}</dd></div><div class="citation-date"><dt>${isAuthored(e) ? "编写日期" : "发表日期"}</dt><dd>${h(e.source_date || "待补充")}</dd></div><div><dt>${isAuthored(e) ? "例句标题" : "论文标题"}</dt><dd>${h(e.source || "待补充")}</dd></div></dl><div class="detail-footer">${url ? `<p class="detail-source"><a href="${h(url)}" target="_blank" rel="noopener noreferrer">查看原始来源</a></p>` : ""}<p class="detail-author">分享者：${h(authorNickname(e))}${e.updated_at ? ` · 更新于 ${h(new Date(e.updated_at).toLocaleDateString("zh-CN"))}` : ""}</p></div>${state.online && canEdit(e,state.user,state.admin) ? `<div class="detail-actions"><button class="button primary" data-edit="${h(e.id)}">修改词汇</button><button class="button danger" data-delete="${h(e.id)}">删除词汇</button></div>` : ""}`;
   $("#entry-dialog").showModal();
 }
-function openAuth() {
+function openAuth(addAfterLogin = false) {
   if (!state.client || !state.online) { toast("当前为只读词表。站点维护者连接社区数据库后，即可登录并贡献。"); return; }
+  rememberAdd(addAfterLogin);
   $("#auth-message").textContent = ""; $("#auth-dialog").showModal();
 }
 function openEditor(entry = null) {
   if (!state.online) { openAuth(); return; }
-  if (!state.user) { openAuth(); return; }
+  if (!state.user) { openAuth(!entry); return; }
   if (entry && !canEdit(entry,state.user,state.admin)) return;
   resetTermCheck();
   state.editing = entry;
@@ -86,6 +103,7 @@ async function fetchCloudEntries() {
 async function loadCloud() {
   state.entries = await fetchCloudEntries(); state.online = true; buildFilters(); render();
   status("",true);
+  resumeAdd();
 }
 let termCheckTimer, termCheckEpoch = 0, existingTermId = null;
 function resetTermCheck() {
@@ -149,6 +167,7 @@ async function updateUser(user) {
   $("#auth-button").textContent = user ? `${state.admin ? "管理员" : "已登录"} · 退出` : "登录 / 注册";
   if (!user) state.mine = false;
   render();
+  resumeAdd();
 }
 async function saveEntry(event) {
   event.preventDefault();
@@ -227,6 +246,7 @@ $("#random-entry").onclick = () => { const entries = selectedEntries(); if (entr
 for (const view of ["grid","list"]) $(`#${view}-view`).onclick = () => { $("#cards").classList.toggle("list-mode",view === "list"); for (const key of ["grid","list"]) { $(`#${key}-view`).classList.toggle("selected",key === view); $(`#${key}-view`).setAttribute("aria-pressed",String(key === view)); } };
 document.addEventListener("keydown",event => { if (event.key === "/" && !document.querySelector("dialog[open]") && !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)) { event.preventDefault(); $("#search").focus(); } });
 $("#editor").addEventListener("submit",saveEntry);
+$("#auth-dialog").addEventListener("close", () => rememberAdd(false));
 $("#auth-button").onclick = async () => {
   if (!state.user) { openAuth(); return; }
   try { const {error} = await state.client.auth.signOut(); if (error) throw error; await updateUser(null); toast("已退出登录。"); } catch (error) { toast(error.message); }

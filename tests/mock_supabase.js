@@ -1,6 +1,6 @@
 // Browser UI contract fixture only. Database authorization is tested separately.
 let listener;
-let user = null;
+let user = window.mockInitialUser || null;
 let entries = [
   {id:'00000000-0000-0000-0000-000000000011',term:'own term',meaning:'自己的词',pos:'noun',domains:['医学'],tags:[],example:'',source:'',source_url:'',owner_id:'alice',author_name:'Alice',provenance:'',revision:1},
   {id:'00000000-0000-0000-0000-000000000012',term:'other term',meaning:'其他人的词',pos:'noun',domains:[],tags:[],example:'<img src=x onerror=window.injected=true>',source:'source',source_url:'javascript:alert(1)',owner_id:'bob',author_name:'Bob',provenance:'',revision:1},

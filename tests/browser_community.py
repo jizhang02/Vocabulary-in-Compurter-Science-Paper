@@ -31,6 +31,7 @@ def main():
             page.keyboard.press("Escape")  # OAuth normally navigates away from the dialog.
             page.evaluate("mockSignIn('alice')")
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
+            assert page.locator('#editor-dialog').is_hidden(), 'Ordinary login must not open the editor'
             page.locator('#my-contributions').click()
             assert page.locator('.word-card').count() == 1
             assert page.locator('#return-home').is_visible()
@@ -92,6 +93,36 @@ def main():
             page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
             assert page.locator('#mine').count() == 0
             assert page.locator('.word-card').count() == 2
+            # Cancelling an add-triggered login must discard the pending action.
+            page.locator('#add-entry').click()
+            assert page.locator('#auth-dialog').is_visible()
+            page.keyboard.press('Escape')
+            page.locator('#auth-button').click()
+            page.evaluate("mockSignIn('alice')")
+            page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
+            assert page.locator('#editor-dialog').is_hidden()
+            page.keyboard.press('Escape')
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
+            # Simulate leaving for OAuth and returning with a restored session.
+            page.locator('#add-entry').click()
+            page.locator('#github-login').click()
+            page.add_init_script("window.mockInitialUser = {id:'alice',user_metadata:{user_name:'alice'}};")
+            page.reload()
+            page.wait_for_selector('#editor-dialog[open]')
+            assert page.locator('#auth-dialog').is_hidden()
+            assert page.locator('#editor-title').inner_text() == '添加词汇'
+            page.locator('[name=term]').fill('be tailored to')
+            page.locator('[name=meaning]').fill('为……量身定制')
+            page.locator('[name=example]').fill('A method tailored to this task.')
+            page.locator('#save-entry').click()
+            page.wait_for_selector('#editor-dialog', state='hidden')
+            assert page.locator('.card-example .example-target').inner_text() == 'tailored to'
+            page.get_by_role('button', name='展开 be tailored to', exact=True).click()
+            assert page.locator('.detail-example .example-target').inner_text() == 'tailored to'
+            page.reload()
+            page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
+            assert page.locator('#editor-dialog').is_hidden(), 'The pending action must be consumed once'
             assert not errors,errors
             browser.close()
             print('PASS: GitHub-only login UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')

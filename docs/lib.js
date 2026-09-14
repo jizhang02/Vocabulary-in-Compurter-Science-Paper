@@ -38,6 +38,10 @@ export function highlightExample(entry) {
     .map(part => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("[\\s\\-–—‑−]+");
   let source = literal(aliases[term] || term);
+  // Dictionary phrases often start with "be"; quotations can omit or inflect it.
+  if (/^be\s+\S/iu.test(term)) {
+    source = "(?:(?:be|am|is|are|was|were|been|being)\\s+)?" + literal(term.replace(/^be\s+/iu, ""));
+  }
   if (term === "from...perspecitve") source = "from(?:[\\s\\-]+[\\p{L}\\p{N}_]+){0,6}[\\s\\-]+perspective";
   if (term === "pit against") source = "pit(?:[\\s\\-]+[\\p{L}\\p{N}_]+){0,7}[\\s\\-]+against";
   const matches = new RegExp("(?<![\\p{L}\\p{N}_])(?:" + source + ")(?![\\p{L}\\p{N}_])", "giu");

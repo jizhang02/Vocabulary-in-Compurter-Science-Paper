@@ -96,6 +96,24 @@ def main():
               };
             }''')
             assert all(result.values()),result
+            highlights = page.evaluate('''async () => {
+              const {highlightExample} = await import('./lib.js');
+              const cases = [
+                ['be tailored to', 'Methods tailored to tasks.', ['tailored to']],
+                ['be tailored to', 'It is tailored to tasks and was tailored to data.', ['is tailored to', 'was tailored to']],
+                ['Be tailored to', 'BE TAILORED TO tasks.', ['BE TAILORED TO']],
+                ['be tailored to', 'tailored together; untailored to tasks.', []],
+                ['tailored to', 'tailored to tasks.', ['tailored to']],
+                ['be tailored to', '<img src=x> tailored to tasks.', ['tailored to']],
+              ];
+              return cases.map(([term, example, expected]) => {
+                const node = document.createElement('div');
+                node.innerHTML = highlightExample({term, example});
+                return node.textContent === example && !node.querySelector('img') &&
+                  JSON.stringify([...node.querySelectorAll('.example-target')].map(e => e.textContent)) === JSON.stringify(expected);
+              });
+            }''')
+            assert all(highlights), highlights
             page.locator('#grid-view').click()
             page.set_viewport_size({'width':390,'height':844})
             page.screenshot(path=str(output / 'mobile.png'),full_page=True)
