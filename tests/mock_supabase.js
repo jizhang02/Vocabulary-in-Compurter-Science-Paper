@@ -14,7 +14,14 @@ export function createClient() {
     auth: {
       onAuthStateChange(callback) { listener = callback; },
       async getSession() { return {data:{session:user ? {user} : null}}; },
-      async signOut() { user=null; listener('SIGNED_OUT',null); return {}; },
+      async signOut(options) {
+        window.mockCalls.push(['signout',options]);
+        if (window.mockSignOutError) return {error:window.mockSignOutError};
+        if (window.mockMissingSession && localStorage.getItem('sb-example-auth-token')) {
+          return {error:{name:'AuthSessionMissingError',message:'Auth session missing!'}};
+        }
+        user=null; listener('SIGNED_OUT',null); return {};
+      },
       async signInWithOAuth(options) { window.mockCalls.push(['oauth',options]); return {}; },
     },
     async rpc(name) { return {data:name === 'is_admin' && user?.id === 'admin'}; },

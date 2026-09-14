@@ -159,6 +159,32 @@ def main():
             page.evaluate("mockSignIn('alice')")
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
             assert page.locator('#return-home').is_hidden(), 'Cancelled login must not resume My Contributions'
+            page.keyboard.press('Escape')
+            # Genuine service errors must not pretend logout succeeded.
+            page.evaluate("window.mockSignOutError = {message:'Network unavailable'}")
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#toast').textContent === 'Network unavailable'")
+            assert '已登录' in page.locator('#auth-button').inner_text()
+            assert page.locator('#auth-button').is_enabled()
+            page.evaluate('''() => {
+              window.mockSignOutError = null;
+              window.mockMissingSession = true;
+              for (const suffix of ['', '-code-verifier', '-user'])
+                localStorage.setItem('sb-example-auth-token' + suffix, 'stale');
+              localStorage.setItem('unrelated-preference', 'keep');
+            }''')
+            page.locator('#my-contributions').click()
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
+            assert page.locator('#return-home').is_hidden()
+            assert page.locator('#auth-button').is_enabled()
+            assert page.evaluate("['', '-code-verifier', '-user'].every(s => localStorage.getItem('sb-example-auth-token' + s) === null)")
+            assert page.evaluate("localStorage.getItem('unrelated-preference')") == 'keep'
+            assert page.evaluate("mockCalls.some(c => c[0] === 'signout' && c[1]?.scope === 'local')")
+            page.evaluate("mockSignIn('alice')")
+            page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
+            page.locator('#auth-button').click()
+            page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
             assert not errors,errors
             browser.close()
             print('PASS: GitHub-only login UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')

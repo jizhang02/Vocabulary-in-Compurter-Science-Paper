@@ -7,6 +7,7 @@ const isAuthored = entry => entry.source_venue === "自拟例句";
 const $ = selector => document.querySelector(selector);
 const state = { entries: [], mine: false, user: null, admin: false, client: null, online: false, page: 1, pageSize: 18, editing: null, authEpoch: 0 };
 const config = window.VOCAB_CONFIG || {};
+let authStorageKey;
 const authActionKey = `paperlex:auth-action:${new URL("./", location.href).pathname}`;
 let pendingAuthAction = null;
 try { pendingAuthAction = sessionStorage.getItem(authActionKey); } catch { /* Storage may be disabled. */ }
@@ -252,7 +253,26 @@ $("#editor").addEventListener("submit",saveEntry);
 $("#auth-dialog").addEventListener("close", () => rememberAuthAction(null));
 $("#auth-button").onclick = async () => {
   if (!state.user) { openAuth(); return; }
-  try { const {error} = await state.client.auth.signOut(); if (error) throw error; await updateUser(null); toast("已退出登录。"); } catch (error) { toast(error.message); }
+  const button = $("#auth-button");
+  button.disabled = true;
+  try {
+    try {
+      const {error} = await state.client.auth.signOut();
+      if (error) throw error;
+    } catch (error) {
+      const missing = error.name === "AuthSessionMissingError" || error.code === "session_not_found" || /^auth session missing!?$/i.test(error.message || "");
+      if (!missing) throw error;
+      // A missing server session can leave stale credentials in this SDK version.
+      // Clear only this project's auth data, then let the SDK emit SIGNED_OUT.
+      for (const suffix of ["", "-code-verifier", "-user"]) localStorage.removeItem(authStorageKey + suffix);
+      const {error: cleanupError} = await state.client.auth.signOut({scope:"local"});
+      if (cleanupError) throw cleanupError;
+    }
+    rememberAuthAction(null);
+    await updateUser(null);
+    toast("已退出登录。");
+  } catch (error) { toast(error.message); }
+  finally { button.disabled = false; }
 };
 $("#github-login").onclick = async () => {
   try {
@@ -271,7 +291,8 @@ async function start() {
   try {
     status("正在连接社区词库…");
     const {createClient} = await import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/+esm");
-    state.client = createClient(config.supabaseUrl,config.supabasePublishableKey,{auth:{flowType:"pkce",detectSessionInUrl:true,persistSession:true,autoRefreshToken:true}});
+    authStorageKey = `sb-${new URL(config.supabaseUrl).hostname.split(".")[0]}-auth-token`;
+    state.client = createClient(config.supabaseUrl,config.supabasePublishableKey,{auth:{storageKey:authStorageKey,flowType:"pkce",detectSessionInUrl:true,persistSession:true,autoRefreshToken:true}});
     state.client.auth.onAuthStateChange((_event,session) => { setTimeout(() => void updateUser(session?.user || null),0); });
     const {data,error} = await state.client.auth.getSession();
     if (error) throw error;
