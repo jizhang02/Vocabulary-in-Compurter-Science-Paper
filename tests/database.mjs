@@ -10,7 +10,7 @@ try {
   await db.exec(`
     create role anon; create role authenticated;
     create schema auth;
-    create table auth.users(id uuid primary key);
+    create table auth.users(id uuid primary key, raw_user_meta_data jsonb default '{}', created_at timestamptz default now());
     create function auth.jwt() returns jsonb language sql stable as
       $$ select coalesce(nullif(current_setting('request.jwt.claims',true),''),'{}')::jsonb $$;
     create function auth.uid() returns uuid language sql stable as
@@ -24,6 +24,11 @@ try {
   const {rows} = await db.query('select count(*)::int as count from public.entries');
   if (rows[0].count !== 701) throw new Error(`Expected 701 seed rows, got ${rows[0].count}`);
   await db.exec(await readFile(new URL('../supabase/verify_permissions.sql',import.meta.url),'utf8'));
+  const usersMigration = await readFile(new URL('../supabase/migrations/20260916_admin_users.sql',import.meta.url),'utf8');
+  await db.exec(usersMigration);
+  await db.exec(usersMigration);
+  await db.exec(await readFile(new URL('../supabase/verify_admin_users.sql',import.meta.url),'utf8'));
+  console.log('PASS: admin directory authorization, metadata, zero-entry users, UUID pagination, migration idempotence.');
   const migration = await readFile(new URL('../supabase/migrations/20260911_prevent_duplicate_terms.sql',import.meta.url),'utf8');
   await db.exec(migration);
   await db.exec(migration);

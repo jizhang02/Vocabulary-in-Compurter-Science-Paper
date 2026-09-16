@@ -32,6 +32,7 @@ def main():
             page.evaluate("mockSignIn('alice')")
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
             assert page.locator('#editor-dialog').is_hidden(), 'Ordinary login must not open the editor'
+            assert page.locator('#admin-users').is_hidden()
             page.locator('#my-contributions').click()
             assert page.locator('.word-card').count() == 1
             assert page.locator('#return-home').is_visible()
@@ -83,12 +84,54 @@ def main():
             page.keyboard.press('Escape')
             page.evaluate('window.mockConflict=false; mockSignIn("admin")')
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('管理员')")
+            page.locator('#admin-users').click()
+            page.wait_for_function("document.querySelector('#users-status').textContent.includes('共 4 位')")
+            assert page.locator('#users-list tbody tr').count() == 4
+            assert page.locator('#users-list img').count() == 0
+            assert '2026' in page.locator('#users-list').inner_text()
+            page.locator('[data-user-creations=empty]').click()
+            page.wait_for_selector('#users-dialog',state='hidden')
+            assert page.locator('.word-card').count() == 0
+            assert '0 个词条' in page.locator('#contribution-context').inner_text()
+            page.locator('#back-to-users').click()
+            page.wait_for_selector('[data-user-creations=bob]')
+            page.locator('[data-user-creations=bob]').click()
+            page.wait_for_selector('#users-dialog',state='hidden')
+            assert page.locator('.term-button').all_text_contents() == ['other term']
+            page.get_by_role('button',name='展开 other term',exact=True).click()
+            page.get_by_role('button',name='修改词汇',exact=True).click()
+            page.locator('[name=meaning]').fill('管理员修改他人的词')
+            page.locator('[name=source_url]').fill('')
+            page.locator('#save-entry').click()
+            page.wait_for_selector('#editor-dialog',state='hidden')
+            assert '管理员修改他人的词' in page.locator('#cards').inner_text()
+            assert 'bob 的创建' in page.locator('#contribution-context').inner_text()
             page.get_by_role('button',name='展开 other term',exact=True).click()
             assert page.locator('[data-edit]').count() == 1
             page.on('dialog',lambda dialog:dialog.accept())
             page.get_by_role('button',name='删除词汇',exact=True).click()
             page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 2 个')")
             assert 'other term' not in page.locator('#cards').inner_text()
+            assert '0 个词条' in page.locator('#contribution-context').inner_text()
+            page.locator('#back-to-users').click()
+            page.wait_for_selector('[data-user-creations=bob]')
+            assert page.locator('tr',has=page.locator('[data-user-creations=bob]')).locator('td').nth(2).inner_text() == '0'
+            page.evaluate('window.mockUsersError=true')
+            page.locator('#reload-users').click()
+            page.wait_for_function("document.querySelector('#users-status').textContent.includes('无法加载')")
+            assert page.locator('#users-list tbody tr').count() == 0
+            page.evaluate('window.mockUsersError=false')
+            page.locator('#reload-users').click()
+            page.wait_for_selector('[data-user-creations=alice]')
+            page.set_viewport_size({'width':390,'height':844})
+            assert page.locator('[data-user-creations=alice]').is_visible()
+            assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+            page.evaluate("mockSignIn('alice')")
+            page.wait_for_selector('#users-dialog',state='hidden')
+            assert page.locator('#users-list').inner_text() == ''
+            assert page.locator('#admin-users').is_hidden()
+            assert page.locator('#contribution-context').is_hidden()
+            page.set_viewport_size({'width':1280,'height':720})
             page.locator('#auth-button').click()
             page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
             assert page.locator('#mine').count() == 0

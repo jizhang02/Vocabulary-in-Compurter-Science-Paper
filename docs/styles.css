@@ -115,3 +115,15 @@
 .hero-stats #random-entry .random-symbol{display:inline}
 
 footer.wrap{align-items:center;flex-wrap:nowrap}footer.wrap>span{min-width:0}footer.wrap .footer-github{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;margin-left:auto;border-radius:9px;color:var(--muted)}.footer-github:hover{color:var(--green);background:#e9eee4}.footer-github svg{display:block}
+
+#users-dialog{width:min(850px,calc(100% - 24px));max-width:850px}
+.users-table-wrap{overflow-x:auto;margin-bottom:20px}
+.users-table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+.users-table th,.users-table td{padding:12px 10px;border-bottom:1px solid #dce2d6;vertical-align:top}
+.users-table th{color:var(--muted);white-space:nowrap}
+.users-table td:first-child{overflow-wrap:anywhere;min-width:150px}
+.users-table small{display:block;font-size:11px;color:var(--muted);margin-top:5px}
+.users-table button{white-space:nowrap}
+#contribution-context{color:var(--green);font-weight:600;overflow-wrap:anywhere}
+#back-to-users{margin:0 0 16px}
+@media(max-width:740px){.header{flex-wrap:wrap;gap:12px}.header nav{display:flex;gap:12px}.users-table th,.users-table td{padding:10px 6px}}

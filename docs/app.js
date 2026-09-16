@@ -5,7 +5,7 @@ const POS_SHORT = {verb:"v", "adjective-adverb":"adj/adv", noun:"n", phrase:"phr
 const authorNickname = entry => entry.author_name === "Jing Zhang · 原始词表" ? "Jing Zhang" : (entry.author_name || "社区读者");
 const isAuthored = entry => entry.source_venue === "自拟例句";
 const $ = selector => document.querySelector(selector);
-const state = { entries: [], mine: false, user: null, admin: false, client: null, online: false, page: 1, pageSize: 18, editing: null, authEpoch: 0 };
+const state = { entries: [], mine: false, user: null, admin: false, client: null, online: false, page: 1, pageSize: 18, editing: null, authEpoch: 0, selectedAuthor: null, users: [], usersEpoch: 0 };
 const config = window.VOCAB_CONFIG || {};
 let authStorageKey;
 const authActionKey = `paperlex:auth-action:${new URL("./", location.href).pathname}`;
@@ -42,7 +42,7 @@ function buildFilters() {
 
 }
 function selectedEntries() {
-  const entries = filterEntries(state.entries, filters(), state.user);
+  const entries = filterEntries(state.selectedAuthor && state.admin ? state.entries.filter(e => e.owner_id === state.selectedAuthor.user_id) : state.entries, filters(), state.user);
   if ($("#sort").value === "random") {
     for (const entry of entries) {
       if (!randomOrder.has(entry.id)) randomOrder.set(entry.id, Math.random());
@@ -52,7 +52,11 @@ function selectedEntries() {
   return entries.sort((a,b) => $("#sort").value === "recent" ? (b.updated_at || "").localeCompare(a.updated_at || "") || a.term.localeCompare(b.term,"en") : a.term.localeCompare(b.term,"en") * ($("#sort").value === "za" ? -1 : 1));
 }
 function render() {
-  $("#return-home").hidden = !state.mine;
+  $("#return-home").hidden = !state.mine && !state.selectedAuthor;
+  $("#admin-users").hidden = !state.admin || !state.online;
+  $("#back-to-users").hidden = !state.selectedAuthor;
+  $("#contribution-context").hidden = !state.selectedAuthor;
+  $("#contribution-context").textContent = state.selectedAuthor ? `${state.selectedAuthor.username} 的创建 · ${state.entries.filter(e => e.owner_id === state.selectedAuthor.user_id).length} 个词条` : "";
   const entries = selectedEntries();
   const pages = Math.max(1, Math.ceil(entries.length / state.pageSize));
   state.page = Math.min(state.page,pages);
@@ -161,6 +165,12 @@ async function updateUser(user) {
   const epoch = ++state.authEpoch;
   const changed = state.user?.id !== user?.id;
   state.user = user; state.admin = false;
+  $("#admin-users").hidden = true;
+  state.usersEpoch++;
+  state.users = [];
+  $("#users-list").replaceChildren();
+  $("#users-dialog").close();
+  if (changed) state.selectedAuthor = null;
   if (changed) { $("#entry-dialog").close(); $("#editor-dialog").close(); }
   if (user) {
     const {data,error} = await state.client.rpc("is_admin");
@@ -169,9 +179,63 @@ async function updateUser(user) {
   }
   $("#auth-button").textContent = user ? `${state.admin ? "管理员" : "已登录"} · 退出` : "登录 / 注册";
   if (!user) state.mine = false;
+  if (!state.admin) state.selectedAuthor = null;
   render();
   resumeAuthAction();
 }
+
+async function openUsers() {
+  if (!state.admin || !state.online) return;
+  const epoch = ++state.usersEpoch;
+  const authEpoch = state.authEpoch;
+  state.users = [];
+  $("#users-list").replaceChildren();
+  $("#users-status").textContent = "正在加载注册用户…";
+  if (!$("#users-dialog").open) $("#users-dialog").showModal();
+  const current = () => epoch === state.usersEpoch && authEpoch === state.authEpoch && state.admin;
+  try {
+    const users = [];
+    let after = null;
+    while (true) {
+      const {data,error} = await state.client.rpc("admin_list_users", {after_id:after});
+      if (!current()) return;
+      if (error) throw error;
+      if (!data.length) break;
+      users.push(...data);
+      after = data.at(-1).user_id;
+    }
+    state.users = users.sort((a,b) => (b.registered_at || "").localeCompare(a.registered_at || "") || a.user_id.localeCompare(b.user_id));
+    $("#users-status").textContent = users.length ? `共 ${users.length} 位注册用户` : "暂无注册用户。";
+    $("#users-list").innerHTML = users.length ? `<div class="users-table-wrap"><table class="users-table"><thead><tr><th>用户名</th><th>注册时间</th><th>创建词条</th><th>操作</th></tr></thead><tbody>${state.users.map(u => `<tr><td><strong>${h(u.username)}</strong><small>${h(u.user_id)}</small></td><td>${h(u.registered_at ? new Date(u.registered_at).toLocaleString("zh-CN") : "未知")}</td><td>${h(u.entry_count)}</td><td><button class="text-button" data-user-creations="${h(u.user_id)}">查看创建 →</button></td></tr>`).join("")}</tbody></table></div>` : "";
+  } catch {
+    if (current()) $("#users-status").textContent = "无法加载注册用户。请确认已运行管理员用户列表数据库迁移，并检查网络及管理员权限后重试。";
+  }
+}
+$("#admin-users").onclick = openUsers;
+$("#back-to-users").onclick = openUsers;
+$("#reload-users").onclick = openUsers;
+$("#users-dialog").addEventListener("close", () => { state.usersEpoch++; });
+$("#users-list").addEventListener("click", async event => {
+  const button = event.target.closest("[data-user-creations]");
+  if (!button || !state.admin || !state.online) return;
+  const selected = state.users.find(u => u.user_id === button.dataset.userCreations);
+  if (!selected) return;
+  const epoch = state.authEpoch;
+  button.disabled = true;
+  try {
+    const entries = await fetchCloudEntries();
+    if (epoch !== state.authEpoch || !state.admin || !$("#users-dialog").open) return;
+    state.entries = entries;
+    $("#reset").click();
+    state.selectedAuthor = selected;
+    buildFilters();
+    refreshView();
+    $("#users-dialog").close();
+    $("#library").scrollIntoView({behavior:"smooth",block:"start"});
+  } catch { toast("加载用户创建失败，请重试。"); }
+  finally { button.disabled = false; }
+});
+
 async function saveEntry(event) {
   event.preventDefault();
   const button = $("#save-entry"); button.disabled = true; $("#editor-error").textContent = "";
@@ -234,13 +298,14 @@ $("#sort").addEventListener("change",() => {
   refreshView();
 });
 $(".filters").addEventListener("change",refreshView);
-$("#reset").onclick = () => { state.mine = false; $("#search").value = ""; document.querySelectorAll(".filters input").forEach(x=>x.checked=false); refreshView(); };
+$("#reset").onclick = () => { state.selectedAuthor = null; state.mine = false; $("#search").value = ""; document.querySelectorAll(".filters input").forEach(x=>x.checked=false); refreshView(); };
 $("#return-home").onclick = () => { $("#reset").click(); $("#library").scrollIntoView({behavior:"smooth",block:"start"}); };
 $("#add-entry").onclick = () => openEditor();
 function openMyContributions() {
   if (!state.user) { openAuth("mine"); return; }
   $("#search").value = "";
   document.querySelectorAll(".filters input").forEach(input => input.checked = false);
+  state.selectedAuthor = null;
   state.mine = true;
   refreshView();
   $("#library").scrollIntoView({behavior:"smooth",block:"start"});

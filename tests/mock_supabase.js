@@ -24,7 +24,15 @@ export function createClient() {
       },
       async signInWithOAuth(options) { window.mockCalls.push(['oauth',options]); return {}; },
     },
-    async rpc(name) { return {data:name === 'is_admin' && user?.id === 'admin'}; },
+    async rpc(name, args) {
+      if (name === 'is_admin') return {data:user?.id === 'admin'};
+      if (name === 'admin_list_users') {
+        if (window.mockUsersError || user?.id !== 'admin') return {error:{message:'denied'}};
+        const data = ['admin','alice','bob','empty'].map(id => ({user_id:id,username:id === 'empty' ? '<img src=x onerror=window.injected=true>' : id,registered_at:'2026-09-01T10:00:00Z',entry_count:entries.filter(e=>e.owner_id===id).length}));
+        return {data:data.filter(u=>!args.after_id || u.user_id > args.after_id).slice(0,1)};
+      }
+      return {error:{message:'Unknown RPC'}};
+    },
     from() {
       let operation = 'read', payload, after = null;
       const conditions = [];
