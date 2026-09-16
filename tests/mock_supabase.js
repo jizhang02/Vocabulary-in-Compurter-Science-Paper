@@ -1,5 +1,6 @@
 // Browser UI contract fixture only. Database authorization is tested separately.
 let listener;
+const lastSeen = new Map();
 let user = window.mockInitialUser || null;
 let entries = [
   {id:'00000000-0000-0000-0000-000000000011',term:'own term',meaning:'自己的词',pos:'noun',domains:['医学'],tags:[],example:'',source:'',source_url:'',owner_id:'alice',author_name:'Alice',provenance:'',revision:1},
@@ -25,10 +26,16 @@ export function createClient() {
       async signInWithOAuth(options) { window.mockCalls.push(['oauth',options]); return {}; },
     },
     async rpc(name, args) {
+      if (name === 'record_activity') {
+        window.mockCalls.push(['record_activity',user?.id]);
+        if (!user || window.mockActivityError) return {error:{message:'unavailable'}};
+        lastSeen.set(user.id, new Date().toISOString());
+        return {data:null};
+      }
       if (name === 'is_admin') return {data:user?.id === 'admin'};
       if (name === 'admin_list_users') {
         if (window.mockUsersError || user?.id !== 'admin') return {error:{message:'denied'}};
-        const data = ['admin','alice','bob','empty'].map(id => ({user_id:id,username:id === 'empty' ? '<img src=x onerror=window.injected=true>' : id,registered_at:'2026-09-01T10:00:00Z',entry_count:entries.filter(e=>e.owner_id===id).length}));
+        const data = ['admin','alice','bob','empty'].map(id => ({user_id:id,username:id === 'empty' ? '<img src=x onerror=window.injected=true>' : id,registered_at:'2026-09-01T10:00:00Z',last_seen_at:lastSeen.get(id) || null,entry_count:entries.filter(e=>e.owner_id===id).length}));
         return {data:data.filter(u=>!args.after_id || u.user_id > args.after_id).slice(0,1)};
       }
       return {error:{message:'Unknown RPC'}};

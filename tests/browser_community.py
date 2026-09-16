@@ -87,6 +87,15 @@ def main():
             page.locator('#admin-users').click()
             page.wait_for_function("document.querySelector('#users-status').textContent.includes('共 4 位')")
             assert page.locator('#users-list tbody tr').count() == 4
+            assert page.locator('#admin-users').inner_text() == '用户列表'
+            assert page.locator('#users-title').inner_text() == '用户列表'
+            assert page.locator('#reload-users').count() == 0
+            assert page.locator('[data-user-creations=alice]').inner_text() == '查看创建'
+            assert '上次在线时间' in page.locator('#users-list thead').inner_text()
+            alice_seen = page.locator('tr',has=page.locator('[data-user-creations=alice]')).locator('td').nth(2)
+            assert alice_seen.inner_text() != '暂无记录'
+            assert page.locator('tr',has=page.locator('[data-user-creations=empty]')).locator('td').nth(2).inner_text() == '暂无记录'
+            assert page.evaluate("mockCalls.some(c=>c[0]==='record_activity' && c[1]==='alice')")
             assert page.locator('#users-list img').count() == 0
             assert '2026' in page.locator('#users-list').inner_text()
             page.locator('[data-user-creations=empty]').click()
@@ -115,13 +124,15 @@ def main():
             assert '0 个词条' in page.locator('#contribution-context').inner_text()
             page.locator('#back-to-users').click()
             page.wait_for_selector('[data-user-creations=bob]')
-            assert page.locator('tr',has=page.locator('[data-user-creations=bob]')).locator('td').nth(2).inner_text() == '0'
+            assert page.locator('tr',has=page.locator('[data-user-creations=bob]')).locator('td').nth(3).inner_text() == '0'
             page.evaluate('window.mockUsersError=true')
-            page.locator('#reload-users').click()
+            page.keyboard.press('Escape')
+            page.locator('#back-to-users').click()
             page.wait_for_function("document.querySelector('#users-status').textContent.includes('无法加载')")
             assert page.locator('#users-list tbody tr').count() == 0
             page.evaluate('window.mockUsersError=false')
-            page.locator('#reload-users').click()
+            page.keyboard.press('Escape')
+            page.locator('#back-to-users').click()
             page.wait_for_selector('[data-user-creations=alice]')
             page.set_viewport_size({'width':390,'height':844})
             assert page.locator('[data-user-creations=alice]').is_visible()

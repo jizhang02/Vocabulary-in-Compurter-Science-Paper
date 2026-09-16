@@ -25,9 +25,15 @@ try {
   if (rows[0].count !== 701) throw new Error(`Expected 701 seed rows, got ${rows[0].count}`);
   await db.exec(await readFile(new URL('../supabase/verify_permissions.sql',import.meta.url),'utf8'));
   const usersMigration = await readFile(new URL('../supabase/migrations/20260916_admin_users.sql',import.meta.url),'utf8');
+  // Simulate upgrading the original directory, then repeat the new migration.
+  await db.exec('drop function public.admin_list_users(uuid)');
   await db.exec(usersMigration);
-  await db.exec(usersMigration);
+  const activityMigration = await readFile(new URL('../supabase/migrations/20260916_user_activity.sql',import.meta.url),'utf8');
+  await db.exec(activityMigration);
+  await db.exec(activityMigration);
   await db.exec(await readFile(new URL('../supabase/verify_admin_users.sql',import.meta.url),'utf8'));
+  await db.exec(await readFile(new URL('../supabase/verify_user_activity.sql',import.meta.url),'utf8'));
+  console.log('PASS: server activity timestamps, private storage, anonymous denial, throttling and admin visibility.');
   console.log('PASS: admin directory authorization, metadata, zero-entry users, UUID pagination, migration idempotence.');
   const migration = await readFile(new URL('../supabase/migrations/20260911_prevent_duplicate_terms.sql',import.meta.url),'utf8');
   await db.exec(migration);

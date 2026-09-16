@@ -107,9 +107,35 @@ async function fetchCloudEntries() {
   }
   return entries;
 }
+// Record visits only for a signed-in user while the page is visible.
+// Identity and time are assigned by the database, never supplied by the browser.
+let activityUser = null, activityRecordedAt = 0, activityPending = false, activityTimer;
+async function recordActivity() {
+  if (!state.user || !state.online || document.visibilityState !== "visible" || activityPending) return;
+  const userId = state.user.id;
+  if (activityUser === userId && Date.now() - activityRecordedAt < 60000) return;
+  clearTimeout(activityTimer);
+  activityPending = true;
+  try {
+    const {error} = await state.client.rpc("record_activity");
+    if (!error && state.user?.id === userId) {
+      activityUser = userId;
+      activityRecordedAt = Date.now();
+    }
+  } catch { /* Activity failures must not interrupt reading or editing. */ }
+  finally {
+    activityPending = false;
+    activityTimer = setTimeout(() => void recordActivity(), 60000);
+  }
+}
+document.addEventListener("visibilitychange", () => void recordActivity());
+window.addEventListener("focus", () => void recordActivity());
+window.addEventListener("online", () => void recordActivity());
+
 async function loadCloud() {
   state.entries = await fetchCloudEntries(); state.online = true; buildFilters(); render();
   status("",true);
+  void recordActivity();
   resumeAuthAction();
 }
 let termCheckTimer, termCheckEpoch = 0, existingTermId = null;
@@ -164,6 +190,7 @@ $("#view-existing-term").onclick = () => { if (existingTermId) openEntry(existin
 async function updateUser(user) {
   const epoch = ++state.authEpoch;
   const changed = state.user?.id !== user?.id;
+  if (changed) { activityUser = null; activityRecordedAt = 0; }
   state.user = user; state.admin = false;
   $("#admin-users").hidden = true;
   state.usersEpoch++;
@@ -180,6 +207,7 @@ async function updateUser(user) {
   $("#auth-button").textContent = user ? `${state.admin ? "管理员" : "已登录"} · 退出` : "登录 / 注册";
   if (!user) state.mine = false;
   if (!state.admin) state.selectedAuthor = null;
+  void recordActivity();
   render();
   resumeAuthAction();
 }
@@ -190,7 +218,7 @@ async function openUsers() {
   const authEpoch = state.authEpoch;
   state.users = [];
   $("#users-list").replaceChildren();
-  $("#users-status").textContent = "正在加载注册用户…";
+  $("#users-status").textContent = "正在加载用户列表…";
   if (!$("#users-dialog").open) $("#users-dialog").showModal();
   const current = () => epoch === state.usersEpoch && authEpoch === state.authEpoch && state.admin;
   try {
@@ -205,15 +233,14 @@ async function openUsers() {
       after = data.at(-1).user_id;
     }
     state.users = users.sort((a,b) => (b.registered_at || "").localeCompare(a.registered_at || "") || a.user_id.localeCompare(b.user_id));
-    $("#users-status").textContent = users.length ? `共 ${users.length} 位注册用户` : "暂无注册用户。";
-    $("#users-list").innerHTML = users.length ? `<div class="users-table-wrap"><table class="users-table"><thead><tr><th>用户名</th><th>注册时间</th><th>创建词条</th><th>操作</th></tr></thead><tbody>${state.users.map(u => `<tr><td><strong>${h(u.username)}</strong><small>${h(u.user_id)}</small></td><td>${h(u.registered_at ? new Date(u.registered_at).toLocaleString("zh-CN") : "未知")}</td><td>${h(u.entry_count)}</td><td><button class="text-button" data-user-creations="${h(u.user_id)}">查看创建 →</button></td></tr>`).join("")}</tbody></table></div>` : "";
+    $("#users-status").textContent = users.length ? `共 ${users.length} 位用户` : "暂无用户。";
+    $("#users-list").innerHTML = users.length ? `<div class="users-table-wrap"><table class="users-table"><thead><tr><th>用户名</th><th>注册时间</th><th>上次在线时间</th><th>创建词条</th><th>操作</th></tr></thead><tbody>${state.users.map(u => `<tr><td><strong>${h(u.username)}</strong><small>${h(u.user_id)}</small></td><td>${h(u.registered_at ? new Date(u.registered_at).toLocaleString("zh-CN") : "未知")}</td><td>${h(u.last_seen_at ? new Date(u.last_seen_at).toLocaleString("zh-CN") : "暂无记录")}</td><td>${h(u.entry_count)}</td><td><button class="text-button" data-user-creations="${h(u.user_id)}">查看创建</button></td></tr>`).join("")}</tbody></table></div>` : "";
   } catch {
-    if (current()) $("#users-status").textContent = "无法加载注册用户。请确认已运行管理员用户列表数据库迁移，并检查网络及管理员权限后重试。";
+    if (current()) $("#users-status").textContent = "无法加载用户列表。请确认已运行用户列表与在线时间数据库迁移，并检查网络及管理员权限后重试。";
   }
 }
 $("#admin-users").onclick = openUsers;
 $("#back-to-users").onclick = openUsers;
-$("#reload-users").onclick = openUsers;
 $("#users-dialog").addEventListener("close", () => { state.usersEpoch++; });
 $("#users-list").addEventListener("click", async event => {
   const button = event.target.closest("[data-user-creations]");
