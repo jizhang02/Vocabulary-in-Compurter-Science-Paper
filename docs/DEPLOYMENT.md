@@ -98,7 +98,7 @@ on conflict do nothing;
 
 ## 定时连通检查与免费项目暂停
 
-`.github/workflows/cloud-health.yml` 每天 UTC 08:23 运行一次 `scripts/check_cloud.py`，只读取一个公开词条，不写入数据。也可在 GitHub Actions 的 Cloud vocabulary health 中手动运行。使用网页已有的公开密钥，无需配置管理密钥。运行失败时，可在 Actions 查看错误。
+`.github/workflows/cloud-health.yml` 以 2026-10-06 为 UTC 日期基准，每隔 6 天在 UTC 08:23 执行一次 `scripts/check_cloud.py`，只读取一个公开词条，不写入数据。GitHub Actions 每天触发日期检查，仅在间隔满足时访问数据库，其余日期跳过；此方式跨月也保持 6 天间隔。计划时间可能受 GitHub 调度延迟影响，若当天未触发则不会自动补跑。也可在 Cloud vocabulary health 中手动运行，手动运行和相关配置推送会立即检查，不改变六天周期。使用网页已有的公开密钥，无需配置管理密钥。运行失败时，可在 Actions 查看错误。每 6 天一次不保证满足 Supabase 的活跃度要求。
 
 Supabase 根据 7 天内的低活跃度决定是否暂停，未提供可用公开密钥读取的精确暂停倒计时。定时读取可用于检查服务并增加数据库活动，但不能保证免于暂停。暂停后网页仍能浏览内置词表，社区数据与登录、编辑功能暂不可用，需要到 Supabase 后台恢复。[Supabase 暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
 
