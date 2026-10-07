@@ -98,13 +98,13 @@ on conflict do nothing;
 
 ## 全站闲置超过 6 天自动添加词条
 
-这是全站规则：任何用户成功新增、修改或删除任意词条都会重新计时；登录、浏览和 `record_activity()` 不重置这个计时器。启用时从当前服务器时间开始计算，避免立即发布。超过连续 6 × 24 小时无增删改后，每小时第 17 分钟的检查从预备队列发布一条词汇。系统发布也重新计时，因此持续无人编辑时，每超过 6 天最多发布一条。新词刷新网页即可看到，不要求有人打开网页才能运行。
+这是全站规则：任何用户成功新增、修改或删除任意词条都会重新计时；登录、浏览和 `record_activity()` 不重置这个计时器。启用时从当前服务器时间开始计算，避免立即发布。每天 UTC 08:17 检查一次（使用 Supabase 默认 Cron 时区）；超过连续 6 × 24 小时无增删改后，从预备队列发布一条词汇。达到闲置期限后等待下一次每日检查，正常调度下延迟不足一天。系统发布也重新计时，因此持续无人编辑时，每超过 6 天最多发布一条。新词刷新网页即可看到，不要求有人打开网页才能运行。
 
 在 Supabase SQL Editor 以 `postgres` 身份依次执行：
 
 1. 若尚未启用防重，运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql`。
 2. 运行 `supabase/migrations/20261007_auto_entry.sql`。
-3. 运行 `supabase/enable_auto_entry_cron.sql`，启用 `pg_cron` 并创建名为 `paperlex-idle-entry` 的每小时任务。[Supabase Cron 安装](https://supabase.com/docs/guides/cron/install)
+3. 运行 `supabase/enable_auto_entry_cron.sql`，启用 `pg_cron` 并创建名为 `paperlex-idle-entry` 的每日任务。已启用旧版每小时任务的项目重新执行此脚本即可更新频率，无需重新执行迁移。[Supabase Cron 安装](https://supabase.com/docs/guides/cron/install)
 
 上述两个新脚本可重复执行，不重置已记录的计时、不重新发布已消费的候选词，也不创建重复任务。新项目在初始化、防重后同样执行这些脚本；不要在已有项目重跑 `schema.sql`。
 
