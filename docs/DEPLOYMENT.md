@@ -96,13 +96,51 @@ on conflict do nothing;
 
 已有数据库升级例句来源字段：先运行 `supabase/migrations/20260909_example_sources.sql`，再发布新前端。原有词条不会被 seed.sql 覆盖。
 
-## 定时连通检查与免费项目暂停
+## 全站闲置超过 6 天自动添加词条
 
-`.github/workflows/cloud-health.yml` 以 2026-10-06 为 UTC 日期基准，每隔 6 天在 UTC 08:23 执行一次 `scripts/check_cloud.py`，只读取一个公开词条，不写入数据。GitHub Actions 每天触发日期检查，仅在间隔满足时访问数据库，其余日期跳过；此方式跨月也保持 6 天间隔。计划时间可能受 GitHub 调度延迟影响，若当天未触发则不会自动补跑。也可在 Cloud vocabulary health 中手动运行，手动运行和相关配置推送会立即检查，不改变六天周期。使用网页已有的公开密钥，无需配置管理密钥。运行失败时，可在 Actions 查看错误。每 6 天一次不保证满足 Supabase 的活跃度要求。
+这是全站规则：任何用户成功新增、修改或删除任意词条都会重新计时；登录、浏览和 `record_activity()` 不重置这个计时器。启用时从当前服务器时间开始计算，避免立即发布。超过连续 6 × 24 小时无增删改后，每小时第 17 分钟的检查从预备队列发布一条词汇。系统发布也重新计时，因此持续无人编辑时，每超过 6 天最多发布一条。新词刷新网页即可看到，不要求有人打开网页才能运行。
 
-Supabase 根据 7 天内的低活跃度决定是否暂停，未提供可用公开密钥读取的精确暂停倒计时。定时读取可用于检查服务并增加数据库活动，但不能保证免于暂停。暂停后网页仍能浏览内置词表，社区数据与登录、编辑功能暂不可用，需要到 Supabase 后台恢复。[Supabase 暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
+在 Supabase SQL Editor 以 `postgres` 身份依次执行：
 
-GitHub 公共仓库连续 60 天没有活动时，定时工作流会自动停用，需要在 Actions 重新启用。此检查不会自动恢复已经暂停的 Supabase 项目。[GitHub 定时任务限制](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows)
+1. 若尚未启用防重，运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql`。
+2. 运行 `supabase/migrations/20261007_auto_entry.sql`。
+3. 运行 `supabase/enable_auto_entry_cron.sql`，启用 `pg_cron` 并创建名为 `paperlex-idle-entry` 的每小时任务。[Supabase Cron 安装](https://supabase.com/docs/guides/cron/install)
+
+上述两个新脚本可重复执行，不重置已记录的计时、不重新发布已消费的候选词，也不创建重复任务。新项目在初始化、防重后同样执行这些脚本；不要在已有项目重跑 `schema.sql`。
+
+初始队列包含 10 个本站编写释义的真实术语，不附虚构论文或例句。自动发布显示作者“PaperLex 系统”、来源“系统自动添加”，不会归属于某个用户；管理员可修改或删除。已存在的同名词按现有防重规则跳过，跳过后不再次补回（包括之后被用户删除的词）。队列耗尽会停止发布，须补充新的候选词。普通用户不能读取私有队列或直接执行发布函数。
+
+后台检查状态与剩余队列：
+
+```sql
+select * from private.auto_entry_state;
+select * from private.auto_entry_queue order by term;
+select jobid, jobname, schedule, active from cron.job
+where jobname = 'paperlex-idle-entry';
+select * from cron.job_run_details
+where jobid in (select jobid from cron.job where jobname = 'paperlex-idle-entry')
+order by start_time desc limit 10;
+```
+
+`last_result` 的 `not_due` 表示尚未达到闲置期限，`published` 表示本次发布成功，`queue_empty` 表示无可发布候选词。执行失败在 Cron 运行记录查看，事务回滚不会误消耗候选词。计时、发布、审计和队列消费在数据库事务内完成，并与用户写入互斥，防止并发重复发布。
+
+添加候选词（替换下面示例内容；只在 SQL Editor 操作）：
+
+```sql
+insert into private.auto_entry_queue(term,meaning,pos,domains)
+values ('new technical term','经过检查的中文释义','noun',array['计算机科学'])
+on conflict (term) do nothing;
+```
+
+停用自动任务：
+
+```sql
+select cron.unschedule('paperlex-idle-entry');
+```
+
+停用不会删除已有词条或队列，再执行调度脚本即可恢复。`supabase/verify_auto_entry.sql` 仅供隔离测试库执行，包含回滚的行为与权限检查；本地 PGlite 测试覆盖发布逻辑，不模拟实际 Cron 调度。
+
+此任务用于自动补充词条，**不能保证防止 Supabase 免费项目暂停**：官方要求足够的用户数据库活动，没有承诺内部 Cron 活动满足判定。项目暂停期间内部任务也不会继续运行，须在控制台恢复。[Supabase 暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
 
 ## 已有项目启用词条防重
 

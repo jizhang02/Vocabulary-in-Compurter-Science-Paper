@@ -72,5 +72,10 @@ try {
     rollback;
   `);
   console.log('PASS: duplicate insert/rename rejection, legacy preservation, deletion/name reuse, migration and seed idempotence.');
+  const autoMigration = await readFile(new URL('../supabase/migrations/20261007_auto_entry.sql',import.meta.url),'utf8');
+  await db.exec(autoMigration);
+  await db.exec(autoMigration);
+  await db.exec(await readFile(new URL('../supabase/verify_auto_entry.sql',import.meta.url),'utf8'));
+  console.log('PASS: idle publication, repeat suppression, update/delete activity, duplicate/empty queue handling and client denial.');
   console.log('PASS: schema, idempotent seed, public reads, owner edits, stranger denial, admin edits/deletes, immutable ownership, no self promotion, stale revisions, audit history.');
 } finally { await db.close(); }
