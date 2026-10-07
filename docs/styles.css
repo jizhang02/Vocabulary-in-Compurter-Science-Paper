@@ -126,4 +126,5 @@ footer.wrap{align-items:center;flex-wrap:nowrap}footer.wrap>span{min-width:0}foo
 .users-table button{white-space:nowrap}
 #contribution-context{color:var(--green);font-weight:600;overflow-wrap:anywhere}
 #back-to-users{margin:0 0 16px}
+#return-home,#back-to-users{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:740px){.header{flex-wrap:wrap;gap:12px}.header nav{display:flex;gap:12px}.users-table th,.users-table td{padding:10px 6px}}
