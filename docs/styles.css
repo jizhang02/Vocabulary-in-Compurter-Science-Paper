@@ -79,7 +79,7 @@
 
 .term-feedback{font-size:12px;line-height:1.6;margin:-5px 0 6px;color:var(--muted)}
 .term-feedback.error{color:#aa3c32}
-.term-existing{font-size:12px;padding:0 0 8px;color:var(--green)}
+.term-existing{font-size:inherit;line-height:inherit;padding:0;color:var(--green);white-space:nowrap}
 #editor input[aria-invalid="true"]{border-color:#aa3c32}
 
 .search-row #add-entry{flex-shrink:0;min-height:56px;white-space:nowrap}

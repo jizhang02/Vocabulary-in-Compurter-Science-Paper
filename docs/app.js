@@ -150,7 +150,7 @@ function showTermCheck(existing, message) {
   existingTermId = existing?.id || null;
   input.setCustomValidity(existing ? "该词汇或短语已存在，无需重复添加。" : "");
   input.setAttribute("aria-invalid", String(Boolean(existing)));
-  $("#term-feedback").textContent = existing ? `「${existing.term}」已存在，无需重复添加。` : message;
+  $("#term-feedback-message").textContent = existing ? `「${existing.term}」已存在，无需重复添加。` : message;
   $("#term-feedback").classList.toggle("error", Boolean(existing));
   $("#term-feedback").hidden = false;
   $("#view-existing-term").hidden = !existing;
