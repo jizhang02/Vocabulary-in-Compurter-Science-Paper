@@ -79,38 +79,78 @@ function openAuth(actionAfterLogin = null) {
 }
 const sourceFields = ["source", "source_venue", "source_date", "source_url"];
 const sourceHistoryMemory = new Map();
+const sourceHistoryStatus = new Map();
+let sourceHistoryEpoch = 0;
 function sourceHistoryKey(userId) {
   return `paperlex:recent-sources:${userId}`;
 }
-function readSourceHistory(userId = state.user?.id) {
+function validSourceHistory(stored) {
+  if (!Array.isArray(stored)) return [];
+  return stored.filter(item => item && sourceFields.every(field => typeof item[field] === "string" && item[field].length <= $("#editor").elements[field].maxLength)
+    && sourceFields.some(field => item[field].trim())
+    && (!item.source_date || /^\d{4}(-(?:0[1-9]|1[0-2])(-(?:0[1-9]|[12]\d|3[01]))?)?$/.test(item.source_date))
+    && (!item.source_url || safeUrl(item.source_url))).slice(0, 3)
+    .map(item => Object.fromEntries(sourceFields.map(field => [field, item[field].trim()])));
+}
+function readLocalSourceHistory(userId) {
   if (!userId) return [];
   const key = sourceHistoryKey(userId);
-  if (sourceHistoryMemory.has(key)) return sourceHistoryMemory.get(key);
-  if (sourceHistoryMemory.has(key)) return sourceHistoryMemory.get(key);
   try {
-    const stored = JSON.parse(localStorage.getItem(key) || "[]");
-    if (!Array.isArray(stored)) return [];
-    return stored.filter(item => item && sourceFields.every(field => typeof item[field] === "string" && item[field].length <= $("#editor").elements[field].maxLength) && sourceFields.some(field => item[field].trim())).slice(0, 3);
-  } catch { return sourceHistoryMemory.get(key) || []; }
+    return validSourceHistory(JSON.parse(localStorage.getItem(key) || "[]"));
+  } catch { return []; }
+}
+function readSourceHistory(userId = state.user?.id) {
+  return sourceHistoryMemory.get(userId) || readLocalSourceHistory(userId);
 }
 function rememberSource(row, userId) {
   const source = Object.fromEntries(sourceFields.map(field => [field, row[field]]));
   if (!sourceFields.some(field => source[field])) return;
   const history = [source, ...readSourceHistory(userId).filter(item => !sourceFields.every(field => item[field] === source[field]))].slice(0, 3);
   const key = sourceHistoryKey(userId);
-  sourceHistoryMemory.set(key, history);
+  sourceHistoryMemory.set(userId, history);
+  sourceHistoryStatus.set(userId, "pending");
   try { localStorage.setItem(key, JSON.stringify(history)); } catch { /* Keep history for this visit if browser storage is unavailable. */ }
+}
+async function syncSourceHistory() {
+  if (!state.user || !state.online) return;
+  const userId = state.user.id, epoch = ++sourceHistoryEpoch;
+  // The server gives existing cloud history priority when importing this older local copy.
+  const local = readLocalSourceHistory(userId);
+  sourceHistoryStatus.set(userId, "loading");
+  $("#recent-source").setAttribute("aria-busy", "true");
+  try {
+    const {data,error} = await state.client.rpc("recent_paper_sources", {local_sources:local});
+    if (error) throw error;
+    if (!Array.isArray(data)) throw new Error("Invalid source history response");
+    if (state.user?.id !== userId || epoch !== sourceHistoryEpoch) return;
+    sourceHistoryMemory.set(userId, validSourceHistory(data));
+    sourceHistoryStatus.set(userId, "synced");
+    // The local copy is only a fallback; the next editor opening always refreshes it from the account.
+    try { localStorage.setItem(sourceHistoryKey(userId), JSON.stringify(readSourceHistory(userId))); } catch { /* Cloud sync does not require local storage. */ }
+  } catch {
+    if (state.user?.id !== userId || epoch !== sourceHistoryEpoch) return;
+    sourceHistoryStatus.set(userId, "failed");
+  }
+  $("#recent-source").setAttribute("aria-busy", "false");
+  if ($("#editor-dialog").open) renderSourceHistory();
 }
 function renderSourceHistory() {
   const history = readSourceHistory();
   const select = $("#recent-source");
+  const previous = select.selectedOptions[0]?.dataset.source;
   select.replaceChildren(new Option("选择后填入下方 4 项信息", ""));
   history.forEach((source, index) => {
     const title = source.source || source.source_url || source.source_venue || source.source_date;
     const details = [source.source_venue, source.source_date].filter(Boolean).join(" · ");
-    select.add(new Option(`${index + 1}. ${title}${details ? ` — ${details}` : ""}`, String(index)));
+    const option = new Option(`${index + 1}. ${title}${details ? ` — ${details}` : ""}`, String(index));
+    option.dataset.source = JSON.stringify(source);
+    option.selected = option.dataset.source === previous;
+    select.add(option);
   });
-  $("#source-history").hidden = !history.length;
+  const syncStatus = sourceHistoryStatus.get(state.user?.id);
+  $("#source-history-note").textContent = syncStatus === "synced" ? "最近 3 条已按账号同步，可跨设备复用。"
+    : syncStatus === "failed" ? "暂时无法同步，仍可使用本机历史。下次打开时会重试。" : "正在同步最近使用的论文…";
+  $("#source-history").hidden = !history.length && syncStatus !== "failed";
 }
 $("#recent-source").addEventListener("change", event => {
   if (event.target.value === "") return;
@@ -135,6 +175,7 @@ function openEditor(entry = null) {
   const domains = [...new Set([...DOMAINS, ...(entry?.domains || [])])];
   $("#editor-domains").innerHTML = domains.map(domain => `<label><input type="checkbox" name="domains" value="${h(domain)}" ${entry?.domains.includes(domain) ? "checked" : ""}>${h(domain)}</label>`).join("");
   $("#entry-dialog").close(); $("#editor-dialog").showModal();
+  void syncSourceHistory();
 }
 async function fetchCloudEntries() {
   const entries = [];
@@ -233,7 +274,7 @@ $("#view-existing-term").onclick = () => { if (existingTermId) openEntry(existin
 async function updateUser(user) {
   const epoch = ++state.authEpoch;
   const changed = state.user?.id !== user?.id;
-  if (changed) { activityUser = null; activityRecordedAt = 0; }
+  if (changed) { activityUser = null; activityRecordedAt = 0; sourceHistoryEpoch++; sourceHistoryMemory.clear(); sourceHistoryStatus.clear(); }
   state.user = user; state.admin = false;
   $("#admin-users").hidden = true;
   state.usersEpoch++;
@@ -336,6 +377,7 @@ async function saveEntry(event) {
       if (error) throw error;
     }
     rememberSource(row, savingUserId);
+    if (state.user?.id === savingUserId) void syncSourceHistory();
     $("#editor-dialog").close(); toast("词汇已保存，感谢你的分享。");
     try { await loadCloud(); } catch { status("保存成功，但列表刷新失败。请刷新网页获取最新词库。"); }
   } catch (error) { $("#editor-error").textContent = error.code === "23505" ? "该词汇或短语已存在，无需重复添加。请在词库中查看已有词条。" : error.message || "保存失败，请稍后重试。"; }

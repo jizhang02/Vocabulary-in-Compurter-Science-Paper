@@ -1,4 +1,4 @@
-"""Recent paper sources: reuse, bounded history, persistence, isolation, and storage failure."""
+"""Recent paper sources: cross-device sync, local import, privacy, and failure handling."""
 import functools
 import http.server
 import threading
@@ -16,7 +16,20 @@ def main():
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(channel='msedge', headless=True)
+            cloud = {}
+
+            def merge_sources(user_id, incoming, promote):
+                existing = cloud.get(user_id, [])
+                result = []
+                for item in (incoming + existing if promote else existing + incoming):
+                    source = {field: item.get(field, '').strip() for field in FIELDS}
+                    if any(source.values()) and source not in result:
+                        result.append(source)
+                cloud[user_id] = result[:3]
+                return cloud[user_id]
+
             page = browser.new_page(viewport={'width': 1440, 'height': 1080})
+            page.expose_function('mockSourceCloud', merge_sources)
             errors = []
             page.on('pageerror', lambda error: errors.append(str(error)))
             page.add_init_script("window.mockInitialUser={id:'alice',user_metadata:{user_name:'Alice'}}")
@@ -28,6 +41,7 @@ def main():
             def open_editor():
                 page.locator('#add-entry').click()
                 page.locator('#editor-dialog').wait_for()
+                page.wait_for_function("document.querySelector('#recent-source').getAttribute('aria-busy') === 'false'")
 
             def values():
                 return [page.locator(f'[name={field}]').input_value() for field in FIELDS]
@@ -82,6 +96,32 @@ def main():
             page.locator('#recent-source').select_option('0')
             assert values() == papers[1], 'History must survive a reload and exclude failed saves'
             assert 'Should not enter history' not in page.locator('#recent-source').inner_text()
+            assert '按账号同步' in page.locator('#source-history-note').inner_text()
+            # A second browser context has no local history and receives the same account data.
+            device = browser.new_context(viewport={'width': 390, 'height': 1080})
+            device.expose_function('mockSourceCloud', merge_sources)
+            device.add_init_script("window.mockInitialUser={id:'alice',user_metadata:{user_name:'Alice'}}")
+            device.route('**/config.js*', lambda route: route.fulfill(content_type='text/javascript', body='window.VOCAB_CONFIG={supabaseUrl:"https://example.supabase.co",supabasePublishableKey:"test"};'))
+            device.route('https://cdn.jsdelivr.net/**', lambda route: route.fulfill(content_type='text/javascript', body=(ROOT / 'tests/mock_supabase.js').read_text(encoding='utf-8')))
+            second = device.new_page()
+            second.goto(page.url)
+            second.wait_for_function("document.querySelectorAll('.word-card').length === 2")
+            assert second.evaluate("localStorage.getItem('paperlex:recent-sources:alice')") is None
+            second.locator('#add-entry').click()
+            second.wait_for_function("document.querySelector('#recent-source').getAttribute('aria-busy') === 'false'")
+            second.locator('#recent-source').select_option('0')
+            assert [second.locator(f'[name={field}]').input_value() for field in FIELDS] == papers[1]
+            # A save on the second device updates history seen on the first device.
+            second.locator('[name=term]').fill('second device word')
+            second.locator('[name=meaning]').fill('meaning')
+            second.locator('[name=source]').fill('From phone')
+            second.locator('#save-entry').click()
+            second.locator('#editor-dialog').wait_for(state='hidden')
+            device.close()
+            page.keyboard.press('Escape')
+            open_editor()
+            page.locator('#recent-source').select_option('0')
+            assert values()[0] == 'From phone', 'Reopening must fetch changes made on another device'
             # A selection also clears fields that are blank in the selected source.
             title = ('<img src=x onerror=window.injected=true> ' + 'A long paper title ' * 12).strip()
             save('partial source', [title, '', '', ''])
@@ -103,15 +143,56 @@ def main():
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('退出')")
             open_editor()
             assert page.locator('#source-history').is_hidden(), 'Accounts must have separate histories'
+            # Import the history left by the earlier browser-only version.
+            legacy = dict(zip(FIELDS, papers[0]))
+            page.evaluate("source => localStorage.setItem('paperlex:recent-sources:bob', JSON.stringify([source]))", legacy)
+            page.keyboard.press('Escape')
+            open_editor()
+            page.locator('#recent-source').select_option('0')
+            assert values() == papers[0]
+            assert cloud['bob'] == [legacy]
             # Block storage writes: saving still succeeds and history works for this visit.
             page.evaluate("() => { Storage.prototype.setItem = () => { throw new DOMException('blocked', 'SecurityError'); }; }")
             save('storage blocked', papers[2])
             open_editor()
             page.locator('#recent-source').select_option('0')
             assert values() == papers[2]
+            assert '按账号同步' in page.locator('#source-history-note').inner_text()
+            # Missing migration/network errors keep fallback history and never block entry saves.
+            page.evaluate('window.mockSourceError=true')
+            page.keyboard.press('Escape')
+            open_editor()
+            assert '暂时无法同步' in page.locator('#source-history-note').inner_text()
+            save('source service unavailable', papers[3])
+            open_editor()
+            page.locator('#recent-source').select_option('0')
+            assert values() == papers[3]
+            page.evaluate('window.mockSourceError=false')
+            page.keyboard.press('Escape')
+            open_editor()
+            assert '按账号同步' in page.locator('#source-history-note').inner_text()
+            # Token refresh must not discard a legitimate in-flight sync response.
+            page.keyboard.press('Escape')
+            page.evaluate('window.mockSourceDelay=400')
+            page.locator('#add-entry').click()
+            page.evaluate('mockRefresh()')
+            page.wait_for_function("document.querySelector('#recent-source').getAttribute('aria-busy') === 'false'")
+            assert '按账号同步' in page.locator('#source-history-note').inner_text()
+            # A late response from the old account must not replace the new account's history.
+            page.keyboard.press('Escape')
+            page.locator('#add-entry').click()
+            page.evaluate("mockSignIn('alice')")
+            page.locator('#editor-dialog').wait_for(state='hidden')
+            page.evaluate('window.mockSourceDelay=0')
+            open_editor()
+            page.locator('#recent-source').select_option('0')
+            assert values()[0] == title
+            page.wait_for_timeout(500)
+            page.locator('#recent-source').select_option('0')
+            assert values()[0] == title, 'A response for Bob must not appear under Alice'
             assert not errors, errors
             browser.close()
-            print('PASS: recent paper sources, four-field reuse, deduplication, recency, limit, persistence, failed saves, account isolation, mobile layout, storage fallback.')
+            print('PASS: cross-device paper sources, local import, deduplication, recent limit, failed saves, account isolation, mobile layout, storage and network fallback.')
     finally:
         server.shutdown()
 

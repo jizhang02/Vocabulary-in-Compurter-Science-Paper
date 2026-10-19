@@ -1,5 +1,18 @@
 // Browser UI contract fixture only. Database authorization is tested separately.
 let listener;
+const paperHistories = new Map();
+const paperFields = ['source','source_venue','source_date','source_url'];
+async function mergePaperSources(incoming = [], promote = false) {
+  if (window.mockSourceCloud) return window.mockSourceCloud(user.id, incoming, promote);
+  const existing = paperHistories.get(user.id) || [];
+  const sources = [];
+  for (const item of promote ? [...incoming,...existing] : [...existing,...incoming]) {
+    const source = Object.fromEntries(paperFields.map(field => [field,item[field] || '']));
+    if (Object.values(source).some(Boolean) && !sources.some(other => paperFields.every(field => source[field] === other[field]))) sources.push(source);
+  }
+  paperHistories.set(user.id, sources.slice(0,3));
+  return sources.slice(0,3);
+}
 const lastSeen = new Map();
 let user = window.mockInitialUser || null;
 let entries = [
@@ -26,6 +39,13 @@ export function createClient() {
       async signInWithOAuth(options) { window.mockCalls.push(['oauth',options]); return {}; },
     },
     async rpc(name, args) {
+      if (name === 'recent_paper_sources') {
+        window.mockCalls.push(['recent_paper_sources',user?.id,args]);
+        if (window.mockSourceError || !user) return {error:{message:'Source history unavailable'}};
+        const data = await mergePaperSources(args.local_sources);
+        if (window.mockSourceDelay) await new Promise(resolve => setTimeout(resolve, window.mockSourceDelay));
+        return {data};
+      }
       if (name === 'record_activity') {
         window.mockCalls.push(['record_activity',user?.id]);
         if (!user || window.mockActivityError) return {error:{message:'unavailable'}};
@@ -50,17 +70,21 @@ export function createClient() {
         insert(value) { operation='insert'; payload=value; return query; },
         update(value) { operation='update'; payload=value; return query; },
         delete() { operation='delete'; return query; },
-        then(resolve) {
+        async then(resolve) {
           window.mockCalls.push([operation,payload,conditions]);
           if (operation === 'read') return Promise.resolve({data:entries.filter(e => !after || e.id > after).sort((a,b)=>a.id.localeCompare(b.id)).slice(0,1)}).then(resolve);
           if (window.mockWriteError) return Promise.resolve({error:{message:'Write failed'}}).then(resolve);
           if (window.mockConflict) return Promise.resolve({data:[]}).then(resolve);
           if (operation === 'insert') {
             entries.push({...payload,id:'00000000-0000-0000-0000-000000000013',revision:1,provenance:''});
+            await mergePaperSources([payload], true);
             return Promise.resolve({data:[]}).then(resolve);
           }
           const matched = entries.filter(e=>conditions.every(([key,value])=>e[key] === value));
-          if (operation === 'update') matched.forEach(e=>{Object.assign(e,payload);e.revision++;});
+          if (operation === 'update') {
+            matched.forEach(e=>{Object.assign(e,payload);e.revision++;});
+            if (matched.length) await mergePaperSources([matched[0]], true);
+          }
           if (operation === 'delete') entries=entries.filter(e=>!matched.includes(e));
           return Promise.resolve({data:matched}).then(resolve);
         },

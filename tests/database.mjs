@@ -33,6 +33,11 @@ try {
   await db.exec(activityMigration);
   await db.exec(await readFile(new URL('../supabase/verify_admin_users.sql',import.meta.url),'utf8'));
   await db.exec(await readFile(new URL('../supabase/verify_user_activity.sql',import.meta.url),'utf8'));
+  const sourceMigration = await readFile(new URL('../supabase/migrations/20261019_recent_paper_sources.sql',import.meta.url),'utf8');
+  await db.exec(sourceMigration);
+  await db.exec(sourceMigration);
+  await db.exec(await readFile(new URL('../supabase/verify_recent_paper_sources.sql',import.meta.url),'utf8'));
+  console.log('PASS: account-private paper sources, transactional saves, bounded deduplication, import validation, stale-device merge and migration idempotence.');
   console.log('PASS: server activity timestamps, private storage, anonymous denial, throttling and admin visibility.');
   console.log('PASS: admin directory authorization, metadata, zero-entry users, UUID pagination, migration idempotence.');
   const migration = await readFile(new URL('../supabase/migrations/20260911_prevent_duplicate_terms.sql',import.meta.url),'utf8');
