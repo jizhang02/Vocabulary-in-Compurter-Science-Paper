@@ -43,6 +43,12 @@ def main():
                 page.locator('#editor-dialog').wait_for()
                 page.wait_for_function("document.querySelector('#recent-source').getAttribute('aria-busy') === 'false'")
 
+            def select_source(index, target=None):
+                target = target or page
+                target.locator('#source-title').click()
+                target.locator('#recent-source [role=option]').nth(index).click()
+                assert target.locator('#source-history').is_hidden()
+
             def values():
                 return [page.locator(f'[name={field}]').input_value() for field in FIELDS]
 
@@ -62,25 +68,25 @@ def main():
             assert values() == ['', '', '', ''], 'Opening must not silently fill a source'
             page.locator('[name=example]').fill('Keep this example')
             page.locator('[name=term]').fill('history second')
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[0]
             assert page.locator('[name=term]').input_value() == 'history second'
             assert page.locator('[name=example]').input_value() == 'Keep this example'
             save('history second', papers[0])
             open_editor()
-            assert page.locator('#recent-source option').count() == 2, 'Identical sources must not be duplicated'
+            assert page.locator('#recent-source [role=option]').count() == 1, 'Identical sources must not be duplicated'
             for i in range(1, 4):
                 save(f'history paper {i}', papers[i])
                 open_editor()
-            assert page.locator('#recent-source option').count() == 4
+            assert page.locator('#recent-source [role=option]').count() == 3
             assert 'Paper 0' not in page.locator('#recent-source').inner_text()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[3]
-            page.locator('#recent-source').select_option('2')
+            select_source(2)
             assert values() == papers[1]
             save('history reused', papers[1])
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[1], 'A saved reused source must become most recent'
             # Failed writes must leave history unchanged.
             page.evaluate('window.mockWriteError=true')
@@ -93,12 +99,12 @@ def main():
             page.reload()
             page.wait_for_function("document.querySelectorAll('.word-card').length === 2")
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[1], 'History must survive a reload and exclude failed saves'
             assert 'Should not enter history' not in page.locator('#recent-source').inner_text()
             assert '按账号同步' in page.locator('#source-history-note').inner_text()
             # A second browser context has no local history and receives the same account data.
-            device = browser.new_context(viewport={'width': 390, 'height': 1080})
+            device = browser.new_context(viewport={'width': 390, 'height': 1080}, has_touch=True, is_mobile=True)
             device.expose_function('mockSourceCloud', merge_sources)
             device.add_init_script("window.mockInitialUser={id:'alice',user_metadata:{user_name:'Alice'}}")
             device.route('**/config.js*', lambda route: route.fulfill(content_type='text/javascript', body='window.VOCAB_CONFIG={supabaseUrl:"https://example.supabase.co",supabasePublishableKey:"test"};'))
@@ -109,7 +115,9 @@ def main():
             assert second.evaluate("localStorage.getItem('paperlex:recent-sources:alice')") is None
             second.locator('#add-entry').click()
             second.wait_for_function("document.querySelector('#recent-source').getAttribute('aria-busy') === 'false'")
-            second.locator('#recent-source').select_option('0')
+            second.locator('#source-title').tap()
+            second.locator('#recent-source [role=option]').nth(0).tap()
+            assert second.locator('#source-history').is_hidden()
             assert [second.locator(f'[name={field}]').input_value() for field in FIELDS] == papers[1]
             # A save on the second device updates history seen on the first device.
             second.locator('[name=term]').fill('second device word')
@@ -120,7 +128,7 @@ def main():
             device.close()
             page.keyboard.press('Escape')
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values()[0] == 'From phone', 'Reopening must fetch changes made on another device'
             # A selection also clears fields that are blank in the selected source.
             title = ('<img src=x onerror=window.injected=true> ' + 'A long paper title ' * 12).strip()
@@ -128,14 +136,42 @@ def main():
             open_editor()
             for field in FIELDS:
                 page.locator(f'[name={field}]').fill('old value')
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == [title, '', '', '']
             assert page.locator('#source-history img').count() == 0
             assert page.evaluate('window.injected !== true')
+            # Suggestions appear below the title, support keys, and never submit the form.
+            page.locator('#source-title').click()
+            assert page.locator('#source-title').get_attribute('aria-expanded') == 'true'
+            assert page.locator('#source-history').bounding_box()['y'] >= page.locator('#source-title').bounding_box()['y'] + page.locator('#source-title').bounding_box()['height']
+            writes = page.evaluate("mockCalls.filter(c => c[0] === 'insert').length")
+            page.locator('#source-title').press('ArrowDown')
+            assert page.locator('#source-title').get_attribute('aria-activedescendant') == 'recent-source-0'
+            page.locator('#source-title').press('Enter')
+            assert values() == [title, '', '', '']
+            assert page.locator('#source-history').is_hidden()
+            assert page.evaluate("mockCalls.filter(c => c[0] === 'insert').length") == writes
+            page.locator('#source-title').click()
+            page.locator('#source-title').press('ArrowUp')
+            page.locator('#source-title').press('Enter')
+            assert values()[0] == cloud['alice'][-1]['source']
+            page.locator('#source-title').click()
+            page.locator('#source-title').press('Escape')
+            assert page.locator('#source-history').is_hidden()
+            assert page.locator('#editor-dialog').is_visible()
+            page.locator('#source-title').click()
+            page.locator('[name=meaning]').click()
+            assert page.locator('#source-history').is_hidden()
+            page.locator('#source-title').fill('A custom draft')
+            page.locator('#source-title').press('Tab')
+            assert page.locator('#source-history').is_hidden()
+            assert values()[0] == 'A custom draft'
+            select_source(0)
             (ROOT / 'test-results').mkdir(exist_ok=True)
             for width in (1440, 390):
                 page.set_viewport_size({'width': width, 'height': 1080})
                 assert page.locator('#editor-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth')
+                page.locator('#source-title').click()
                 page.locator('#source-history').scroll_into_view_if_needed()
                 page.screenshot(path=str(ROOT / 'test-results' / f'source-history-{width}.png'))
             page.keyboard.press('Escape')
@@ -148,14 +184,14 @@ def main():
             page.evaluate("source => localStorage.setItem('paperlex:recent-sources:bob', JSON.stringify([source]))", legacy)
             page.keyboard.press('Escape')
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[0]
             assert cloud['bob'] == [legacy]
             # Block storage writes: saving still succeeds and history works for this visit.
             page.evaluate("() => { Storage.prototype.setItem = () => { throw new DOMException('blocked', 'SecurityError'); }; }")
             save('storage blocked', papers[2])
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[2]
             assert '按账号同步' in page.locator('#source-history-note').inner_text()
             # Missing migration/network errors keep fallback history and never block entry saves.
@@ -165,7 +201,7 @@ def main():
             assert '暂时无法同步' in page.locator('#source-history-note').inner_text()
             save('source service unavailable', papers[3])
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values() == papers[3]
             page.evaluate('window.mockSourceError=false')
             page.keyboard.press('Escape')
@@ -185,10 +221,10 @@ def main():
             page.locator('#editor-dialog').wait_for(state='hidden')
             page.evaluate('window.mockSourceDelay=0')
             open_editor()
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values()[0] == title
             page.wait_for_timeout(500)
-            page.locator('#recent-source').select_option('0')
+            select_source(0)
             assert values()[0] == title, 'A response for Bob must not appear under Alice'
             assert not errors, errors
             browser.close()

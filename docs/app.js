@@ -81,6 +81,7 @@ const sourceFields = ["source", "source_venue", "source_date", "source_url"];
 const sourceHistoryMemory = new Map();
 const sourceHistoryStatus = new Map();
 let sourceHistoryEpoch = 0;
+let sourceHistoryOpen = false, sourceHistoryActive = -1;
 function sourceHistoryKey(userId) {
   return `paperlex:recent-sources:${userId}`;
 }
@@ -136,28 +137,82 @@ async function syncSourceHistory() {
 }
 function renderSourceHistory() {
   const history = readSourceHistory();
-  const select = $("#recent-source");
-  const previous = select.selectedOptions[0]?.dataset.source;
-  select.replaceChildren(new Option("选择后填入下方 4 项信息", ""));
+  const list = $("#recent-source");
+  list.replaceChildren();
+  sourceHistoryActive = -1;
+  $("#source-title").removeAttribute("aria-activedescendant");
   history.forEach((source, index) => {
     const title = source.source || source.source_url || source.source_venue || source.source_date;
     const details = [source.source_venue, source.source_date].filter(Boolean).join(" · ");
-    const option = new Option(`${index + 1}. ${title}${details ? ` — ${details}` : ""}`, String(index));
-    option.dataset.source = JSON.stringify(source);
-    option.selected = option.dataset.source === previous;
-    select.add(option);
+    const option = document.createElement("li");
+    option.id = `recent-source-${index}`;
+    option.dataset.sourceIndex = index;
+    option.setAttribute("role", "option");
+    option.setAttribute("aria-selected", "false");
+    const name = document.createElement("span");
+    name.textContent = title;
+    option.append(name);
+    if (details) {
+      const meta = document.createElement("small");
+      meta.textContent = details;
+      option.append(meta);
+    }
+    list.append(option);
   });
   const syncStatus = sourceHistoryStatus.get(state.user?.id);
   $("#source-history-note").textContent = syncStatus === "synced" ? "最近 3 条已按账号同步，可跨设备复用。"
     : syncStatus === "failed" ? "暂时无法同步，仍可使用本机历史。下次打开时会重试。" : "正在同步最近使用的论文…";
-  $("#source-history").hidden = !history.length && syncStatus !== "failed";
+  const visible = sourceHistoryOpen && document.activeElement === $("#source-title") && (history.length > 0 || syncStatus === "failed");
+  $("#source-history").hidden = !visible;
+  $("#source-title").setAttribute("aria-expanded", String(Boolean(visible)));
 }
-$("#recent-source").addEventListener("change", event => {
-  if (event.target.value === "") return;
-  const source = readSourceHistory()[Number(event.target.value)];
+function closeSourceHistory() {
+  sourceHistoryOpen = false;
+  sourceHistoryActive = -1;
+  $("#source-history").hidden = true;
+  $("#source-title").setAttribute("aria-expanded", "false");
+  $("#source-title").removeAttribute("aria-activedescendant");
+}
+function chooseSourceHistory(index) {
+  const source = readSourceHistory()[index];
   if (!source) return;
   for (const field of sourceFields) $("#editor").elements[field].value = source[field];
+  closeSourceHistory();
+}
+for (const event of ["focus", "click", "input"]) $("#source-title").addEventListener(event, () => {
+  sourceHistoryOpen = true;
+  renderSourceHistory();
 });
+$("#source-title").addEventListener("blur", closeSourceHistory);
+$("#source-title").addEventListener("keydown", event => {
+  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    event.preventDefault();
+    if ($("#source-history").hidden) { sourceHistoryOpen = true; renderSourceHistory(); }
+    const options = [...$("#recent-source").children];
+    if (!options.length) return;
+    sourceHistoryActive = sourceHistoryActive < 0 ? (event.key === "ArrowDown" ? 0 : options.length - 1)
+      : (sourceHistoryActive + (event.key === "ArrowDown" ? 1 : -1) + options.length) % options.length;
+    options.forEach((option, index) => option.setAttribute("aria-selected", String(index === sourceHistoryActive)));
+    $("#source-title").setAttribute("aria-activedescendant", options[sourceHistoryActive].id);
+    options[sourceHistoryActive].scrollIntoView({block:"nearest"});
+  } else if (event.key === "Enter" && !$("#source-history").hidden && sourceHistoryActive >= 0) {
+    event.preventDefault();
+    chooseSourceHistory(sourceHistoryActive);
+  } else if (event.key === "Escape" && !$("#source-history").hidden) {
+    event.preventDefault(); event.stopPropagation(); closeSourceHistory();
+  } else if (event.key === "Tab") closeSourceHistory();
+});
+$("#recent-source").addEventListener("pointerdown", event => {
+  if (event.target.closest("[data-source-index]")) event.preventDefault();
+});
+$("#recent-source").addEventListener("click", event => {
+  const option = event.target.closest("[data-source-index]");
+  if (option) chooseSourceHistory(Number(option.dataset.sourceIndex));
+});
+document.addEventListener("pointerdown", event => {
+  if (!event.target.closest(".source-field")) closeSourceHistory();
+});
+$("#editor-dialog").addEventListener("close", closeSourceHistory);
 
 function openEditor(entry = null) {
   if (!state.online) { openAuth(); return; }
@@ -166,6 +221,7 @@ function openEditor(entry = null) {
   resetTermCheck();
   state.editing = entry;
   $("#editor").reset(); $("#editor-error").textContent = "";
+  closeSourceHistory();
   renderSourceHistory();
   $("#editor-title").textContent = entry ? "修改词汇" : "添加词汇";
   for (const field of ["term","meaning","pos","example","source","source_venue","source_date","source_url"]) {
