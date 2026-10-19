@@ -53,6 +53,7 @@ export function createClient() {
         then(resolve) {
           window.mockCalls.push([operation,payload,conditions]);
           if (operation === 'read') return Promise.resolve({data:entries.filter(e => !after || e.id > after).sort((a,b)=>a.id.localeCompare(b.id)).slice(0,1)}).then(resolve);
+          if (window.mockWriteError) return Promise.resolve({error:{message:'Write failed'}}).then(resolve);
           if (window.mockConflict) return Promise.resolve({data:[]}).then(resolve);
           if (operation === 'insert') {
             entries.push({...payload,id:'00000000-0000-0000-0000-000000000013',revision:1,provenance:''});

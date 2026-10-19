@@ -79,6 +79,10 @@
 
 .term-feedback{overflow-wrap:anywhere;font-size:12px;line-height:1.6;margin:-5px 0 6px;color:var(--muted)}
 .term-feedback.error{color:#aa3c32}
+.source-history{margin:16px 0;padding:12px;border:1px solid var(--line);border-radius:9px;background:#eff1e8}
+.source-history label{margin:0 0 7px}
+.source-history select{max-width:100%;min-width:0}
+.source-history small{display:block;margin-top:7px;font-size:11px;color:var(--muted)}
 .term-existing{font-size:inherit;line-height:inherit;padding:0;color:var(--green);white-space:nowrap}
 #editor input[aria-invalid="true"]{border-color:#aa3c32}
 

@@ -77,6 +77,48 @@ function openAuth(actionAfterLogin = null) {
   rememberAuthAction(actionAfterLogin);
   $("#auth-message").textContent = ""; $("#auth-dialog").showModal();
 }
+const sourceFields = ["source", "source_venue", "source_date", "source_url"];
+const sourceHistoryMemory = new Map();
+function sourceHistoryKey(userId) {
+  return `paperlex:recent-sources:${userId}`;
+}
+function readSourceHistory(userId = state.user?.id) {
+  if (!userId) return [];
+  const key = sourceHistoryKey(userId);
+  if (sourceHistoryMemory.has(key)) return sourceHistoryMemory.get(key);
+  if (sourceHistoryMemory.has(key)) return sourceHistoryMemory.get(key);
+  try {
+    const stored = JSON.parse(localStorage.getItem(key) || "[]");
+    if (!Array.isArray(stored)) return [];
+    return stored.filter(item => item && sourceFields.every(field => typeof item[field] === "string" && item[field].length <= $("#editor").elements[field].maxLength) && sourceFields.some(field => item[field].trim())).slice(0, 3);
+  } catch { return sourceHistoryMemory.get(key) || []; }
+}
+function rememberSource(row, userId) {
+  const source = Object.fromEntries(sourceFields.map(field => [field, row[field]]));
+  if (!sourceFields.some(field => source[field])) return;
+  const history = [source, ...readSourceHistory(userId).filter(item => !sourceFields.every(field => item[field] === source[field]))].slice(0, 3);
+  const key = sourceHistoryKey(userId);
+  sourceHistoryMemory.set(key, history);
+  try { localStorage.setItem(key, JSON.stringify(history)); } catch { /* Keep history for this visit if browser storage is unavailable. */ }
+}
+function renderSourceHistory() {
+  const history = readSourceHistory();
+  const select = $("#recent-source");
+  select.replaceChildren(new Option("选择后填入下方 4 项信息", ""));
+  history.forEach((source, index) => {
+    const title = source.source || source.source_url || source.source_venue || source.source_date;
+    const details = [source.source_venue, source.source_date].filter(Boolean).join(" · ");
+    select.add(new Option(`${index + 1}. ${title}${details ? ` — ${details}` : ""}`, String(index)));
+  });
+  $("#source-history").hidden = !history.length;
+}
+$("#recent-source").addEventListener("change", event => {
+  if (event.target.value === "") return;
+  const source = readSourceHistory()[Number(event.target.value)];
+  if (!source) return;
+  for (const field of sourceFields) $("#editor").elements[field].value = source[field];
+});
+
 function openEditor(entry = null) {
   if (!state.online) { openAuth(); return; }
   if (!state.user) { openAuth(entry ? null : "add"); return; }
@@ -84,6 +126,7 @@ function openEditor(entry = null) {
   resetTermCheck();
   state.editing = entry;
   $("#editor").reset(); $("#editor-error").textContent = "";
+  renderSourceHistory();
   $("#editor-title").textContent = entry ? "修改词汇" : "添加词汇";
   for (const field of ["term","meaning","pos","example","source","source_venue","source_date","source_url"]) {
     const value = entry?.[field] ?? (field === "pos" ? "noun" : "");
@@ -268,6 +311,7 @@ async function saveEntry(event) {
   const button = $("#save-entry"); button.disabled = true; $("#editor-error").textContent = "";
   try {
     if (!state.online || !state.user) throw new Error("请先登录后再保存。");
+    const savingUserId = state.user.id;
     const form = new FormData(event.target);
     const row = Object.fromEntries(["term","meaning","pos","example","source","source_venue","source_date","source_url"].map(k => [k,form.get(k).trim()]));
     row.domains = form.getAll("domains");
@@ -291,6 +335,7 @@ async function saveEntry(event) {
       const {error} = await state.client.from("entries").insert(row);
       if (error) throw error;
     }
+    rememberSource(row, savingUserId);
     $("#editor-dialog").close(); toast("词汇已保存，感谢你的分享。");
     try { await loadCloud(); } catch { status("保存成功，但列表刷新失败。请刷新网页获取最新词库。"); }
   } catch (error) { $("#editor-error").textContent = error.code === "23505" ? "该词汇或短语已存在，无需重复添加。请在词库中查看已有词条。" : error.message || "保存失败，请稍后重试。"; }
