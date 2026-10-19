@@ -142,27 +142,21 @@ function renderSourceHistory() {
   sourceHistoryActive = -1;
   $("#source-title").removeAttribute("aria-activedescendant");
   history.forEach((source, index) => {
-    const title = source.source || source.source_url || source.source_venue || source.source_date;
-    const details = [source.source_venue, source.source_date].filter(Boolean).join(" · ");
+    if (!source.source) return;
     const option = document.createElement("li");
     option.id = `recent-source-${index}`;
     option.dataset.sourceIndex = index;
     option.setAttribute("role", "option");
     option.setAttribute("aria-selected", "false");
     const name = document.createElement("span");
-    name.textContent = title;
+    name.textContent = source.source;
     option.append(name);
-    if (details) {
-      const meta = document.createElement("small");
-      meta.textContent = details;
-      option.append(meta);
-    }
     list.append(option);
   });
   const syncStatus = sourceHistoryStatus.get(state.user?.id);
-  $("#source-history-note").textContent = syncStatus === "synced" ? "最近 3 条已按账号同步，可跨设备复用。"
-    : syncStatus === "failed" ? "暂时无法同步，仍可使用本机历史。下次打开时会重试。" : "正在同步最近使用的论文…";
-  const visible = sourceHistoryOpen && document.activeElement === $("#source-title") && (history.length > 0 || syncStatus === "failed");
+  $("#source-history-note").textContent = syncStatus === "failed" ? "暂时无法同步，仍可使用本机历史。下次打开时会重试。" : "";
+  $("#source-history-note").hidden = syncStatus !== "failed";
+  const visible = sourceHistoryOpen && document.activeElement === $("#source-title") && (list.children.length > 0 || syncStatus === "failed");
   $("#source-history").hidden = !visible;
   $("#source-title").setAttribute("aria-expanded", String(Boolean(visible)));
 }
@@ -197,7 +191,7 @@ $("#source-title").addEventListener("keydown", event => {
     options[sourceHistoryActive].scrollIntoView({block:"nearest"});
   } else if (event.key === "Enter" && !$("#source-history").hidden && sourceHistoryActive >= 0) {
     event.preventDefault();
-    chooseSourceHistory(sourceHistoryActive);
+    chooseSourceHistory(Number($("#recent-source").children[sourceHistoryActive].dataset.sourceIndex));
   } else if (event.key === "Escape" && !$("#source-history").hidden) {
     event.preventDefault(); event.stopPropagation(); closeSourceHistory();
   } else if (event.key === "Tab") closeSourceHistory();
