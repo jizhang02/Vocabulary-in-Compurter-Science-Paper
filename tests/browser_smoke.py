@@ -69,7 +69,7 @@ def main():
             assert page.locator('.word-card .card-pos').count() == 18
             assert all(x == 'v' for x in page.locator('.word-card .card-pos').all_text_contents())
             page.locator('#reset').click()
-            page.get_by_role('button',name='下一页 →').click()
+            page.get_by_role('button',name='下一页',exact=True).click()
             assert '2 /' in page.locator('#pagination').inner_text()
             page.locator('#list-view').click()
             assert 'list-mode' in page.locator('#cards').get_attribute('class')
