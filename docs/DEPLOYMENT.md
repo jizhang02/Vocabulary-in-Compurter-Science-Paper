@@ -1,18 +1,17 @@
 # PaperLex 部署指南
 
-GitHub Pages 托管前端，Supabase 提供共享数据库与登录。GitHub Pages 是静态托管，不能直接保存社区投稿或运行 Python。[GitHub 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
+GitHub Pages 托管静态前端，Supabase 保存社区词条并提供登录。本地预览见 [README](../README.md)，数据生成与备份见[维护指南](MAINTENANCE.md)。
 
-## 1. 本地预览
+## 新项目初始化
 
-在仓库根目录运行 `python -m http.server 8765 --bind 127.0.0.1 --directory docs`，访问 `http://127.0.0.1:8765/`。未配置云项目时可以浏览原始词表，不能登录和编辑。
+在自己管理的 Supabase 项目中，以 postgres 身份通过 SQL Editor 依次执行：
 
-## 2. 数据库
+1. `supabase/schema.sql`：创建词条、权限、用户目录及最近来源记录，仅新项目执行一次。
+2. `supabase/seed.sql`：导入初始静态词库。
+3. `supabase/migrations/20260911_prevent_duplicate_terms.sql`：启用词条防重。
+4. `supabase/migrations/20261106_merge_domains.sql`：统一领域标签。若启用下文的自动补词，在其安装后再执行一次。
 
-1. 在 [Supabase](https://supabase.com/dashboard) 创建你自己管理的新项目。
-2. 在 SQL Editor 运行 `supabase/schema.sql`。只在新项目初始化时执行一次。
-3. 运行 `supabase/seed.sql` 导入 701 个原始词条，再运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql` 启用新增词条防重。
-4. 确认 `public.entries` 已启用 RLS，并存在四项策略，不要关闭 RLS。
-5. 找到 Project URL 和 publishable key，填入 `docs/config.js`：
+确认 `public.entries` 已启用 RLS，保留四项读写策略。将公开连接信息填入 `docs/config.js`：
 
 ```js
 window.VOCAB_CONFIG = {
@@ -21,31 +20,17 @@ window.VOCAB_CONFIG = {
 };
 ```
 
-传统 `anon` key 也可使用。这是供浏览器公开访问的密钥，实际授权由数据库控制。**不要填写或提交 `service_role` key、`sb_secret_...`、数据库密码或 GitHub Client Secret。** [Supabase RLS 文档](https://supabase.com/docs/guides/database/postgres/row-level-security)
+传统 anon key 也可使用。**不要提交 service_role、sb_secret、数据库密码或 OAuth Client Secret**。浏览器公开密钥依赖数据库权限控制。[Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security)
 
-社区内容保存在数据库，不会自动回写 GitHub。请定期导出数据库备份；种子脚本仅用于初始化，重跑会恢复已删除的种子词条。
+## GitHub 登录与管理员
 
-## 3. GitHub 登录
+1. 在 GitHub Settings → Developer settings → OAuth Apps 创建应用，Homepage URL 填网站地址，callback URL 填 Supabase 提供的 `https://YOUR-PROJECT.supabase.co/auth/v1/callback`。
+2. 在 Supabase Authentication → Sign In / Providers → GitHub 启用登录，填写 Client ID 和 Client Secret。Secret 仅保存在 Supabase 后台。
+3. 在 Supabase Authentication → URL Configuration 设置 Site URL 及 Redirect URLs，均使用完整网站地址并保留末尾 `/`。本地开发另外添加实际使用的地址，如 `http://127.0.0.1:8765/`。
 
-在 Supabase Authentication → URL Configuration 设置：
+本站地址为 `https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/`，前端使用 PKCE。[GitHub 登录指南](https://supabase.com/docs/guides/auth/social-login/auth-github)
 
-- Site URL：`https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/`
-- Redirect URLs：添加同一个完整地址，包括末尾 `/`。
-- 本地开发另加 `http://127.0.0.1:8765/`。使用其他端口或路径时，添加对应实际地址。
-
-### GitHub
-
-1. GitHub Settings → Developer settings → OAuth Apps，创建 OAuth App。
-2. Homepage URL 填 GitHub Pages 地址。
-3. Authorization callback URL 填 **Supabase** 提供的 `https://YOUR-PROJECT.supabase.co/auth/v1/callback`，不是 Pages 地址。
-4. Supabase Authentication → Sign In / Providers → GitHub，启用并填 Client ID 和 Client Secret。
-5. Client Secret 只保存在 Supabase 后台。
-
-网页使用 PKCE，会话回调返回项目主页。[GitHub 登录官方指南](https://supabase.com/docs/guides/auth/social-login/auth-github)
-
-## 4. 你的管理员权限
-
-先在网页用你的 GitHub 登录一次，再从 Supabase Authentication → Users 复制该账号的 **UUID**。在 SQL Editor 执行：
+管理员先在网站登录一次，再从 Supabase Authentication → Users 复制其 Auth UUID，执行：
 
 ```sql
 insert into private.admins (user_id)
@@ -53,78 +38,68 @@ values ('替换成你登录账号的UUID')
 on conflict do nothing;
 ```
 
-刷新网页，右上角应显示“管理员 · 退出”。管理员列表不放到前端；昵称和显示邮箱不用于授权。
+刷新后显示“管理员 · 退出”。授权不依据昵称或邮箱；初始词条不归属普通用户，由管理员维护。
 
-## 5. 发布 GitHub Pages
+## 发布 GitHub Pages
 
-将准备好的修改提交并推送到仓库发布分支，打开 Settings → Pages：
+推送前端修改后，在 Settings → Pages 选择 **Deploy from a branch → master → /docs**，等待部署完成并检查网站内容。项目使用相对资源路径，`docs/.nojekyll` 支持直接发布，无需前端构建。[GitHub 发布源配置](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-1. Source 选择 **Deploy from a branch**。
-2. 选择 `master` 分支。
-3. Folder 选择 **`/docs`**，保存。
-4. 等待部署完成，打开 Pages 页面给出的网址。
+每周备份工作流的启用步骤见[每周社区词库备份](MAINTENANCE.md#每周社区词库备份)，它与 Pages 部署、数据库迁移分别运行。
 
-无需 Node 构建或自定义工作流；`docs/.nojekyll` 让静态资源直接发布。资源使用相对路径，兼容项目子路径。[GitHub 发布源配置](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+## 已有数据库升级
 
-## 6. 上线验收
+仅执行尚未安装的功能迁移，无需重跑 schema 或种子：
 
-用你的管理员账号及两个普通测试账号验证：
-
-| 场景 | 预期 |
+| 功能 | SQL 文件 |
 | --- | --- |
-| 未登录访问、检索、打开词条 | 正常 |
-| GitHub 登录 | 成功并返回网站 |
-| 用户 A 添加，刷新页面、另一浏览器查看 | 数据保留并公开可见 |
-| 用户 B 查看 A 的词条 | 无编辑入口，直接 API 越权也被拒绝 |
-| A 修改/删除自己的词 | 成功 |
-| 管理员修改/删除他人的词及原始词 | 成功 |
-| 两个标签页先后修改同一版本 | 后提交者看到版本冲突 |
-| 退出登录 | 无编辑入口，“我的创建”不可选 |
+| 例句出处字段 | `supabase/migrations/20260909_example_sources.sql` |
+| 新增与改名防重 | `supabase/migrations/20260911_prevent_duplicate_terms.sql` |
+| 用户目录与在线记录 | `supabase/migrations/20260916_user_activity.sql` |
+| 最近论文来源同步 | `supabase/migrations/20261019_recent_paper_sources.sql` |
+| 领域标签合并 | `supabase/migrations/20261106_merge_domains.sql` |
 
-可在**隔离测试项目**执行 `supabase/verify_permissions.sql`，其中临时用户与修改最终回滚。不要将测试 UUID 替换成真实用户。
+上述迁移可重复执行。新版用户目录已包含旧版功能，不要在它之后重跑 `20260916_admin_users.sql`。真实数据库操作前请备份数据。
 
-## 当前边界与维护
+### 领域标签合并
 
-- 投稿立即公开，尚无审核队列、举报和贡献限流；社区扩大后优先添加这些治理功能。
-- `private.entry_history` 保存增删改记录，仅管理后台可访问，可辅助人工恢复；不是完整备份的替代品。
-- 原始词性、拼写和译文未逐条校订，现有 701 个词条已补齐“通用”及专业领域标签（见 [分类说明](CLASSIFICATION.md)）。同形词可作为不同条目保留。
-- 当前按 ID 分页读完整词库，再在浏览器搜索；避免接口单页上限截断。数万词规模建议升级数据库端检索分页。
-- 没有实时推送，刷新页面获取他人更新；保存时有版本冲突检查。
-- 网络故障时提示只读，并可能显示原始快照；快照不是最新社区数据，不与云词条混合。
-- 浏览器 SDK 固定为 `2.57.4`，从 jsDelivr 加载。未配置云项目不请求 SDK；CDN 受限时可改为本地打包。
-- 费用、配额和邮件额度以服务控制台的实际方案为准。
+合并迁移将“机器学习”“计算机视觉”“自然语言处理”转换为“计算机科学”，去重并保留其他标签及内容。它同时处理已有自动补词队列；若队列后来才安装，重跑本迁移以安装队列转换触发器。
 
-已有数据库升级例句来源字段：先运行 `supabase/migrations/20260909_example_sources.sql`，再发布新前端。原有词条不会被 seed.sql 覆盖。
+数据库触发器会转换旧客户端或 API 提交的旧标签。已有词条的更新仍会记录修订、审计及编辑活动。新版前端兼容未迁移的旧标签，但页面显示已合并不等于云端存储已转换。
+
+### 防重、用户目录与最近来源
+
+- **防重**：忽略大小写、首尾空格、连续空格及全角形式。保留原有同名不同释义；同名条目全部删除或改名后，该名称才可重新新增。
+- **用户目录**：仅管理员可查看注册时间、上次在线时间及贡献数量，并进入用户的词条列表。在线时间由服务器按可见页面访问记录，每分钟最多更新一次，不等于精确离线时间；未记录时显示“暂无记录”。
+- **最近来源**：成功保存词条时，在同一事务内按操作者账号保留最近 3 组来源。打开表单会优先读取云端历史，再合并旧本机记录；同步失败时仍可使用本机历史。管理员修改他人词条时，来源记入管理员自己的历史。
+
+用户活动和最近来源保存在私有表；客户端不能读取其他账号的来源历史，管理员也无该权限。Auth UUID 用于授权，显示时间按浏览器时区呈现。
 
 ## 全站闲置超过 6 天自动添加词条
 
-这是全站规则：任何用户成功新增、修改或删除任意词条都会重新计时；登录、浏览和 `record_activity()` 不重置这个计时器。启用时从当前服务器时间开始计算，避免立即发布。每天 UTC 08:17 检查一次（使用 Supabase 默认 Cron 时区）；超过连续 6 × 24 小时无增删改后，从预备队列发布一条词汇。达到闲置期限后等待下一次每日检查，正常调度下延迟不足一天。系统发布也重新计时，因此持续无人编辑时，每超过 6 天最多发布一条。新词刷新网页即可看到，不要求有人打开网页才能运行。
+任何用户成功新增、修改或删除词条都会重新计时；浏览与登录不计入。启用时从当前服务器时间开始计算，每天 UTC 08:17 检查，超过连续 6 × 24 小时无编辑时发布一条预备词汇。系统发布后重新计时，因此持续无人编辑时每超过 6 天最多发布一条。
 
-在 Supabase SQL Editor 以 `postgres` 身份依次执行：
+在初始化并启用防重后，以 postgres 依次执行：
 
-1. 若尚未启用防重，运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql`。
-2. 运行 `supabase/migrations/20261007_auto_entry.sql`。
-3. 运行 `supabase/enable_auto_entry_cron.sql`，启用 `pg_cron` 并创建名为 `paperlex-idle-entry` 的每日任务。已启用旧版每小时任务的项目重新执行此脚本即可更新频率，无需重新执行迁移。[Supabase Cron 安装](https://supabase.com/docs/guides/cron/install)
+1. `supabase/migrations/20261007_auto_entry.sql`。
+2. `supabase/migrations/20261106_merge_domains.sql`，确保新队列也转换旧标签。
+3. `supabase/enable_auto_entry_cron.sql`，安装每日任务 `paperlex-idle-entry`。
 
-上述两个新脚本可重复执行，不重置已记录的计时、不重新发布已消费的候选词，也不创建重复任务。新项目在初始化、防重后同样执行这些脚本；不要在已有项目重跑 `schema.sql`。
+脚本可重复执行，不重置计时、已消费词条或创建重复任务。初始队列有 10 个本站编写释义的真实术语，不附虚构论文或例句；系统词条由管理员维护。重复候选词会跳过，队列耗尽后停止。
 
-初始队列包含 10 个本站编写释义的真实术语，不附虚构论文或例句。自动发布显示作者“PaperLex 系统”、来源“系统自动添加”，不会归属于某个用户；管理员可修改或删除。已存在的同名词按现有防重规则跳过，跳过后不再次补回（包括之后被用户删除的词）。队列耗尽会停止发布，须补充新的候选词。普通用户不能读取私有队列或直接执行发布函数。
-
-后台检查状态与剩余队列：
+查看状态与调度记录：
 
 ```sql
 select * from private.auto_entry_state;
 select * from private.auto_entry_queue order by term;
-select jobid, jobname, schedule, active from cron.job
-where jobname = 'paperlex-idle-entry';
+select jobid, schedule, active from cron.job where jobname = 'paperlex-idle-entry';
 select * from cron.job_run_details
 where jobid in (select jobid from cron.job where jobname = 'paperlex-idle-entry')
 order by start_time desc limit 10;
 ```
 
-`last_result` 的 `not_due` 表示尚未达到闲置期限，`published` 表示本次发布成功，`queue_empty` 表示无可发布候选词。执行失败在 Cron 运行记录查看，事务回滚不会误消耗候选词。计时、发布、审计和队列消费在数据库事务内完成，并与用户写入互斥，防止并发重复发布。
+`last_result` 的 `not_due` / `published` / `queue_empty` 分别表示未到期、已发布、队列为空；执行失败查看 Cron 日志。发布与消费在同一事务中完成，并与用户写入互斥。
 
-添加候选词（替换下面示例内容；只在 SQL Editor 操作）：
+补充候选词：
 
 ```sql
 insert into private.auto_entry_queue(term,meaning,pos,domains)
@@ -132,40 +107,18 @@ values ('new technical term','经过检查的中文释义','noun',array['计算�
 on conflict (term) do nothing;
 ```
 
-停用自动任务：
+停用任务（重跑调度脚本可恢复）：
 
 ```sql
 select cron.unschedule('paperlex-idle-entry');
 ```
 
-停用不会删除已有词条或队列，再执行调度脚本即可恢复。`supabase/verify_auto_entry.sql` 仅供隔离测试库执行，包含回滚的行为与权限检查；本地 PGlite 测试覆盖发布逻辑，不模拟实际 Cron 调度。
+此功能不能保证避免免费项目暂停；暂停期间内部任务也会停止。[Supabase Cron 安装](https://supabase.com/docs/guides/cron/install) · [项目暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
 
-此任务用于自动补充词条，**不能保证防止 Supabase 免费项目暂停**：官方要求足够的用户数据库活动，没有承诺内部 Cron 活动满足判定。项目暂停期间内部任务也不会继续运行，须在控制台恢复。[Supabase 暂停说明](https://supabase.com/docs/guides/platform/free-project-pausing)
+## 上线验收与运行边界
 
-## 已有项目启用词条防重
+用管理员及两个普通测试账号检查：访客可读、GitHub 登录、跨浏览器保存与读取、用户只能修改自己的词、管理员可管理全部词、旧版本保存被拒绝，以及退出后不显示编辑入口。隔离测试与命令见[验证说明](MAINTENANCE.md#验证)；本地模拟测试不等于线上登录、RLS 或 Cron 已通过。
 
-在 Supabase SQL Editor 运行 `supabase/migrations/20260911_prevent_duplicate_terms.sql`。英文输入停顿约 0.4 秒或离开输入框时，会查询最新词库并在输入框下提示重复，提供查看已有词条的入口；保存前仍会查询最新词库，忽略大小写、首尾空格、连续空格及全角形式，阻止相同名称的新增或改名。数据库升级用于防止同时提交和直接 API 写入产生重复；前端检查不能替代数据库规则。
+当前投稿立即公开，尚无审核队列或贡献限流。词库按 ID 分页读取后在浏览器检索，无实时推送；刷新可获取他人更新。云端连接失败时可能显示初始只读快照，不代表最新社区内容。数万词规模应改用服务端检索。
 
-升级保留原始词表中已有的同名条目，不自动合并或删除；这些条目仍可编辑释义。最后一个同名词条被删除或改名后，该名称可重新创建。迁移可重复执行，无需重新导入原始词表。
-
-## 管理员用户列表与创建内容
-
-已有数据库先在 Supabase SQL Editor 运行 `supabase/migrations/20260916_user_activity.sql`，然后发布更新后的 `docs`。新项目的 `schema.sql` 已包含此功能。迁移可重复执行，不修改用户或词条数据。
-
-按第 4 节将本人 Auth UUID 加入 `private.admins`；登录后，导航显示“用户列表”。列表包含用户名、首次登录本站的注册时间、上次在线时间、当前创建词条数（含零词条用户）。点击“查看创建”进入该用户词条，展开词条后可修改或删除；返回列表可切换用户。“我的创建”仍只显示当前登录账号的内容。
-
-目录通过 `admin_list_users` RPC 读取，数据库检查管理员身份；普通用户及访客不能读取，前端不使用管理密钥。用户名只用于显示，筛选使用不可混淆的 Auth UUID；注册时间使用 `auth.users.created_at`，按浏览器设备时区显示。用户目录按 UUID 分页读取，最终按注册时间倒序显示。修改、删除继续使用现有 RLS、版本冲突检查与审计历史。
-
-上次在线时间来自已登录用户最近一次可见页面访问：打开网站、切回前台及前台每分钟上报一次，由服务器记录时间。后台页面停止上报；它不是精确的离线时间。启用前未记录的用户显示“暂无记录”，不会把上次登录时间冒充最近访问时间。关闭后重新打开用户列表会重新读取数据。
-
-在线记录保存在私有表 `private.user_activity`。用户仅能通过不接受参数的 `record_activity()` 记录自己的服务器时间，不能读取全员记录或代他人写入；管理员通过用户列表读取。新版迁移已包含用户目录，无论是否执行过旧版目录迁移都可直接执行；请勿在新版之后重新运行旧版 `20260916_admin_users.sql`。无需重新执行 `schema.sql` 或导入种子词条。
-
-## 最近论文来源跨设备同步
-
-已有数据库先在 Supabase SQL Editor 执行 `supabase/migrations/20261019_recent_paper_sources.sql`，再发布新版前端；新项目的 `schema.sql` 已包含此功能。迁移可重复执行，不修改已有词条，不需要重新导入种子数据。
-
-登录用户成功新增或修改词条时，数据库在同一事务中记录操作者使用的论文来源，按最近使用顺序去重并保留 3 组。管理员修改他人词条时，来源记入管理员自己的历史；未填写来源的保存不会覆盖历史。每次打开词汇表单，前端通过 `recent_paper_sources(local_sources)` 重新获取当前账号的历史，并合并旧版浏览器本地记录。合并优先保留云端较新的记录，本机缓存不能挤掉已有的 3 条云端记录。
-
-历史存于私有表 `private.recent_paper_sources`，访客、匿名会话、其他账号和管理员均无直接读取权限。RPC 从登录身份获取账号，不接受目标用户 ID。仅账号本人通过 RPC 获取自己的历史；删除账号会自动清除历史。浏览器保留按账号区分的本机缓存；网络或同步服务暂不可用时仍可复用缓存、正常提交词条，并显示未同步提示。同步成功后刷新缓存，清除浏览器数据不会删除云端历史。
-
-`supabase/verify_recent_paper_sources.sql` 仅用于隔离测试数据库，测试会回滚。`tests/database.mjs` 覆盖权限、去重上限、保存事务、输入校验和迁移重复执行；`tests/browser_source_history.py` 使用两个独立浏览器上下文与模拟云端验证跨设备读取、本机导入和故障恢复。这些本地测试不替代真实 Supabase 迁移与登录验证。
+SDK 固定为 `2.57.4`，从 jsDelivr 加载；CDN 受限时可改为本地托管。私有审计历史仅供后台恢复参考，社区 Markdown 备份也不替代数据库完整备份。费用和配额以服务控制台为准。

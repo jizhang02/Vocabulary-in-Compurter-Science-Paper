@@ -1,0 +1,44 @@
+name: Backup vocabulary
+
+on:
+  schedule:
+    # Monday 06:17 UTC (07:17 Paris winter / 08:17 Paris summer).
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vocabulary-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check exporter
+        run: python -m unittest discover -s tests -p 'test_backup.py' -v
+      - name: Export public vocabulary
+        run: python scripts/backup_vocabulary.py
+      - name: Commit changed backup
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git add -- backups/vocabulary.md
+          if git diff --cached --quiet; then
+            echo 'Vocabulary unchanged; no commit needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs: back up public vocabulary'
+          git pull --rebase origin "$DEFAULT_BRANCH"
+          git push origin "HEAD:$DEFAULT_BRANCH"

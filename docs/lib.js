@@ -1,5 +1,9 @@
 export const POS = {verb:"动词","adjective-adverb":"形容词 / 副词",noun:"名词",phrase:"短语"};
-export const DOMAINS = ["通用","计算机科学","机器学习","计算机视觉","自然语言处理","医学","数学"];
+export const DOMAINS = ["通用","计算机科学","医学","数学"];
+// Accept legacy cloud rows until the database migration has been applied.
+export function normalizeDomains(domains = []) {
+  return [...new Set(domains.map(d => ["机器学习","计算机视觉","自然语言处理"].includes(d) ? "计算机科学" : d))];
+}
 export const escapeHtml = (text = "") => String(text).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 export const normalize = text => String(text ?? "").normalize("NFKC").toLocaleLowerCase().trim();
 export function tagsFrom(text) {

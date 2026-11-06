@@ -1,101 +1,57 @@
-# PaperLex · 论文词汇共建
+# 📚 PaperLex · 论文词汇共建
 
 从阅读中来，到研究中去。面向计算机科学、医学与交叉领域的中英双语词汇库。
 
-由 Markdown 摘录升级为可部署到 GitHub Pages 的响应式网页，保留 [V2 原始词表](docs/glossary_v2.md) 和 [旧词表](docs/glossary.md)。
+**[🌐 在线使用](https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/)** · [🚀 部署指南](docs/DEPLOYMENT.md) · [🏷️ 分类说明](docs/CLASSIFICATION.md) · [🛠️ 维护指南](docs/MAINTENANCE.md)
 
-## 当前版本
+## ✨ 功能概览
 
-- **701 个词条、701 个带例句词条**；清理空词条及 `sentence.` 占位例句。
-- 搜索英文、中文释义、例句、来源和标签；按词性、多个专业领域、例句完整度及“我的创建”交叉筛选。
-- 卡片 / 列表、字母 / 最近更新排序、分页、随机词条、手机适配。
-- GitHub 登录；作者管理自己的条目，管理员管理全部条目。
-- 添加或修改词汇时，点击论文标题输入框，下方的“最近读过的论文”仅展示最近来源的论文标题，选择后一次填入论文标题、期刊 / 会议、发表日期和来源链接；相同信息自动去重，也可继续自由输入。支持鼠标、触屏和方向键选择，Enter 确认、Escape 收起。启用 `20261019_recent_paper_sources.sql` 迁移后，历史按账号保存最近 3 组来源，可跨设备同步，旧版浏览器历史自动合并；暂时无法连接时保留本机历史供复用。
-- 管理员可通过“用户列表”查看用户名、注册时间、上次在线时间和创建数量，进入任一用户的创建修改或删除词条。已有数据库需运行 `supabase/migrations/20260916_user_activity.sql`。
-- 数据库行级权限、不可由客户端修改的作者归属、编辑版本冲突检查、私有修改历史。
+- **查词与阅读**：搜索英文、中文释义、例句和论文来源，查看词汇在论文中的用法。
+- **灵活筛选**：按词性和领域组合检索，支持卡片 / 列表、排序、分页及随机词条。
+- **共同积累**：GitHub 登录后添加词汇、管理自己的贡献，最近论文来源可快速复用。
+- **多端使用**：适配电脑和手机，管理员可管理全部词条及查看用户贡献。
 
-**部署方式：GitHub Pages 发布 `master` 分支的 `/docs` 目录；社区数据库已连接，登录提供方和管理员仍需配置。** `docs/config.js` 为空时使用仓库词表，只读访问可独立运行。连接 Supabase 后，以云数据库为唯一社区数据源。
+## 🏷️ 词库与分类
 
-## 本地预览
+| 领域 | 收录范围示例 |
+| --- | --- |
+| 🌍 通用 | 学术写作、普通表达与衔接短语 |
+| 💻 计算机科学 | 计算机术语及机器学习、视觉、语言处理相关词汇 |
+| 🩺 医学 | 医学及基础生物医学背景词汇 |
+| 📐 数学 | 数学、统计与概率相关术语 |
 
-可选自动补词：全站连续超过 6 天没有新增、修改或删除词条时，数据库每天 UTC 08:17 检查并从预备队列发布一条标注“系统自动添加”的词汇。需要在 Supabase 执行迁移及 Cron 配置；初始 10 个候选词，重复项跳过，耗尽后须补充。详见 [部署指南](docs/DEPLOYMENT.md#全站闲置超过-6-天自动添加词条)。此功能不保证免于免费项目暂停。
+一个词可以属于多个领域。原“机器学习”“计算机视觉”“自然语言处理”标签统一归入“计算机科学”。
 
-在仓库根目录运行，然后访问 <http://127.0.0.1:8765/>：
+> 📖 例句区分论文摘录与明确标注的自拟例句，支持查看出处。释义与分类仍可继续校订，详见[词库维护说明](docs/MAINTENANCE.md#例句与出处)。
 
-```powershell
+## 🤝 参与共建
+
+1. 打开网站，搜索或筛选你感兴趣的词汇。
+2. 使用 GitHub 登录，添加词汇、释义及实际论文用法。
+3. 通过“我的创建”修改或完善自己的条目。
+
+访客可以浏览和搜索；登录用户可以添加、修改或删除自己的词条；管理员可以管理全部词条。
+
+## 💻 本地预览
+
+在仓库根目录运行：
+
+```bash
 python -m http.server 8765 --bind 127.0.0.1 --directory docs
-# 本机若 python 指向 WindowsApps，可使用：
-& C:\Users\Jing\miniconda3\python.exe -m http.server 8765 --bind 127.0.0.1 --directory docs
 ```
 
-不需要 Node.js 或前端构建。请通过 HTTP 服务访问，直接双击 HTML 会阻止模块及 JSON 加载。
+然后访问 <http://127.0.0.1:8765/>。无需 Node.js 或前端构建，请通过 HTTP 服务打开网页。
 
-## 上线与权限
+未配置 Supabase 时可只读浏览仓库词库；登录与共建需要按[部署指南](docs/DEPLOYMENT.md)配置云数据库。
 
-按 [部署指南](docs/DEPLOYMENT.md) 配置 GitHub Pages、Supabase、GitHub OAuth 及管理员。
+## 🧭 项目导航
 
-网站地址：[PaperLex](https://jizhang02.github.io/Vocabulary-in-Compurter-Science-Paper/)。登录及创建、修改、删除须完成下面的 Supabase 配置。
-
-| 访问者 | 浏览 / 搜索 | 添加 | 修改 / 删除自己的词 | 修改 / 删除他人的词 |
-| --- | --- | --- | --- | --- |
-| 未登录 | ✓ | — | — | — |
-| 登录用户 | ✓ | ✓ | ✓ | — |
-| 管理员 | ✓ | ✓ | ✓ | ✓ |
-
-原始词条 `owner_id` 留空，由管理员管理。管理员身份由私有表中的 Auth 用户 UUID 决定，不依据前端昵称或邮箱字符串。
-
-## 数据维护
-
-```bash
-python scripts/migrate_glossary.py
-python -m unittest discover -s tests -v
-```
-
-迁移生成 `docs/data/vocabulary.json` 和 `supabase/seed.sql`。保留原始词性、行号、同形词及不同释义。全部 701 条已补齐领域，结果存于 `data/domain_annotations.json`；使用“通用”及六个专业领域，多标签可交叉检索。详见 [分类说明](docs/CLASSIFICATION.md)；原始拼写、词性、译文与引文未逐条校订。V1 留作历史资料，不与 V2 合并。
-
-种子 ID 取决于原始行号和列位置，初始化后不要移动 V2 原始行再导入。重跑相同种子不覆盖社区编辑，**但会恢复已删除的种子条目**，因此仅用于初始化，不用于日常同步。社区修改保存在数据库，不会自动提交回 GitHub。
-
-## 验证
-
-```bash
-pip install playwright
-# 使用本机已安装的 Microsoft Edge
-python tests/browser_smoke.py
-python tests/browser_community.py
-# 数据库测试需要 Node.js
-npm install --no-save @electric-sql/pglite
-node tests/database.mjs
-```
-
-已通过：迁移检查、Edge 桌面/手机浏览检查、模拟 SDK 的登录和 CRUD 界面测试、PGlite PostgreSQL 中的真实 RLS 与审计测试。`supabase/verify_permissions.sql` 可在隔离 Supabase 测试项目中验证，事务最终回滚。**真实 OAuth、邮件发送与线上 RLS 尚需配置后联调。**
-
-## 结构
-
-```text
-docs/                  GitHub Pages 发布目录
-  index.html           主页与表单
-  styles.css           响应式样式
-  app.js / lib.js       界面、检索和 Supabase 集成
-  config.js            仅放公开连接信息
-  data/vocabulary.json 原始静态快照
-  DEPLOYMENT.md        部署步骤
-supabase/              schema、种子、权限测试
-scripts/               Markdown 迁移与数据整理
-tests/                 数据、浏览器和数据库测试
-```
+| 内容 | 入口 |
+| --- | --- |
+| 部署、登录与权限配置 | [部署指南](docs/DEPLOYMENT.md) |
+| 领域定义与分类原则 | [分类说明](docs/CLASSIFICATION.md) |
+| 数据生成、验证与例句来源 | [维护指南](docs/MAINTENANCE.md) |
+| 每周同步的社区词库 | [📚 Markdown 词库](backups/vocabulary.md) |
+| 原始 Markdown 词表 | [V2 词表](docs/glossary_v2.md) · [历史词表](docs/glossary.md) |
 
 项目发起者：Jing Zhang · [GitHub](https://github.com/jizhang02)
-
-## 例句与出处（2026-09-09）
-
-全部 **701 个词条**均有例句：**686 条论文原句或短摘录**，来自 **641 篇文献**；另 **15 条自拟例句**明确标注“AI 辅助编写，非论文原文”。自拟条目没有虚构的论文标题、期刊或论文链接，其日期为编写日期。
-
-卡片展示例句、期刊/会议和日期；点击可查看论文标题、原文位置与链接。搜索支持这些字段。优先使用 ICML、CVPR、ICCV、AISTATS、TACL、Computational Linguistics、TPAMI、Medical Image Analysis、Nature、Science、Cell、Nature Medicine、PNAS 等来源，少数罕见表达采用其他正式期刊。不把所有来源统一称作“顶级”，不将预印本或 workshop 标为主会。
-
-来源通过 PMLR 官方论文元数据、Europe PMC 摘要及出版方页面检索。先检查目标词实际出现，再筛除缩写同形词、明显错义匹配及不完整的片段。每篇来源累计最多摘录 25 个英文词；多词条共享同一短句时不重复扩展引用。长句以省略号标明摘录范围，点击链接可读上下文。日期保留真实精度；期刊优先采用明确的在线发表日期，未提供时只记录年份。会议日期采用论文集的出版日期或明确的会议月份，不猜测月日。
-
-`data/example_annotations.json` 保存例句与出处；`data/example_evidence.json` 保存匹配写法、核查链接、核查日期和例句摘要值。执行 `python scripts/migrate_glossary.py` 会重新应用覆盖层并生成静态词库和 SQL 种子，不会丢失补充内容。原始 Markdown 和词条 ID 保留。
-
-少量原词条存在拼写、词性和释义问题。本次保留原条目，在来源说明中标注规范写法，例如 `propell → propel`、`jusity → justify`、`from...perspecitve → from … perspective`。`herein this work` 和 `presumably speaking` 使用更自然的表达示例。例句及初始释义仍可由读者进一步校订。
-
-已有 Supabase 数据库先运行 `supabase/migrations/20260909_example_sources.sql` 添加字段；新数据库使用 `schema.sql` 和 `seed.sql`。种子脚本不会覆盖现有社区编辑。此次更新的是本地静态快照和新安装种子，未修改任何云端数据库。

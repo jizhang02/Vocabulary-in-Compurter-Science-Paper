@@ -23,10 +23,11 @@ class MigrationTests(unittest.TestCase):
         self.assertEqual(by_term['substantial']['domains'], ['通用'])
         self.assertEqual(by_term['with respect to']['domains'], ['通用'])
         self.assertEqual(by_term['in a nutshell']['domains'], ['通用'])
-        self.assertIn('自然语言处理', by_term['tokenization']['domains'])
+        self.assertEqual(allowed, {'通用', '计算机科学', '医学', '数学'})
+        self.assertIn('计算机科学', by_term['tokenization']['domains'])
         self.assertIn('医学', by_term['hypointense']['domains'])
         self.assertIn('数学', by_term['posteriori probability']['domains'])
-        self.assertIn('机器学习', by_term['knowledge distillation']['domains'])
+        self.assertIn('计算机科学', by_term['knowledge distillation']['domains'])
         self.assertEqual(by_term['valve']['domains'], ['通用'])
         self.assertEqual(by_term['prime']['domains'], ['通用'])
         original = by_term['substantial']

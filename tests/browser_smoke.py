@@ -30,6 +30,7 @@ def main():
             page.route('**/config.js*', lambda route: route.fulfill(content_type='text/javascript', body='window.VOCAB_CONFIG = {};'))
             page.goto(url)
             page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 701 个')")
+            assert page.locator('[name=filter-domain]').evaluate_all('(els) => els.map(e => e.value)') == ['通用', '计算机科学', '医学', '数学']
             assert page.locator('.word-card').count() == 18
             page.screenshot(path=str(output / 'desktop.png'),full_page=True)
             page.locator('#search').fill('concatenate')
@@ -60,7 +61,7 @@ def main():
             page.locator('#search').fill('in a nutshell')
             assert page.locator('.word-card').count() == 1
             page.locator('#reset').click()
-            page.locator('[name=filter-domain][value="自然语言处理"]').check()
+            page.locator('[name=filter-domain][value="计算机科学"]').check()
             page.locator('#search').fill('tokenization')
             assert page.get_by_role('button', name='展开 tokenization', exact=True).count() == 1
             assert 'lemmatization' in page.locator('#cards').inner_text()

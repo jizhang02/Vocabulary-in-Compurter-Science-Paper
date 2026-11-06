@@ -1,4 +1,4 @@
-import { POS, DOMAINS, termKey, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js?v=20260914-1";
+import { POS, DOMAINS, normalizeDomains, termKey, escapeHtml as h, safeUrl, canEdit, filterEntries, highlightExample } from "./lib.js?v=20261106-1";
 
 const POS_SHORT = {verb:"v", "adjective-adverb":"adj/adv", noun:"n", phrase:"phr"};
 
@@ -81,7 +81,7 @@ const sourceFields = ["source", "source_venue", "source_date", "source_url"];
 const sourceHistoryMemory = new Map();
 const sourceHistoryStatus = new Map();
 let sourceHistoryEpoch = 0;
-let sourceHistoryOpen = false, sourceHistoryActive = -1;
+let sourceHistoryOpen = false, sourceHistoryActive = -1, editorEpoch = 0;
 function sourceHistoryKey(userId) {
   return `paperlex:recent-sources:${userId}`;
 }
@@ -206,12 +206,13 @@ $("#recent-source").addEventListener("click", event => {
 document.addEventListener("pointerdown", event => {
   if (!event.target.closest(".source-field")) closeSourceHistory();
 });
-$("#editor-dialog").addEventListener("close", closeSourceHistory);
+$("#editor-dialog").addEventListener("close", () => { editorEpoch++; closeSourceHistory(); });
 
 function openEditor(entry = null) {
   if (!state.online) { openAuth(); return; }
   if (!state.user) { openAuth(entry ? null : "add"); return; }
   if (entry && !canEdit(entry,state.user,state.admin)) return;
+  editorEpoch++;
   resetTermCheck();
   state.editing = entry;
   $("#editor").reset(); $("#editor-error").textContent = "";
@@ -237,7 +238,7 @@ async function fetchCloudEntries() {
     const {data,error} = await query;
     if (error) throw error;
     if (!data.length) break;
-    entries.push(...data); last = data.at(-1).id;
+    entries.push(...data.map(e => ({...e, domains: normalizeDomains(e.domains)}))); last = data.at(-1).id;
   }
   return entries;
 }
@@ -400,37 +401,44 @@ $("#users-list").addEventListener("click", async event => {
 async function saveEntry(event) {
   event.preventDefault();
   const button = $("#save-entry"); button.disabled = true; $("#editor-error").textContent = "";
+  const draftEpoch = editorEpoch, editing = state.editing, savingUser = state.user;
+  const currentDraft = () => draftEpoch === editorEpoch && state.user?.id === savingUser?.id;
   try {
     if (!state.online || !state.user) throw new Error("请先登录后再保存。");
-    const savingUserId = state.user.id;
+    const savingUserId = savingUser.id;
     const form = new FormData(event.target);
     const row = Object.fromEntries(["term","meaning","pos","example","source","source_venue","source_date","source_url"].map(k => [k,form.get(k).trim()]));
     row.domains = form.getAll("domains");
-    if (!state.editing) { row.tags = []; row.source_location = ""; }
+    if (!editing) { row.tags = []; row.source_location = ""; }
     if (!row.term || !row.meaning) throw new Error("词汇和释义不能只包含空格。");
     if (row.source_date && !/^\d{4}(-(?:0[1-9]|1[0-2])(-(?:0[1-9]|[12]\d|3[01]))?)?$/.test(row.source_date)) throw new Error("发表日期请填写 YYYY、YYYY-MM 或 YYYY-MM-DD。");
     if (row.source_url && !safeUrl(row.source_url)) throw new Error("来源链接必须以 http:// 或 https:// 开头。");
-    if (!state.editing || termKey(row.term) !== termKey(state.editing.term)) {
+    if (!editing || termKey(row.term) !== termKey(editing.term)) {
       await loadCloud();
-      const existing = state.entries.find(entry => entry.id !== state.editing?.id && termKey(entry.term) === termKey(row.term));
+      if (!currentDraft()) throw new Error("登录状态或表单已变化，本次保存已停止。请重新打开表单后保存。");
+      const existing = state.entries.find(entry => entry.id !== editing?.id && termKey(entry.term) === termKey(row.term));
       if (existing) throw new Error(`「${existing.term}」已存在，无需重复添加。请在词库中查看已有词条。`);
     }
-    if (state.editing) {
-      const {data,error} = await state.client.from("entries").update(row).eq("id",state.editing.id).eq("revision",state.editing.revision).select();
+    if (editing) {
+      const {data,error} = await state.client.from("entries").update(row).eq("id",editing.id).eq("revision",editing.revision).select();
       if (error) throw error;
       if (!data.length) throw new Error("词条已被其他人修改或删除，或你已无编辑权限。请关闭表单并刷新后重试；可先复制当前内容。");
     } else {
-      row.owner_id = state.user.id;
-      const metadata = state.user.user_metadata || {};
+      row.owner_id = savingUserId;
+      const metadata = savingUser.user_metadata || {};
       row.author_name = String(metadata.user_name || metadata.preferred_username || "社区读者").slice(0,100);
       const {error} = await state.client.from("entries").insert(row);
       if (error) throw error;
     }
     rememberSource(row, savingUserId);
     if (state.user?.id === savingUserId) void syncSourceHistory();
-    $("#editor-dialog").close(); toast("词汇已保存，感谢你的分享。");
+    if (currentDraft()) $("#editor-dialog").close();
+    toast("词汇已保存，感谢你的分享。");
     try { await loadCloud(); } catch { status("保存成功，但列表刷新失败。请刷新网页获取最新词库。"); }
-  } catch (error) { $("#editor-error").textContent = error.code === "23505" ? "该词汇或短语已存在，无需重复添加。请在词库中查看已有词条。" : error.message || "保存失败，请稍后重试。"; }
+  } catch (error) {
+    const message = error.code === "23505" ? "该词汇或短语已存在，无需重复添加。请在词库中查看已有词条。" : error.message || "保存失败，请稍后重试。";
+    if (currentDraft()) $("#editor-error").textContent = message; else toast(message);
+  }
   finally { button.disabled = false; }
 }
 async function deleteEntry(id,button) {
@@ -513,7 +521,7 @@ async function start() {
   try {
     const response = await fetch(new URL("./data/vocabulary.json",import.meta.url));
     if (!response.ok) throw new Error("词表加载失败");
-    state.entries = await response.json(); buildFilters(); render();
+    state.entries = (await response.json()).map(e => ({...e, domains: normalizeDomains(e.domains)})); buildFilters(); render();
     status("当前展示原始词表，只读浏览可用。社区登录与编辑将在站点完成连接后开放。");
   } catch { status("原始词表加载失败，请通过 HTTP 服务访问或刷新重试。"); }
   if (!config.supabaseUrl || !config.supabasePublishableKey) return;

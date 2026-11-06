@@ -21,6 +21,9 @@ try {
   await db.exec(await readFile(new URL('../supabase/schema.sql',import.meta.url),'utf8'));
   await db.exec(await readFile(new URL('../supabase/seed.sql',import.meta.url),'utf8'));
   await db.exec(await readFile(new URL('../supabase/seed.sql',import.meta.url),'utf8'));
+  const domainMigration = await readFile(new URL('../supabase/migrations/20261106_merge_domains.sql',import.meta.url),'utf8');
+  // This must also work before the optional auto-entry queue exists.
+  await db.exec(domainMigration);
   const {rows} = await db.query('select count(*)::int as count from public.entries');
   if (rows[0].count !== 701) throw new Error(`Expected 701 seed rows, got ${rows[0].count}`);
   await db.exec(await readFile(new URL('../supabase/verify_permissions.sql',import.meta.url),'utf8'));
@@ -81,6 +84,22 @@ try {
   await db.exec(autoMigration);
   await db.exec(autoMigration);
   await db.exec(await readFile(new URL('../supabase/verify_auto_entry.sql',import.meta.url),'utf8'));
+  // Simulate existing cloud rows and an old auto-entry queue before upgrading.
+  await db.exec(`
+    drop trigger normalize_entry_domains on public.entries;
+    insert into public.entries(term,meaning,pos,domains,tags)
+    values ('Domain Merge Test','preserve meaning','noun',
+      array['机器学习','医学','计算机视觉','计算机科学','自然语言处理'],array['preserve tag']);
+    update private.auto_entry_queue set domains = array['机器学习','数学','计算机视觉']
+    where term = 'gradient accumulation';
+  `);
+  await db.exec(domainMigration);
+  const upgraded = await db.query("select revision from public.entries where term = 'Domain Merge Test'");
+  await db.exec(domainMigration);
+  const repeated = await db.query("select revision from public.entries where term = 'Domain Merge Test'");
+  if (upgraded.rows[0].revision !== repeated.rows[0].revision) throw new Error('Repeat domain migration changed entry revision');
+  await db.exec(await readFile(new URL('../supabase/verify_merge_domains.sql',import.meta.url),'utf8'));
+  console.log('PASS: domain merge, deduplication, content preservation, queue migration, legacy writes and repeat idempotence.');
   console.log('PASS: idle publication, repeat suppression, update/delete activity, duplicate/empty queue handling and client denial.');
   console.log('PASS: schema, idempotent seed, public reads, owner edits, stranger denial, admin edits/deletes, immutable ownership, no self promotion, stale revisions, audit history.');
 } finally { await db.close(); }

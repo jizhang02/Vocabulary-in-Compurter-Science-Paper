@@ -16,8 +16,8 @@ async function mergePaperSources(incoming = [], promote = false) {
 const lastSeen = new Map();
 let user = window.mockInitialUser || null;
 let entries = [
-  {id:'00000000-0000-0000-0000-000000000011',term:'own term',meaning:'自己的词',pos:'noun',domains:['医学'],tags:[],example:'',source:'',source_url:'',owner_id:'alice',author_name:'Alice',provenance:'',revision:1},
-  {id:'00000000-0000-0000-0000-000000000012',term:'other term',meaning:'其他人的词',pos:'noun',domains:[],tags:[],example:'<img src=x onerror=window.injected=true>',source:'source',source_url:'javascript:alert(1)',owner_id:'bob',author_name:'Bob',provenance:'',revision:1},
+  {id:'00000000-0000-0000-0000-000000000011',term:'own term',meaning:'自己的词',pos:'noun',domains:['医学','机器学习'],tags:[],example:'',source:'',source_url:'',owner_id:'alice',author_name:'Alice',provenance:'',revision:1},
+  {id:'00000000-0000-0000-0000-000000000012',term:'other term',meaning:'其他人的词',pos:'noun',domains:['机器学习','计算机视觉','自然语言处理','计算机科学'],tags:[],example:'<img src=x onerror=window.injected=true>',source:'source',source_url:'javascript:alert(1)',owner_id:'bob',author_name:'Bob',provenance:'',revision:1},
 ];
 window.mockCalls = [];
 window.mockConflict = false;
@@ -72,7 +72,10 @@ export function createClient() {
         delete() { operation='delete'; return query; },
         async then(resolve) {
           window.mockCalls.push([operation,payload,conditions]);
-          if (operation === 'read') return Promise.resolve({data:entries.filter(e => !after || e.id > after).sort((a,b)=>a.id.localeCompare(b.id)).slice(0,1)}).then(resolve);
+          if (operation === 'read') {
+            if (window.mockReadGate) { window.mockReadWaiting = true; await window.mockReadGate; }
+            return Promise.resolve({data:entries.filter(e => !after || e.id > after).sort((a,b)=>a.id.localeCompare(b.id)).slice(0,1)}).then(resolve);
+          }
           if (window.mockWriteError) return Promise.resolve({error:{message:'Write failed'}}).then(resolve);
           if (window.mockConflict) return Promise.resolve({data:[]}).then(resolve);
           if (operation === 'insert') {

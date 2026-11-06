@@ -23,6 +23,7 @@ def main():
             page.goto(f'http://127.0.0.1:{server.server_port}/docs/')
             page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 2 个')")
             # Cloud is authoritative: bundled entries must not reappear.
+            assert page.locator('[name=filter-domain]').evaluate_all('(els) => els.map(e => e.value)') == ['通用', '计算机科学', '医学', '数学']
             assert page.locator('.word-card').count() == 2
             page.locator('#auth-button').click()
             page.locator('#github-login').click()
@@ -40,6 +41,8 @@ def main():
             assert page.locator('.word-card').count() == 2
             assert page.locator('#return-home').is_hidden()
             page.get_by_role('button',name='展开 other term',exact=True).click()
+            assert '计算机科学' in page.locator('#entry-detail').inner_text()
+            assert '机器学习' not in page.locator('#entry-detail').inner_text()
             assert page.locator('[data-edit]').count() == 0
             assert page.locator('#entry-detail img').count() == 0
             assert page.locator('#entry-detail a').count() == 0
@@ -47,6 +50,8 @@ def main():
             page.get_by_role('button',name='展开 own term',exact=True).click()
             page.get_by_role('button',name='修改词汇',exact=True).click()
             assert page.locator('[name=domains][value=医学]').is_checked()
+            assert page.locator('[name=domains][value=计算机科学]').is_checked()
+            assert page.locator('[name=domains]').count() == 4
             assert page.locator('[name=tags], [name=source_location]').count() == 0
             page.locator('[name=meaning]').fill('修改后的释义')
             page.evaluate('mockRefresh()')
@@ -55,6 +60,7 @@ def main():
             page.locator('#save-entry').click()
             page.wait_for_selector('#editor-dialog',state='hidden')
             assert '修改后的释义' in page.locator('#cards').inner_text()
+            assert page.evaluate("mockCalls.some(c => c[0] === 'update' && JSON.stringify(c[1].domains) === JSON.stringify(['计算机科学','医学']))")
             page.locator('#add-entry').click()
             page.locator('[name=term]').fill('  OWN   TERM  ')
             page.locator('[name=term]').press('Tab')
@@ -70,7 +76,7 @@ def main():
             page.wait_for_function("document.querySelector('#term-feedback').textContent.includes('可以继续填写')")
             assert page.locator('[name=term]').evaluate('(e) => e.checkValidity()')
             page.locator('[name=meaning]').fill('新词')
-            page.locator('[name=domains][value=机器学习]').check()
+            page.locator('[name=domains][value=计算机科学]').check()
             page.locator('[name=domains][value=医学]').check()
             page.locator('#save-entry').click()
             page.wait_for_function("document.querySelector('#result-count').textContent.includes('共 3 个')")
@@ -239,6 +245,29 @@ def main():
             page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
             page.locator('#auth-button').click()
             page.wait_for_function("document.querySelector('#auth-button').textContent === '登录 / 注册'")
+            assert not errors,errors
+            # Switching accounts during the pre-save refresh must not submit the
+            # old draft as the new account or close the new account's editor.
+            page.evaluate("mockSignIn('alice')")
+            page.wait_for_function("document.querySelector('#auth-button').textContent.includes('已登录')")
+            page.locator('#add-entry').click()
+            page.locator('[name=term]').fill('pending account switch')
+            page.locator('[name=meaning]').fill('原账号的草稿')
+            page.wait_for_function("document.querySelector('#term-feedback').textContent.includes('可以继续填写')")
+            writes_before = page.evaluate("mockCalls.filter(c => c[0] === 'insert' || c[0] === 'update').length")
+            page.evaluate('() => { window.mockReadWaiting = false; window.mockReadGate = new Promise(resolve => window.mockReleaseRead = resolve); }')
+            page.locator('#save-entry').click()
+            page.wait_for_function('window.mockReadWaiting')
+            page.evaluate("mockSignIn('bob')")
+            page.wait_for_selector('#editor-dialog', state='hidden')
+            page.locator('#add-entry').click()
+            page.locator('[name=meaning]').fill('新账号的草稿')
+            page.evaluate('window.mockReadGate = null; window.mockReleaseRead()')
+            page.wait_for_function("document.querySelector('#toast').textContent.includes('本次保存已停止')")
+            assert page.locator('#editor-dialog').is_visible()
+            assert page.locator('[name=meaning]').input_value() == '新账号的草稿'
+            assert page.locator('#editor-error').inner_text() == ''
+            assert page.evaluate("mockCalls.filter(c => c[0] === 'insert' || c[0] === 'update').length") == writes_before
             assert not errors,errors
             browser.close()
             print('PASS: GitHub-only login UI, keyset pagination, owner UI, CRUD, admin UI, conflict handling, session refresh, XSS escaping, logout (mock SDK).')

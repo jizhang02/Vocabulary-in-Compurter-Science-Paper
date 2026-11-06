@@ -72,13 +72,13 @@ revoke all on function private.publish_idle_entry() from public, anon, authentic
 
 -- Locally authored definitions; no invented paper examples or references.
 insert into private.auto_entry_queue(term,meaning,pos,domains) values
-('gradient accumulation','梯度累积：累积多个小批次的梯度，再执行一次参数更新。','noun',array['机器学习']),
-('concept drift','概念漂移：数据与目标之间的统计关系随时间发生变化。','noun',array['机器学习']),
-('data leakage','数据泄漏：训练或模型选择过程中使用了实际预测时不可获得的信息。','noun',array['机器学习']),
-('catastrophic forgetting','灾难性遗忘：模型学习新任务后，在先前任务上的能力明显下降。','noun',array['机器学习']),
-('ablation study','消融研究：移除或替换模型组件，以评估其对结果的影响。','noun',array['机器学习']),
-('out-of-distribution detection','分布外检测：识别与模型训练数据分布明显不同的输入。','noun',array['机器学习']),
-('calibration error','校准误差：模型预测置信度与实际正确率之间的差异。','noun',array['机器学习']),
+('gradient accumulation','梯度累积：累积多个小批次的梯度，再执行一次参数更新。','noun',array['计算机科学']),
+('concept drift','概念漂移：数据与目标之间的统计关系随时间发生变化。','noun',array['计算机科学']),
+('data leakage','数据泄漏：训练或模型选择过程中使用了实际预测时不可获得的信息。','noun',array['计算机科学']),
+('catastrophic forgetting','灾难性遗忘：模型学习新任务后，在先前任务上的能力明显下降。','noun',array['计算机科学']),
+('ablation study','消融研究：移除或替换模型组件，以评估其对结果的影响。','noun',array['计算机科学']),
+('out-of-distribution detection','分布外检测：识别与模型训练数据分布明显不同的输入。','noun',array['计算机科学']),
+('calibration error','校准误差：模型预测置信度与实际正确率之间的差异。','noun',array['计算机科学']),
 ('idempotency','幂等性：重复执行同一操作与执行一次产生相同的结果。','noun',array['通用']),
 ('optimistic concurrency control','乐观并发控制：提交修改时检查版本或状态变化，以检测并发冲突。','noun',array['通用']),
 ('exponential backoff','指数退避：操作失败后，以逐步增大的等待间隔重试。','noun',array['通用'])

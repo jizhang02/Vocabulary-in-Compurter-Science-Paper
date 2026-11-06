@@ -6,7 +6,6 @@
     "pos": "verb",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -87,9 +86,7 @@
     "meaning": "解析",
     "pos": "verb",
     "domains": [
-      "计算机科学",
-      "计算机视觉",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Here, we parse the genetics of cognitive test performance into components representing reaction time, fluid reasoning, and crystallized knowledge.",
@@ -230,8 +227,7 @@
     "pos": "verb",
     "domains": [
       "通用",
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "For handling partial observability, we aggregate information from past time steps as memory tokens.",
@@ -532,8 +528,7 @@
     "pos": "verb",
     "domains": [
       "通用",
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "These metrics do not penalize conditional generation approaches for their poor specificity in reproducing the metadata-specific features in the generated time series.",
@@ -654,8 +649,7 @@
     "meaning": "裁剪",
     "pos": "verb",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We crop each image around the annotated lesion before resizing it for model training.",
@@ -1036,8 +1030,7 @@
     "pos": "verb",
     "domains": [
       "通用",
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Here we use single-cell RNA sequencing to delineate the immune cell landscape across patients in different T1D stages.",
@@ -1279,8 +1272,7 @@
     "pos": "verb",
     "domains": [
       "通用",
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "However, the present findings also suggest the need to reword and update some of the IAT's items.",
@@ -1361,7 +1353,6 @@
     "pos": "verb",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -1422,8 +1413,7 @@
     "meaning": "遮挡",
     "pos": "verb",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Long linkers hold these domains together and occlude the catalytic sites of the N-terminal glycosyltransferase and protease domains.",
@@ -1923,8 +1913,7 @@
     "meaning": "解开",
     "pos": "verb",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "CauDiTS adopts an adaptive rationale disentangler to disentangle domain-common causal rationales and domain-specific correlations from variable interrelationships.",
@@ -1985,8 +1974,7 @@
     "pos": "verb",
     "domains": [
       "通用",
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "All structures superimpose closely, revealing a remarkably rigid RNA that contains a preformed active and coenzyme-binding site.",
@@ -2427,8 +2415,7 @@
     "pos": "verb",
     "domains": [
       "通用",
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Like simpler models, LLMs distill meaningful representations in their latent embeddings that have been shown to correlate with external variables.",
@@ -2569,7 +2556,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "计算机视觉",
       "医学"
     ],
     "tags": [],
@@ -2630,9 +2616,7 @@
     "meaning": "浅的",
     "pos": "adjective-adverb",
     "domains": [
-      "计算机科学",
-      "机器学习",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "In particular, to what degree does a shallow autoencoder capture the structure of the underlying data distribution?",
@@ -2673,8 +2657,7 @@
     "pos": "adjective-adverb",
     "domains": [
       "通用",
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "In these external cohorts, SCORPIO maintained robust performance in predicting ICI outcomes, surpassing programmed death-ligand 1 immunostaining.",
@@ -2995,8 +2978,7 @@
     "pos": "adjective-adverb",
     "domains": [
       "通用",
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Architectural stripes tend to form at genomic regions harboring genes with salient roles in cell identity and function.",
@@ -3157,7 +3139,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -3398,8 +3379,7 @@
     "meaning": "对抗性的",
     "pos": "adjective-adverb",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Existing primal-dual algorithms designed for constrained online learning problems under adversarial inputs rely on two fundamental assumptions.",
@@ -3600,8 +3580,7 @@
     "pos": "adjective-adverb",
     "domains": [
       "通用",
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Although there is emerging work in the vision and language domains, none is explored for acoustic models.",
@@ -4281,8 +4260,7 @@
     "meaning": "潜在的",
     "pos": "adjective-adverb",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Latent representations are extensively used for tasks like visualization, interpolation, or feature extraction in deep learning models.",
@@ -4603,7 +4581,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "计算机视觉",
       "数学"
     ],
     "tags": [],
@@ -4625,7 +4602,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "计算机视觉",
       "数学"
     ],
     "tags": [],
@@ -5670,7 +5646,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -5732,7 +5707,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -6095,7 +6069,6 @@
     "domains": [
       "通用",
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -6317,7 +6290,6 @@
     "pos": "adjective-adverb",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -6419,7 +6391,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -6441,7 +6412,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -6462,8 +6432,7 @@
     "meaning": "泛化",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Results demonstrate the effectiveness and generalizability of our method under various configurations on a multitude of tasks.",
@@ -6644,8 +6613,7 @@
     "meaning": "定位",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Using combinatorial endogenous fluorescent tagging and deletion, we map co-dependencies for assembly into their normal asymmetric localisation.",
@@ -6666,7 +6634,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -6729,8 +6696,7 @@
     "meaning": "异常",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Extensive experimental results demonstrate that our method outperforms representative baselines when detecting anomalies under contaminated datasets.",
@@ -7031,7 +6997,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -7132,8 +7097,7 @@
     "meaning": "块",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "GEneral Matrix Multiply (GEMM) is a central operation in deep learning and corresponds to a large chunk of the compute footprint.",
@@ -7195,7 +7159,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "计算机视觉",
       "医学"
     ],
     "tags": [],
@@ -7438,8 +7401,7 @@
     "meaning": "可解释性",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We conduct comprehensive experiments to evaluate the performance and interpretability of ProtoGate on synthetic and real-world datasets.",
@@ -7459,9 +7421,7 @@
     "meaning": "显著性",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We demonstrate that preprocessing with SPADE significantly increases the accuracy of image saliency maps across several interpretability methods.",
@@ -7541,8 +7501,7 @@
     "meaning": "情绪",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Our work challenges the prevailing sentiment that high-utility DP representation learning cannot be achieved by training from scratch.",
@@ -7602,8 +7561,7 @@
     "meaning": "替代",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "This surrogate reward function encourages the agent to navigate towards states that are proximal to expert states.",
@@ -7723,8 +7681,7 @@
     "meaning": "反事实",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Ex post certification against credible counterfactuals is necessary if carbon markets are to represent causal reductions in deforestation.",
@@ -7985,8 +7942,7 @@
     "pos": "noun",
     "domains": [
       "通用",
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Notably, BPS attains an FID score of 10.49 under the sketch condition on the COCO17 dataset.",
@@ -8046,8 +8002,7 @@
     "meaning": "放大",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Expansion microscopy (ExM) is in increasingly widespread use throughout biology because its isotropic physical magnification enables nanoimaging on conventional microscopes.",
@@ -8347,8 +8302,7 @@
     "meaning": "修补",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Experimental outcomes showcase the state-of-the-art performance achieved by both models across diverse tasks, including inpainting, deraining, and super-resolution.",
@@ -8368,8 +8322,7 @@
     "meaning": "像差",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "However, the image quality and throughput are majorly impacted by the severe optical aberration of GRIN lenses.",
@@ -8409,8 +8362,7 @@
     "meaning": "畸变",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We show that the distortion obtained by our coreset is nearly tight for any sublinear space algorithm.",
@@ -8451,8 +8403,7 @@
     "pos": "noun",
     "domains": [
       "通用",
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We further develop an exemplar based subspace clustering method that is robust to imbalanced data and efficient for large scale data.",
@@ -8593,8 +8544,7 @@
     "meaning": "形变",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We further propose RegHead module which refines deformation fields, improves the realism of deformation and reduces parameters.",
@@ -8795,7 +8745,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -8937,8 +8886,7 @@
     "meaning": "代名词",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "The ricinosome (synonym, precursor protease vesicle) is a novel organelle, found so far exclusively in plant cells.",
@@ -9039,7 +8987,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "计算机视觉",
       "医学"
     ],
     "tags": [],
@@ -9361,8 +9308,7 @@
     "meaning": "保真度",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "This hinders inference performance, especially in out-of-distribution scenarios when the highest fidelity data has limited domain coverage.",
@@ -9464,8 +9410,7 @@
     "pos": "noun",
     "domains": [
       "通用",
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "… to six \"motifs,\" where each motif is a different color-naming system based on a subset of a universal glossary of 11 color terms.",
@@ -9526,7 +9471,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -9567,8 +9511,7 @@
     "meaning": "可理解性",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Experimental results show that our method outperforms the state-of-the-art TTS systems on quality, similarity, prosody, and intelligibility.",
@@ -9949,8 +9892,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
-      "自然语言处理",
       "医学"
     ],
     "tags": [],
@@ -9972,8 +9913,7 @@
     "pos": "noun",
     "domains": [
       "通用",
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Globalization of scientific English seems to promise greater international unity, while growth of field-specific jargon suggests communicational diaspora.",
@@ -10093,9 +10033,7 @@
     "meaning": "提示",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Prompt-based learning has been demonstrated as a compelling paradigm contributing to large language models’ tremendous success (LLMs).",
@@ -10316,7 +10254,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "计算机视觉",
       "医学"
     ],
     "tags": [],
@@ -10398,7 +10335,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "医学"
     ],
     "tags": [],
@@ -10439,8 +10375,7 @@
     "meaning": "整流器",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Additionally, waveform limitations restrict average scattered power and rectifier conversion efficiency, affecting data transmission rates and energy transmission distance.",
@@ -10460,8 +10395,7 @@
     "meaning": "语料库",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Large Language Models (LLMs) are trained on massive text corpora, which are encoded with diverse personality traits.",
@@ -10501,8 +10435,7 @@
     "meaning": "标记化",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "The audio tokenization method and language model architecture are also specifically designed for both performance and efficiency.",
@@ -10522,8 +10455,7 @@
     "meaning": "词形化",
     "pos": "noun",
     "domains": [
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Reports underwent translation, normalization, tokenization, lemmatization, and synonym expansion, followed by structured encoding of BI-RADS and pathology categories.",
@@ -10544,8 +10476,7 @@
     "pos": "noun",
     "domains": [
       "通用",
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "For example, adults are better at remembering the letter string PBSBBCCNN after parsing it into three smaller units: the television acronyms PBS, BBC, and CNN.",
@@ -10566,8 +10497,7 @@
     "pos": "noun",
     "domains": [
       "通用",
-      "计算机科学",
-      "自然语言处理"
+      "计算机科学"
     ],
     "tags": [],
     "example": "The most common type of euphemism used by family members was colloquialism (44 of 131 references [34%]).",
@@ -10768,7 +10698,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -10830,7 +10759,6 @@
     "pos": "noun",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -11272,8 +11200,7 @@
     "meaning": "软代理",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We replace the discrete decision rule with a soft surrogate to enable gradient-based optimization.",
@@ -11773,8 +11700,7 @@
     "meaning": "横向连接",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "… scale, decrease as a function of lateral distance in early sensory cortices, reflecting a rapid spatial decay of lateral connection probability and excitation.",
@@ -12074,8 +12000,7 @@
     "meaning": "与模型无关",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We propose an algorithm for meta-learning that is model-agnostic, in the sense that it is compatible with any model trained with gradient descent …",
@@ -12256,8 +12181,7 @@
     "meaning": "潜在空间",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "The latent space of diffusion model mostly still remains unexplored, despite its great success and potential in the field of generative modeling.",
@@ -13178,8 +13102,7 @@
     "meaning": "下游任务",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "How to learn useful representations of RNN weights that facilitate RNN analysis as well as downstream tasks?",
@@ -13580,8 +13503,7 @@
     "meaning": "多标签数据库",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Extensive experiments on three multilabel datasets demonstrate that the TEGAH framework significantly outperforms state-of-the-art cross-modal hashing methods.",
@@ -13661,8 +13583,7 @@
     "meaning": "判别式学习",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Despite its obvious importance, the problem of robust discriminative learning has been relatively unexplored in computer vision.",
@@ -13722,8 +13643,7 @@
     "meaning": "消融研究",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Furthermore, our ablation studies and visualizations verify the necessity of prompt learning informed by semantic space.",
@@ -13764,7 +13684,6 @@
     "pos": "phrase",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -13785,8 +13704,7 @@
     "meaning": "从基本训练",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Our work challenges the prevailing sentiment that high-utility DP representation learning cannot be achieved by training from scratch.",
@@ -13806,8 +13724,7 @@
     "meaning": "数据驱动方法",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "Besides, these data-driven approaches impose an urgent demand for massive data annotations, which are laborious and time-consuming.",
@@ -13828,7 +13745,6 @@
     "pos": "phrase",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -13850,7 +13766,6 @@
     "pos": "phrase",
     "domains": [
       "计算机科学",
-      "机器学习",
       "医学"
     ],
     "tags": [],
@@ -13893,8 +13808,6 @@
     "pos": "phrase",
     "domains": [
       "计算机科学",
-      "机器学习",
-      "计算机视觉",
       "数学"
     ],
     "tags": [],
@@ -13915,8 +13828,7 @@
     "meaning": "知识蒸馏",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "In this paper we explore the application of data pruning while incorporating knowledge distillation (KD) when training on a pruned subset.",
@@ -13957,7 +13869,6 @@
     "pos": "phrase",
     "domains": [
       "计算机科学",
-      "机器学习",
       "数学"
     ],
     "tags": [],
@@ -14038,8 +13949,7 @@
     "meaning": "分类别的标签",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "… for estimating dependence between numerical features and a categorical label using generalized Gini distance, an energy distance in reproducing kernel Hilbert spaces (RKHS).",
@@ -14079,8 +13989,7 @@
     "meaning": "代表性的限制",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习"
+      "计算机科学"
     ],
     "tags": [],
     "example": "We provide the first clipping method which is correct for general convolution layers, and illuminate the representational limitation that caused correctness issues in prior work.",
@@ -14120,9 +14029,7 @@
     "meaning": "感受野",
     "pos": "phrase",
     "domains": [
-      "计算机科学",
-      "机器学习",
-      "计算机视觉"
+      "计算机科学"
     ],
     "tags": [],
     "example": "As a consequence, receptive field size grows exponentially with depth, facilitating rapid integration of context.",
