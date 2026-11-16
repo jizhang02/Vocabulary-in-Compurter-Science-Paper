@@ -1,12 +1,12 @@
 # 📚 PaperLex 社区词库
 
-共 **749 个词条**，来自 Supabase 公开词库。每周一自动更新；可使用 GitHub 搜索或浏览器查找（Ctrl / ⌘ + F）。
+共 **751 个词条**，来自 Supabase 公开词库。每周一自动更新；可使用 GitHub 搜索或浏览器查找（Ctrl / ⌘ + F）。
 
-其中 **749 个词条有例句**，**0 个词条待补例句**。统计随本次备份更新，不代表实时数量。
+其中 **751 个词条有例句**，**0 个词条待补例句**。统计随本次备份更新，不代表实时数量。
 
 本文件供查询与内容留存，历史版本可在 Git 提交记录中查看。包含公开词条内容，不含账号、私有历史或数据库权限配置。
 
-[动词](#section-verb)（133） · [形容词 / 副词](#section-adjective-adverb)（195） · [名词](#section-noun)（246） · [短语](#section-phrase)（175）
+[动词](#section-verb)（133） · [形容词 / 副词](#section-adjective-adverb)（195） · [名词](#section-noun)（247） · [短语](#section-phrase)（176）
 
 <a id="section-verb"></a>
 
@@ -16422,6 +16422,35 @@
 
 </details>
 
+<a id="entry-ffdb16bc-2e50-40cd-b461-b84543e66651"></a>
+
+### sophistication
+
+精密程度
+
+**领域**：通用 / 计算机科学
+
+**例句**
+
+> Agent sophistication is measured by the ability to select, sequence, and adapt tool use as contexts evolve, marking a shift from scripted automation to genuine autonomy\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`ffdb16bc-2e50-40cd-b461-b84543e66651`
+- 创建时间：2026\-11\-16T14:48:27\.752649\+00:00
+- 更新时间：2026\-11\-16T14:48:27\.752649\+00:00
+- 修订版本：1
+- 导入来源：
+
+</details>
+
 <a id="entry-d778fbc6-bf5c-546e-bbab-30c5bd2f3ebc"></a>
 
 ### stakeholders
@@ -21297,6 +21326,35 @@
 - ID：`bafdf53f-1914-4a1f-888d-a8c837d2e433`
 - 创建时间：2026\-10\-07T11:48:18\.92001\+00:00
 - 更新时间：2026\-10\-07T11:48:18\.92001\+00:00
+- 修订版本：1
+- 导入来源：
+
+</details>
+
+<a id="entry-70444366-f07b-445d-bcf8-433ec4b17939"></a>
+
+### note prepopulation
+
+病历预填
+
+**领域**：医学
+
+**例句**
+
+> and higher productivity by automating routine steps such as note prepopulation, templated synthesis, guideline\-concordant ordering, and scheduling\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`70444366-f07b-445d-bcf8-433ec4b17939`
+- 创建时间：2026\-11\-10T11:53:40\.683468\+00:00
+- 更新时间：2026\-11\-10T11:53:40\.683468\+00:00
 - 修订版本：1
 - 导入来源：
 
