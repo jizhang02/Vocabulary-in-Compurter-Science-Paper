@@ -1,12 +1,12 @@
 # 📚 PaperLex 社区词库
 
-共 **751 个词条**，来自 Supabase 公开词库。每周一自动更新；可使用 GitHub 搜索或浏览器查找（Ctrl / ⌘ + F）。
+共 **758 个词条**，来自 Supabase 公开词库。每周一自动更新；可使用 GitHub 搜索或浏览器查找（Ctrl / ⌘ + F）。
 
-其中 **751 个词条有例句**，**0 个词条待补例句**。统计随本次备份更新，不代表实时数量。
+其中 **758 个词条有例句**，**0 个词条待补例句**。统计随本次备份更新，不代表实时数量。
 
 本文件供查询与内容留存，历史版本可在 Git 提交记录中查看。包含公开词条内容，不含账号、私有历史或数据库权限配置。
 
-[动词](#section-verb)（133） · [形容词 / 副词](#section-adjective-adverb)（195） · [名词](#section-noun)（247） · [短语](#section-phrase)（176）
+[动词](#section-verb)（135） · [形容词 / 副词](#section-adjective-adverb)（196） · [名词](#section-noun)（249） · [短语](#section-phrase)（178）
 
 <a id="section-verb"></a>
 
@@ -812,6 +812,35 @@
 
 </details>
 
+<a id="entry-25c9f154-ffa0-4d57-85d6-5b86e7aa47a3"></a>
+
+### curb
+
+制止
+
+**领域**：通用
+
+**例句**
+
+> while curator agents like RAG\-KG\-IL incrementally add literature\-derived facts to a central KG that others use as a stable context to curb hallucinations\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`25c9f154-ffa0-4d57-85d6-5b86e7aa47a3`
+- 创建时间：2026\-11\-20T13:41:43\.242954\+00:00
+- 更新时间：2026\-11\-20T13:41:43\.242954\+00:00
+- 修订版本：1
+- 导入来源：
+
+</details>
+
 <a id="entry-692a3e21-7ab1-5096-be88-f435280d2604"></a>
 
 ### decompose
@@ -1181,6 +1210,35 @@
 - 更新时间：2026\-09\-11T09:29:10\.544505\+00:00
 - 修订版本：1
 - 导入来源：glossary\_v2\.md:L26
+
+</details>
+
+<a id="entry-6dea256a-508f-4bc9-bee0-fbc7587723db"></a>
+
+### disambiguate
+
+消除歧义，区分
+
+**领域**：通用
+
+**例句**
+
+> This approach is frequently used to tackle complex clinical reasoning, where multiple specialist agents debate evidence to identify conditions, disambiguate similar diseases, or provide empathetic counseling\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`6dea256a-508f-4bc9-bee0-fbc7587723db`
+- 创建时间：2026\-11\-19T12:22:55\.033404\+00:00
+- 更新时间：2026\-11\-19T12:22:55\.033404\+00:00
+- 修订版本：1
+- 导入来源：
 
 </details>
 
@@ -5749,6 +5807,35 @@
 - 更新时间：2026\-09\-11T09:29:10\.544505\+00:00
 - 修订版本：1
 - 导入来源：glossary\_v2\.md:L170
+
+</details>
+
+<a id="entry-5c5fc492-9f69-42ce-b607-330f0031e275"></a>
+
+### evidence\-grounded
+
+有据可依的
+
+**领域**：通用
+
+**例句**
+
+> Using external tools further enhances agents’ capacity to produce evidence\-grounded insights\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`5c5fc492-9f69-42ce-b607-330f0031e275`
+- 创建时间：2026\-11\-23T09:09:48\.878752\+00:00
+- 更新时间：2026\-11\-23T09:09:48\.878752\+00:00
+- 修订版本：1
+- 导入来源：
 
 </details>
 
@@ -11510,6 +11597,35 @@
 
 </details>
 
+<a id="entry-2c0e27d7-6090-4d73-88f6-3210fd8efec6"></a>
+
+### contradiction
+
+矛盾
+
+**领域**：通用
+
+**例句**
+
+> compared with ad\-hoc histories, structured state externalization and persistent knowledge graphs reduce contradictions and hallucinations\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`2c0e27d7-6090-4d73-88f6-3210fd8efec6`
+- 创建时间：2026\-11\-20T13:47:13\.987389\+00:00
+- 更新时间：2026\-11\-20T13:47:13\.987389\+00:00
+- 修订版本：1
+- 导入来源：
+
+</details>
+
 <a id="entry-ddb14065-8990-50db-92b9-cb94df2d47b0"></a>
 
 ### convention
@@ -12216,6 +12332,35 @@
 - 更新时间：2026\-09\-11T09:29:10\.544505\+00:00
 - 修订版本：1
 - 导入来源：glossary\_v2\.md:L254
+
+</details>
+
+<a id="entry-e9c0e3f8-3155-4a4b-b61a-2ce11523391d"></a>
+
+### dissent
+
+不同意见、异议
+
+**领域**：通用
+
+**例句**
+
+> Beyond diagnostics, decentralized debates can enhance research creativity through continuous knowledge exchange or improve robustness by intentionally injecting dissent to overcome silent agreement bias in group discussions\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`e9c0e3f8-3155-4a4b-b61a-2ce11523391d`
+- 创建时间：2026\-11\-19T12:28:51\.720729\+00:00
+- 更新时间：2026\-11\-19T12:28:51\.720729\+00:00
+- 修订版本：1
+- 导入来源：
 
 </details>
 
@@ -20868,6 +21013,35 @@
 
 </details>
 
+<a id="entry-65a24767-35fd-4ea6-b7c0-d756c251322e"></a>
+
+### knowledge grounding
+
+知识锚定
+
+**领域**：计算机科学
+
+**例句**
+
+> In practice, multi\-agent systems integrates knowledge grounding, planning, and tool use within each role and exchanges intermediate results through constrained protocols, improving robustness and transparency in workflows that mirror team\-based clinical practice\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`65a24767-35fd-4ea6-b7c0-d756c251322e`
+- 创建时间：2026\-11\-17T08:46:47\.290336\+00:00
+- 更新时间：2026\-11\-17T08:46:47\.290336\+00:00
+- 修订版本：1
+- 导入来源：
+
+</details>
+
 <a id="entry-7eb2afd8-96f3-5912-a82e-4221986ca64f"></a>
 
 ### labor intensive
@@ -21481,6 +21655,35 @@
 - 更新时间：2026\-09\-11T09:29:10\.544505\+00:00
 - 修订版本：1
 - 导入来源：glossary\_v2\.md:L336
+
+</details>
+
+<a id="entry-80c0094b-7df8-4e3e-9e07-e7b423b142dc"></a>
+
+### one line of work
+
+一类研究
+
+**领域**：通用
+
+**例句**
+
+> One line of work employs dynamic patient simulators: agents conduct note\-grounded dialogues with synthetic patients and query MIMIC\-based simulators for vitals and labs,  updating a shared case representation over time\.
+
+**出处**：A comprehensive survey of AI agents in healthcare · Journal of Biomedical Informatics · 2026\-07
+
+[查看来源](https://doi.org/10.1016/j.jbi.2026.105045)
+
+**贡献者**：jizhang02
+
+<details>
+<summary>记录信息</summary>
+
+- ID：`80c0094b-7df8-4e3e-9e07-e7b423b142dc`
+- 创建时间：2026\-11\-20T13:24:08\.872983\+00:00
+- 更新时间：2026\-11\-20T13:24:08\.872983\+00:00
+- 修订版本：1
+- 导入来源：
 
 </details>
 
